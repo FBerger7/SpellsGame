@@ -248,6 +248,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9135423298527795592, guid: 9bb4c6dd52dd0f449bac50af9bbeb10e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bb4c6dd52dd0f449bac50af9bbeb10e, type: 3}
 --- !u!1001 &1050884830
@@ -330,12 +335,47 @@ PrefabInstance:
     - target: {fileID: 940297954423413194, guid: f7f6c49600fa4104281681da9ebab96d,
         type: 3}
       propertyPath: dashSpeed
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 940297954423413194, guid: f7f6c49600fa4104281681da9ebab96d,
         type: 3}
       propertyPath: startDashTime
-      value: 0.2
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 940297954423413194, guid: f7f6c49600fa4104281681da9ebab96d,
+        type: 3}
+      propertyPath: run
+      value: 304
+      objectReference: {fileID: 0}
+    - target: {fileID: 940297954423413194, guid: f7f6c49600fa4104281681da9ebab96d,
+        type: 3}
+      propertyPath: runKey
+      value: 304
+      objectReference: {fileID: 0}
+    - target: {fileID: 940297954423413194, guid: f7f6c49600fa4104281681da9ebab96d,
+        type: 3}
+      propertyPath: dashKey
+      value: 308
+      objectReference: {fileID: 0}
+    - target: {fileID: 940297954423413194, guid: f7f6c49600fa4104281681da9ebab96d,
+        type: 3}
+      propertyPath: startDashColdown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 940297954423413195, guid: f7f6c49600fa4104281681da9ebab96d,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 940297954423413195, guid: f7f6c49600fa4104281681da9ebab96d,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 940297954423413195, guid: f7f6c49600fa4104281681da9ebab96d,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7f6c49600fa4104281681da9ebab96d, type: 3}
