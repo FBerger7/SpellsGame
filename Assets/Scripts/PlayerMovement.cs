@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _direction;
 
+    public float playerSpeed;
+
     private float _dashTime;
     private float _dashColdown;
     private bool _isDashing = false;
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         _playerBody = GetComponent<Rigidbody>();
         _dashTime = startDashTime;
         _dashColdown = 0;
+        speed = playerSpeed;
     }
 
     void FixedUpdate()
@@ -33,41 +36,66 @@ public class PlayerMovement : MonoBehaviour
         //Gets direction in witch user wants to perform movement
         _direction = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
 
+        CheckRunning();
 
-        //Checks for run key
-        if(Input.GetKeyDown(runKey))
-        {
-            speed *= runBoost;
-        }
-        else if (Input.GetKeyUp(runKey))
-        {
-            speed /= runBoost;
-        }
+        CheckDashing();
 
+        if (_isDashing == false)
+        {
+            PerformMovement();
+        }
+        else if (_isDashing == true)
+        {
+            ContinueDashing();
+        }
+    }
 
-        if (_isDashing == true)
+    //Performs player movement
+    private void PerformMovement()
+    {
+        _dashColdown -= Time.deltaTime;
+        transform.Translate(_direction * speed * Time.deltaTime);
+    }
+
+    //Checks if player is trying to run, and sets propper speed
+    private void CheckRunning()
+    {
+        if (Input.GetKey(runKey))
         {
-            _dashTime -= Time.deltaTime;
-            if (_dashTime <= 0)
-            {
-                _dashTime = startDashTime;
-                _playerBody.velocity = Vector3.zero;
-                _dashColdown = startDashColdown;
-                _isDashing = false;
-            }
+            speed = runBoost * playerSpeed;
         }
-        else if (_isDashing == false)
+        else
         {
-            if (Input.GetKeyDown(dashKey) && _dashColdown <=0)
-            {
-                _isDashing = true;
-                _playerBody.velocity = _direction * dashSpeed;
-            }
-            else
-            {
-                _dashColdown -= Time.deltaTime;
-                transform.Translate(_direction * speed * Time.deltaTime);
-            }
+            speed = playerSpeed;
         }
+    }
+
+    //Checks if player is trying to dash and if he can dash at given moment, if yes starts the dash
+    private void CheckDashing()
+    {
+        if ((Input.GetKeyDown(dashKey)) && (_dashColdown <= 0) && (_isDashing==false))
+        {
+            _isDashing = true;
+            _playerBody.velocity = _direction * dashSpeed;
+        }
+    }
+
+    //Continues performing the dash and checks if it should end, if yes ends it 
+    private void ContinueDashing()
+    {
+        _dashTime -= Time.deltaTime;
+        if (_dashTime <= 0)
+        {
+            EndDash();
+        }
+    }
+
+    //Ends, and resets the dash
+    private void EndDash()
+    {
+        _dashTime = startDashTime;
+        _playerBody.velocity = Vector3.zero;
+        _dashColdown = startDashColdown;
+        _isDashing = false;
     }
 }

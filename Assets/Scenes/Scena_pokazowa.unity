@@ -362,6 +362,11 @@ PrefabInstance:
       propertyPath: startDashColdown
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 940297954423413194, guid: f7f6c49600fa4104281681da9ebab96d,
+        type: 3}
+      propertyPath: playerSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 940297954423413195, guid: f7f6c49600fa4104281681da9ebab96d,
         type: 3}
       propertyPath: m_Drag
