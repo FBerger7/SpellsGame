@@ -2,7 +2,7 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
+    public float startSpeed;
     public KeyCode runKey;
     public float runBoost;
 
@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _direction;
 
-    public float playerSpeed;
+    private float _speed;
 
     private float _dashTime;
     private float _dashColdown;
@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         _playerBody = GetComponent<Rigidbody>();
         _dashTime = startDashTime;
         _dashColdown = 0;
-        speed = playerSpeed;
+        _speed = startSpeed;
     }
 
     void FixedUpdate()
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     private void PerformMovement()
     {
         _dashColdown -= Time.deltaTime;
-        transform.Translate(_direction * speed * Time.deltaTime);
+        transform.Translate(_direction * _speed * Time.deltaTime);
     }
 
     //Checks if player is trying to run, and sets propper speed
@@ -62,11 +62,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(runKey))
         {
-            speed = runBoost * playerSpeed;
+            _speed = runBoost * startSpeed;
         }
         else
         {
-            speed = playerSpeed;
+            _speed = startSpeed;
         }
     }
 
