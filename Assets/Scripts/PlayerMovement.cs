@@ -2,6 +2,8 @@
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float gravity;
+
     public float startSpeed;
     public KeyCode runKey;
     public float runBoost;
@@ -9,8 +11,11 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode dashKey;
     public float dashSpeed;
     public float startDashTime;
-    public float startDashColdown;
+    public float startDashCooldown;
 
+    public KeyCode jumpKey;
+    public float jumpForce;
+    
     private Rigidbody _playerBody;
 
     private Vector3 _direction;
@@ -36,9 +41,11 @@ public class PlayerMovement : MonoBehaviour
         //Gets direction in witch user wants to perform movement
         _direction = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
 
-        CheckRunning();
+        HandleRunning();
 
-        CheckDashing();
+        ChceckJumping();
+
+        HandleDashing();
 
         if (_isDashing == false)
         {
@@ -47,6 +54,21 @@ public class PlayerMovement : MonoBehaviour
         else if (_isDashing == true)
         {
             ContinueDashing();
+        }
+
+        PerformGravityForce();      
+    }
+
+    private void PerformGravityForce()
+    {
+        _playerBody.AddForce(Vector3.down * _playerBody.mass * gravity);
+    }
+
+    private void ChceckJumping()
+    {
+        if (Input.GetKeyDown(jumpKey))
+        {
+            _playerBody.velocity = Vector3.up * jumpForce;
         }
     }
 
@@ -58,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Checks if player is trying to run, and sets propper speed
-    private void CheckRunning()
+    private void HandleRunning()
     {
         if (Input.GetKey(runKey))
         {
@@ -71,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Checks if player is trying to dash and if he can dash at given moment, if yes starts the dash
-    private void CheckDashing()
+    private void HandleDashing()
     {
         if ((Input.GetKeyDown(dashKey)) && (_dashColdown <= 0) && (_isDashing==false))
         {
@@ -94,8 +116,9 @@ public class PlayerMovement : MonoBehaviour
     private void EndDash()
     {
         _dashTime = startDashTime;
-        _playerBody.velocity = Vector3.zero;
-        _dashColdown = startDashColdown;
+        _playerBody.velocity =  Vector3.zero;
+
+        _dashColdown = startDashCooldown;
         _isDashing = false;
     }
 }
