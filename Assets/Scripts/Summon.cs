@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Summon : MouseTracker
+public class Summon : BaseSpell
 {
     public GameObject objectToSummon;
-    public KeyCode fireKey;
-    public float attackSpeed;
+    //public KeyCode fireKey;
+    //public float attackSpeed;
 
-    public Transform firePoint;
+    //public Transform firePoint;
 
     private float _attackCooldown;
 
@@ -23,7 +23,17 @@ public class Summon : MouseTracker
 
     }
 
-    private void PerformAttack()
+    //private void PerformAttack()
+    //{
+    //    if (_attackCooldown <= 0)
+    //    {
+    //        _attackCooldown = attackSpeed;
+    //        Vector3 vector3 = new Vector3(pointToLook.x, pointToLook.y, pointToLook.z);
+    //        GameObject newGameObject = Instantiate(objectToSummon, transform.position, Quaternion.Euler(0, transform.eulerAngles.y, 0)) as GameObject;
+    //    }
+    //}
+
+    public override void PerformAttack()
     {
         if (_attackCooldown <= 0)
         {
