@@ -30,7 +30,7 @@ public class BasicAttack : MouseTracker
             _attackCooldown = attackSpeed;
             Projectile newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation) as Projectile;
             newProjectile.speed = projectileSpeed;
-            newProjectile.lifeSpwan = projectileLifeSpawn;
+            newProjectile.lifeSpawn = projectileLifeSpawn;
         }
     }
 }

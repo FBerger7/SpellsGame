@@ -4,14 +4,14 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
 
-    public float lifeSpwan;
+    public float lifeSpawn;
 
     // Update is called once per frame
     void Update()
     {
-        lifeSpwan -= Time.deltaTime;
+        lifeSpawn -= Time.deltaTime;
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        if(lifeSpwan <= 0)
+        if(lifeSpawn <= 0)
         {
             Destroy(gameObject);
         }
