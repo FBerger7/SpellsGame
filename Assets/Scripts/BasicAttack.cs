@@ -10,10 +10,10 @@ public class BasicAttack : BaseSpell
 
     //public Transform firePoint;
 
-    private float _attackCooldown;
+    //private float _attackCooldown;
 
     // Update is called once per frame
-    void Update()
+    public override void runUpdate()
     {
         _attackCooldown -= Time.deltaTime;
         if (Input.GetKey(fireKey))

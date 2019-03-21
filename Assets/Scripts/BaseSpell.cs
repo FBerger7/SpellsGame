@@ -4,12 +4,16 @@ using UnityEngine;
 
 public abstract class BaseSpell : MouseTracker
 {
-    
+
+    public KeyCode fireKey;
+
     public float attackSpeed;
 
     public Transform firePoint;
 
     public float _attackCooldown;
+
+    public abstract void runUpdate();
 
     // Update is called once per frame
     //void Update()

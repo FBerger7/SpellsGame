@@ -131,28 +131,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485213117}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d876868548a7db74080fecef100cf4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSummon: {fileID: 8210425897069257736, guid: e2f24a88e323ecb46b155c0f15844733,
-    type: 3}
   fireKey: 323
   attackSpeed: 0.5
   firePoint: {fileID: 485213118}
---- !u!114 &485213121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485213117}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9644b7dc30570984f8932c9b1f133889, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  objectToSummon: {fileID: 8210425897069257736, guid: e2f24a88e323ecb46b155c0f15844733,
+    type: 3}
 --- !u!1 &759631230
 GameObject:
   m_ObjectHideFlags: 0
