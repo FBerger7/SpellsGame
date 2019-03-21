@@ -29,7 +29,7 @@ public class Summon : MouseTracker
         {
             _attackCooldown = attackSpeed;
             Vector3 vector3 = new Vector3(pointToLook.x, pointToLook.y, pointToLook.z);
-            GameObject newProjectile = Instantiate(objectToSummon, transform.position, transform.rotation) as GameObject;
+            GameObject newGameObject = Instantiate(objectToSummon, transform.position, Quaternion.Euler(0, transform.eulerAngles.y, 0)) as GameObject;
         }
     }
 }
