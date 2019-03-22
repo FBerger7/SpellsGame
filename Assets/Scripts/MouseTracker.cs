@@ -12,12 +12,13 @@ public class MouseTracker : MonoBehaviour
 
     protected void TrackMouse()
     {
-        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-        
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-        if (groundPlane.Raycast(cameraRay, out float rayLenght))
+        RaycastHit hit;
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
         {
-            pointToLook = cameraRay.GetPoint(rayLenght);
+            Transform objectHit = hit.transform;
+            pointToLook = hit.point;
         }
     }
 }
