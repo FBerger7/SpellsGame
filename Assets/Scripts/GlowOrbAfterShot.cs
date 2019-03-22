@@ -25,7 +25,6 @@ public class GlowOrbAfterShot : MonoBehaviour
 
         if ((Input.GetKey(fireKey)) && (_coolDown <= 0))
         {
-            Debug.Log("why");
             GFX.gameObject.SetActive(false);
             _coolDown = startCoolDown;
         }
