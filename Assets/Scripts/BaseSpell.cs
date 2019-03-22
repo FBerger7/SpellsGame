@@ -11,20 +11,7 @@ public abstract class BaseSpell : MouseTracker
 
     public Transform firePoint;
 
-    public float _attackCooldown;
-
-    public abstract void runUpdate();
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    _attackCooldown -= Time.deltaTime;
-    //    if (Input.GetKey(fireKey))
-    //    {
-    //        PerformAttack();
-    //    }
-
-    //}
+    protected float _attackCooldown;
 
     public abstract void PerformAttack();
 

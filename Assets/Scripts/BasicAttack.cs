@@ -13,7 +13,7 @@ public class BasicAttack : BaseSpell
     //private float _attackCooldown;
 
     // Update is called once per frame
-    public override void runUpdate()
+    public void Update()
     {
         _attackCooldown -= Time.deltaTime;
         if (Input.GetKey(fireKey))

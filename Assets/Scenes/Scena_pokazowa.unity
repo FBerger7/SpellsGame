@@ -124,6 +124,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6279233374625311783}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &485213119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485213117}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98dd90cb3f0f904b98521dc4362891f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireKey: 323
+  firePoint: {fileID: 485213118}
 --- !u!114 &485213120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,11 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d876868548a7db74080fecef100cf4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireKey: 323
-  attackSpeed: 0.5
-  firePoint: {fileID: 485213118}
-  objectToSummon: {fileID: 8210425897069257736, guid: e2f24a88e323ecb46b155c0f15844733,
-    type: 3}
+  fireKey: 0
+  attackSpeed: 0
+  firePoint: {fileID: 0}
+  _attackCooldown: 0
+  objectToSummon: {fileID: 0}
 --- !u!1 &759631230
 GameObject:
   m_ObjectHideFlags: 0
