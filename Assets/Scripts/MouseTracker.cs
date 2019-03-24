@@ -19,15 +19,6 @@ public class MouseTracker : MonoBehaviour
         {
             Transform objectHit = hit.transform;
             pointToLook = hit.point;
-
-            // Do something with the object that was hit by the raycast.
         }
-        //Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-        //Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-        //if (groundPlane.Raycast(cameraRay, out float rayLenght))
-        //{
-        //    pointToLook = cameraRay.GetPoint(rayLenght);
-        //}
     }
 }
