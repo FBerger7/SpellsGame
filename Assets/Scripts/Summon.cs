@@ -6,12 +6,6 @@ public class Summon : BaseSpell
 {
     public GameObject objectToSummon;
 
-    // Update is called once per frame
-    public void Update()
-    {
-        runUpdate();
-    }
-
     public override void PerformAttack()
     {
         if (_attackCooldown <= 0)

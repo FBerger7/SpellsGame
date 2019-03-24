@@ -6,12 +6,6 @@ public class BasicAttack : BaseSpell
     public float projectileSpeed;
     public float projectileLifeSpawn;
 
-    // Update is called once per frame
-    public void Update()
-    {
-        runUpdate();     
-    }
-
     public override void PerformAttack()
     {
         if (_attackCooldown <= 0)

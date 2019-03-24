@@ -22,12 +22,7 @@ public class SpellController : MonoBehaviour
         _currentSpell = -1;
         spells = new List<BaseSpell>();
         spellKeyCodes = new Dictionary<int, KeyCode>();
-
-        spells.Add(gameObject.GetComponent<BasicAttack>());
-        spells.Add(gameObject.GetComponent<Summon>());
-
-        spellKeyCodes.Add(BASIC_ATTACK, basicAttackActivationKey);
-        spellKeyCodes.Add(SUMMON, summonActivationKey);
+        addSpells();
     }
 
     // Update is called once per frame
@@ -43,6 +38,15 @@ public class SpellController : MonoBehaviour
         {
             manageSpells(SUMMON);
         }
+    }
+
+    private void addSpells()
+    {
+        spells.Add(gameObject.GetComponent<BasicAttack>());
+        spells.Add(gameObject.GetComponent<Summon>());
+
+        spellKeyCodes.Add(BASIC_ATTACK, basicAttackActivationKey);
+        spellKeyCodes.Add(SUMMON, summonActivationKey);
     }
 
     private void manageSpells(int chosenSpell)

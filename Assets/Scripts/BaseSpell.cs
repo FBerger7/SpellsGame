@@ -14,10 +14,10 @@ public abstract class BaseSpell : MouseTracker
     protected float _activationCooldown = ACTIVATION_COOLDOWN;
     protected float _attackCooldown;
 
-
     public abstract void PerformAttack();
 
-    protected void runUpdate()
+    // Update is called once per frame
+    protected void Update()
     {
         float deltaTime = Time.deltaTime;
 
