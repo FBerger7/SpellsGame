@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class SpellController : MonoBehaviour
 {
-    private const int BASIC_ATTACK = 0;
-    private const int SUMMON = 1;
     private const float ACTIVATION_COOLDOWN = 0.5f;
 
     public KeyCode basicAttackActivationKey;
     public KeyCode summonActivationKey;
 
-    private List<BaseSpell> spells;
-    private Dictionary<int, KeyCode> spellKeyCodes;
+    private Dictionary<KeyCode, BaseSpell> spells;
     private float _remainingActivationCooldown = ACTIVATION_COOLDOWN;
-    private int _currentSpell;
+    private KeyCode _currentSpell;
 
     // Start is called before the first frame update
     void Start()
     {
-        _currentSpell = -1;
-        spells = new List<BaseSpell>();
-        spellKeyCodes = new Dictionary<int, KeyCode>();
+        _currentSpell = KeyCode.None;
+        spells = new Dictionary<KeyCode, BaseSpell>();
         addSpells();
     }
 
@@ -29,27 +25,24 @@ public class SpellController : MonoBehaviour
     void Update()
     {
         _remainingActivationCooldown -= Time.deltaTime;
-        if (Input.GetKey(spellKeyCodes[BASIC_ATTACK]))
+        if (Input.GetKey(basicAttackActivationKey))
         {
-            manageSpells(BASIC_ATTACK);
+            manageSpells(basicAttackActivationKey);
         }
 
-        if (Input.GetKey(spellKeyCodes[SUMMON]))
+        if (Input.GetKey(summonActivationKey))
         {
-            manageSpells(SUMMON);
+            manageSpells(summonActivationKey);
         }
     }
 
     private void addSpells()
     {
-        spells.Add(gameObject.GetComponent<BasicAttack>());
-        spells.Add(gameObject.GetComponent<Summon>());
-
-        spellKeyCodes.Add(BASIC_ATTACK, basicAttackActivationKey);
-        spellKeyCodes.Add(SUMMON, summonActivationKey);
+        spells.Add(basicAttackActivationKey, gameObject.GetComponent<BasicAttack>());
+        spells.Add(summonActivationKey, gameObject.GetComponent<Summon>());
     }
 
-    private void manageSpells(int chosenSpell)
+    private void manageSpells(KeyCode chosenSpell)
     {
         if (_remainingActivationCooldown <= 0)
         {
@@ -57,10 +50,10 @@ public class SpellController : MonoBehaviour
             if (_currentSpell == chosenSpell)
             {
                 spells[_currentSpell].deactivate();
-                _currentSpell = -1;
+                _currentSpell = KeyCode.None;
                 return;
             }
-            if (_currentSpell != -1)
+            if (_currentSpell != KeyCode.None)
             {
                 spells[_currentSpell].deactivate();
             }
