@@ -3,44 +3,14 @@
 public class BasicAttack : BaseSpell
 {
     public Projectile projectile;
-    //public KeyCode fireKey;
     public float projectileSpeed;
-    //public float attackSpeed;
     public float projectileLifeSpawn;
-
-    //public Transform firePoint;
-
-    //private float _attackCooldown;
 
     // Update is called once per frame
     public void Update()
     {
-        runUpdate();
-        //_attackCooldown -= Time.deltaTime;
-
-        //if (Input.GetKey(activationKey))
-        //{
-        //    isActivated = !isActivated;
-        //}
-
-        //if (isActivated && Input.GetKey(fireKey))
-        //{
-        //    PerformAttack();
-        //}
-        
+        runUpdate();     
     }
-
-
-    //private void PerformAttack()
-    //{
-    //    if (_attackCooldown <= 0)
-    //    {
-    //        _attackCooldown = attackSpeed;
-    //        Projectile newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation) as Projectile;
-    //        newProjectile.speed = projectileSpeed;
-    //        newProjectile.lifeSpwan = projectileLifeSpawn;
-    //    }
-    //}
 
     public override void PerformAttack()
     {

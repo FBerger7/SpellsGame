@@ -5,21 +5,10 @@ using UnityEngine;
 public class Summon : BaseSpell
 {
     public GameObject objectToSummon;
-    //public KeyCode fireKey;
-    //public float attackSpeed;
-
-    //public Transform firePoint;
-
-    //private float _attackCooldown;
 
     // Update is called once per frame
     public void Update()
     {
-        //_attackCooldown -= Time.deltaTime;
-        //if (Input.GetKey(fireKey))
-        //{
-        //    PerformAttack();
-        //}
         runUpdate();
     }
 
