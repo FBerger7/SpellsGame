@@ -131,12 +131,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485213117}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3f775d62e9a215499d84fb1ec01292a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpell: {fileID: 0}
+  spells: []
 --- !u!114 &485213120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,9 +149,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d876868548a7db74080fecef100cf4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireKey: 49
+  fireKey: 323
+  activationKey: 50
   attackSpeed: 0.5
   firePoint: {fileID: 485213118}
+  isActivated: 0
   objectToSummon: {fileID: 8210425897069257736, guid: e2f24a88e323ecb46b155c0f15844733,
     type: 3}
 --- !u!1 &759631230
@@ -368,6 +370,22 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3728347230593450561, guid: fb162de6f69b74249afcf17e59595d2a,
+        type: 3}
+      propertyPath: activated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728347230593450561, guid: fb162de6f69b74249afcf17e59595d2a,
+        type: 3}
+      propertyPath: activationKey
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728347230593450561, guid: fb162de6f69b74249afcf17e59595d2a,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 7287357237914982362, guid: 216151aac6e78dd4db840db8c3422f8f,
+        type: 3}
     - target: {fileID: 7518330289214193414, guid: fb162de6f69b74249afcf17e59595d2a,
         type: 3}
       propertyPath: m_BackGroundColor.r

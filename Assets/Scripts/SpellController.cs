@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class SpellController : MonoBehaviour
 {
-    public BaseSpell baseSpell;
+    public List<BaseSpell> spells;
     // Start is called before the first frame update
     void Start()
     {
-        //currentSpell = new BasicAttack();
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }

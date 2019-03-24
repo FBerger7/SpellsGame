@@ -15,13 +15,21 @@ public class BasicAttack : BaseSpell
     // Update is called once per frame
     public void Update()
     {
-        _attackCooldown -= Time.deltaTime;
-        if (Input.GetKey(fireKey))
-        {
-            PerformAttack();
-        }
+        runUpdate();
+        //_attackCooldown -= Time.deltaTime;
 
+        //if (Input.GetKey(activationKey))
+        //{
+        //    isActivated = !isActivated;
+        //}
+
+        //if (isActivated && Input.GetKey(fireKey))
+        //{
+        //    PerformAttack();
+        //}
+        
     }
+
 
     //private void PerformAttack()
     //{

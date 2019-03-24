@@ -15,30 +15,19 @@ public class Summon : BaseSpell
     // Update is called once per frame
     public void Update()
     {
-        _attackCooldown -= Time.deltaTime;
-        if (Input.GetKey(fireKey))
-        {
-            PerformAttack();
-        }
-
+        //_attackCooldown -= Time.deltaTime;
+        //if (Input.GetKey(fireKey))
+        //{
+        //    PerformAttack();
+        //}
+        runUpdate();
     }
-
-    //private void PerformAttack()
-    //{
-    //    if (_attackCooldown <= 0)
-    //    {
-    //        _attackCooldown = attackSpeed;
-    //        Vector3 vector3 = new Vector3(pointToLook.x, pointToLook.y, pointToLook.z);
-    //        GameObject newGameObject = Instantiate(objectToSummon, transform.position, Quaternion.Euler(0, transform.eulerAngles.y, 0)) as GameObject;
-    //    }
-    //}
 
     public override void PerformAttack()
     {
         if (_attackCooldown <= 0)
         {
             _attackCooldown = attackSpeed;
-            Vector3 vector3 = new Vector3(pointToLook.x, pointToLook.y, pointToLook.z);
             GameObject newGameObject = Instantiate(objectToSummon, transform.position, Quaternion.Euler(0, transform.eulerAngles.y, 0)) as GameObject;
         }
     }
