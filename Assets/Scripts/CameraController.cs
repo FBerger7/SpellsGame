@@ -6,6 +6,8 @@ public class CameraController : MonoBehaviour
     public KeyCode moveRight;
     public float rotationSpeed;
     public float zoomSpeed;
+    public float maxZoom;
+    public float minZoom;
 
     private new GameObject camera;
 
@@ -23,13 +25,20 @@ public class CameraController : MonoBehaviour
 
     private void HandleZoom()
     {
-        if (Input.mouseScrollDelta.y > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
-            camera.transform.Translate(0f, 0f, zoomSpeed * Time.deltaTime * 10f);
-        }
-        if (Input.mouseScrollDelta.y < 0)
-        {
-            camera.transform.Translate(0f, 0f, -zoomSpeed * Time.deltaTime * 10f);
+            float cameraZPosition = camera.transform.localPosition.z;
+            float zoomTranslation = 0f;
+            if (Input.mouseScrollDelta.y > 0 && cameraZPosition < maxZoom)
+            {
+                zoomTranslation = zoomSpeed;
+            }
+            if (Input.mouseScrollDelta.y < 0 && cameraZPosition > minZoom)
+            {
+                zoomTranslation = -zoomSpeed;
+            }
+            zoomTranslation *= Time.deltaTime * 10f;
+            camera.transform.Translate(0f, 0f, zoomTranslation);
         }
     }
 
