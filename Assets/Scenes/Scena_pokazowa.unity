@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -138,6 +138,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicAttackActivationKey: 49
   summonActivationKey: 50
+  leftSpellKey: 323
+  rightSpellKey: 324
+  changeSpellKey: 306
 --- !u!114 &485213120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d876868548a7db74080fecef100cf4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireKey: 323
+  fireKey: 306
   attackSpeed: 0.5
   firePoint: {fileID: 485213118}
   objectToSummon: {fileID: 8210425897069257736, guid: e2f24a88e323ecb46b155c0f15844733,

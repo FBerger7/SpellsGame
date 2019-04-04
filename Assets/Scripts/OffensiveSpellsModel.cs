@@ -17,6 +17,7 @@ public class OffensiveSpellsModel : MonoBehaviour
         offesiveSpells.Add(gameObject.GetComponent<Summon>());
     }
 
+
     // Update is called once per frame
     void Update()
     {
