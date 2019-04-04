@@ -9,16 +9,21 @@ public class SpellController : MonoBehaviour
     public KeyCode basicAttackActivationKey;
     public KeyCode summonActivationKey;
 
+    private KeyCode _leftSpellKey;
+    private KeyCode _rightSpellKey;
+
+
     private Dictionary<KeyCode, BaseSpell> spells;
     private float _remainingActivationCooldown = ACTIVATION_COOLDOWN;
     private KeyCode _currentSpell;
+    private OffensiveSpellsModel offensiveSpells;
 
     // Start is called before the first frame update
     void Start()
     {
         _currentSpell = KeyCode.None;
         spells = new Dictionary<KeyCode, BaseSpell>();
-        addSpells();
+        AddSpells();
     }
 
     // Update is called once per frame
@@ -27,22 +32,22 @@ public class SpellController : MonoBehaviour
         _remainingActivationCooldown -= Time.deltaTime;
         if (Input.GetKey(basicAttackActivationKey))
         {
-            manageSpells(basicAttackActivationKey);
+            ManageSpells(basicAttackActivationKey);
         }
 
         if (Input.GetKey(summonActivationKey))
         {
-            manageSpells(summonActivationKey);
+            ManageSpells(summonActivationKey);
         }
     }
 
-    private void addSpells()
+    private void AddSpells()
     {
         spells.Add(basicAttackActivationKey, gameObject.GetComponent<BasicAttack>());
         spells.Add(summonActivationKey, gameObject.GetComponent<Summon>());
     }
 
-    private void manageSpells(KeyCode chosenSpell)
+    private void ManageSpells(KeyCode chosenSpell)
     {
         if (_remainingActivationCooldown <= 0)
         {
