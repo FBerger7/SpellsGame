@@ -1,64 +1,59 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpellController : MonoBehaviour
 {
-    private const float ACTIVATION_COOLDOWN = 0.5f;
+    private const float SPELL_CHANGE_COOLDOWN = 0.5f;
 
-    public KeyCode basicAttackActivationKey;
-    public KeyCode summonActivationKey;
+    public KeyCode leftSpellKey;
+    public KeyCode rightSpellKey;
+    public KeyCode changeSpellKey;
 
-    private Dictionary<KeyCode, BaseSpell> spells;
-    private float _remainingActivationCooldown = ACTIVATION_COOLDOWN;
-    private KeyCode _currentSpell;
+    private List<Tuple<int, int>> _spellQueue;
+    private List<BaseSpell> _offensiveSpells;
+    private int _currentPair = 0;
+    private float _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
 
     // Start is called before the first frame update
     void Start()
     {
-        _currentSpell = KeyCode.None;
-        spells = new Dictionary<KeyCode, BaseSpell>();
-        addSpells();
+        _spellQueue = new List<Tuple<int, int>>();
+        AddOffensiveSpells();
+        // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
+        // ------------------------------------------------------------------
+        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SUMMON));
+        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SUMMON, OffensiveSpellsModel.BASIC_SPELL));
+        // ------------------------------------------------------------------
     }
 
     // Update is called once per frame
     void Update()
     {
-        _remainingActivationCooldown -= Time.deltaTime;
-        if (Input.GetKey(basicAttackActivationKey))
-        {
-            manageSpells(basicAttackActivationKey);
-        }
+        _remainingPairChangeCooldown -= Time.deltaTime;
 
-        if (Input.GetKey(summonActivationKey))
+        if (Input.GetKey(changeSpellKey))
         {
-            manageSpells(summonActivationKey);
+            if (_remainingPairChangeCooldown <= 0)
+            {
+                _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
+                _currentPair = (_currentPair + 1) % _spellQueue.Count;
+            }
+        }
+        if (Input.GetKey(leftSpellKey))
+        {
+            _offensiveSpells[_spellQueue[_currentPair].Item1].PerformAttack();
+        }
+        if (Input.GetKey(rightSpellKey))
+        {
+            _offensiveSpells[_spellQueue[_currentPair].Item2].PerformAttack();
         }
     }
 
-    private void addSpells()
+    private void AddOffensiveSpells()
     {
-        spells.Add(basicAttackActivationKey, gameObject.GetComponent<BasicAttack>());
-        spells.Add(summonActivationKey, gameObject.GetComponent<Summon>());
-    }
-
-    private void manageSpells(KeyCode chosenSpell)
-    {
-        if (_remainingActivationCooldown <= 0)
-        {
-            _remainingActivationCooldown = ACTIVATION_COOLDOWN;
-            if (_currentSpell == chosenSpell)
-            {
-                spells[_currentSpell].deactivate();
-                _currentSpell = KeyCode.None;
-                return;
-            }
-            if (_currentSpell != KeyCode.None)
-            {
-                spells[_currentSpell].deactivate();
-            }
-            spells[chosenSpell].activate();
-            _currentSpell = chosenSpell;
-        }
+        _offensiveSpells = new List<BaseSpell>();
+        _offensiveSpells.Add(gameObject.GetComponent<BasicAttack>());
+        _offensiveSpells.Add(gameObject.GetComponent<Summon>());
     }
 }
