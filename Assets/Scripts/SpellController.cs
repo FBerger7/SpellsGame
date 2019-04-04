@@ -18,7 +18,7 @@ public class SpellController : MonoBehaviour
     public KeyCode rightSpellKey;
     public KeyCode changeSpellKey;
 
-    private List<Tuple<BaseSpell, BaseSpell>> _spellQueue;
+    private List<Tuple<int, int>> _spellQueue;
     private int _currentPair;
 
     private Dictionary<KeyCode, BaseSpell> spells;
@@ -30,11 +30,13 @@ public class SpellController : MonoBehaviour
     void Start()
     {
         offensiveSpells = new List<BaseSpell>();
-        _spellQueue = new List<Tuple<BaseSpell, BaseSpell>>();
-        offensiveSpells = gameObject.GetComponent<OffensiveSpellsModel>();
+        offensiveSpells.Add(gameObject.GetComponent<BasicAttack>());
+        offensiveSpells.Add(gameObject.GetComponent<Summon>());
+        _spellQueue = new List<Tuple<int, int>>();
+        //offensiveSpells = gameObject.GetComponent<OffensiveSpellsModel>();
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
-        _spellQueue.Add(Tuple.Create(offensiveSpells.offesiveSpells[OffensiveSpellsModel.BASIC_SPELL], offensiveSpells.offesiveSpells[OffensiveSpellsModel.SUMMON]));
-        _spellQueue.Add(Tuple.Create(offensiveSpells.offesiveSpells[OffensiveSpellsModel.SUMMON], offensiveSpells.offesiveSpells[OffensiveSpellsModel.BASIC_SPELL]));
+        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SUMMON));
+        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SUMMON, OffensiveSpellsModel.BASIC_SPELL));
         //
         _currentPair = 0;
         _currentSpell = KeyCode.None;
@@ -52,11 +54,12 @@ public class SpellController : MonoBehaviour
         }
         if (Input.GetKey(leftSpellKey))
         {
-            _spellQueue[0].Item1.PerformAttack();
+            offensiveSpells[_spellQueue[0].Item1].PerformAttack();
+            //_spellQueue[0].Item1.PerformAttack();
         }
         if (Input.GetKey(rightSpellKey))
         {
-            _spellQueue[0].Item2.PerformAttack();
+            offensiveSpells[_spellQueue[0].Item2].PerformAttack();
         }
 
         if (Input.GetKey(summonActivationKey))
