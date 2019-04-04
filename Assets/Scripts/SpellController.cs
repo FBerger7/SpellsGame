@@ -6,6 +6,11 @@ public class SpellController : MonoBehaviour
 {
     private const float ACTIVATION_COOLDOWN = 0.5f;
 
+    public const int BASIC_SPELL = 0;
+    public const int SUMMON = 1;
+
+    public List<BaseSpell> offensiveSpells;
+
     public KeyCode basicAttackActivationKey;
     public KeyCode summonActivationKey;
 
@@ -14,22 +19,24 @@ public class SpellController : MonoBehaviour
     public KeyCode changeSpellKey;
 
     private List<Tuple<BaseSpell, BaseSpell>> _spellQueue;
+    private int _currentPair;
 
     private Dictionary<KeyCode, BaseSpell> spells;
     private float _remainingActivationCooldown = ACTIVATION_COOLDOWN;
     private KeyCode _currentSpell;
-    private OffensiveSpellsModel offensiveSpells;
+    //private OffensiveSpellsModel offensiveSpells;
 
     // Start is called before the first frame update
     void Start()
     {
+        offensiveSpells = new List<BaseSpell>();
         _spellQueue = new List<Tuple<BaseSpell, BaseSpell>>();
         offensiveSpells = gameObject.GetComponent<OffensiveSpellsModel>();
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
         _spellQueue.Add(Tuple.Create(offensiveSpells.offesiveSpells[OffensiveSpellsModel.BASIC_SPELL], offensiveSpells.offesiveSpells[OffensiveSpellsModel.SUMMON]));
         _spellQueue.Add(Tuple.Create(offensiveSpells.offesiveSpells[OffensiveSpellsModel.SUMMON], offensiveSpells.offesiveSpells[OffensiveSpellsModel.BASIC_SPELL]));
-
         //
+        _currentPair = 0;
         _currentSpell = KeyCode.None;
         spells = new Dictionary<KeyCode, BaseSpell>();
         AddSpells();
@@ -42,6 +49,14 @@ public class SpellController : MonoBehaviour
         if (Input.GetKey(basicAttackActivationKey))
         {
             ManageSpells(basicAttackActivationKey);
+        }
+        if (Input.GetKey(leftSpellKey))
+        {
+            _spellQueue[0].Item1.PerformAttack();
+        }
+        if (Input.GetKey(rightSpellKey))
+        {
+            _spellQueue[0].Item2.PerformAttack();
         }
 
         if (Input.GetKey(summonActivationKey))
