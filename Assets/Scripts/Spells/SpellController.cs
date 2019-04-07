@@ -54,6 +54,6 @@ public class SpellController : MonoBehaviour
     {
         _offensiveSpells = new List<BaseSpell>();
         _offensiveSpells.Add(gameObject.GetComponent<BasicAttack>());
-        _offensiveSpells.Add(gameObject.GetComponent<Summon>());
+        _offensiveSpells.Add(gameObject.GetComponent<SummonWall>());
     }
 }
