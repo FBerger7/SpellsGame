@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &203161034 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 887303696204785468, guid: fb162de6f69b74249afcf17e59595d2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6279233374625311783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &248805918 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8210425897069257736, guid: e2f24a88e323ecb46b155c0f15844733,
@@ -160,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftSpellKey: 323
   rightSpellKey: 324
+  deffensiveSpellKey: 304
   changeSpellKey: 306
 --- !u!114 &485213120
 MonoBehaviour:
@@ -177,6 +184,23 @@ MonoBehaviour:
   firePoint: {fileID: 485213118}
   wallLifeSpan: 5
   objectToSummon: {fileID: 3665822623760171551, guid: 605b36c57472c6a41a99809624936e9b,
+    type: 3}
+--- !u!114 &485213121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485213117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7513ceeb88b323f4291ab609de655371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 0.5
+  firePoint: {fileID: 203161034}
+  shieldLifeSpan: 5
+  objectToSummon: {fileID: 4716436081495689983, guid: 16c5dd3436b687c4e8ea51da89ea05de,
     type: 3}
 --- !u!1 &759631230
 GameObject:
@@ -406,7 +430,7 @@ PrefabInstance:
         type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 7287357237914982362, guid: 216151aac6e78dd4db840db8c3422f8f,
+      objectReference: {fileID: 8816088600182959037, guid: f731d9027c782ca4eae313445ced73fb,
         type: 3}
     - target: {fileID: 3728347230593450561, guid: fb162de6f69b74249afcf17e59595d2a,
         type: 3}

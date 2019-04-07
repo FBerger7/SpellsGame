@@ -8,10 +8,12 @@ public class SpellController : MonoBehaviour
 
     public KeyCode leftSpellKey;
     public KeyCode rightSpellKey;
+    public KeyCode deffensiveSpellKey;
     public KeyCode changeSpellKey;
 
     private List<Tuple<int, int>> _spellQueue;
-    private List<BaseSpell> _offensiveSpells;
+    private Dictionary<int, BaseSpell> _offensiveSpells;
+    private SummonPowerShield _summonPowerShield;
     private int _currentPair = 0;
     private float _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
 
@@ -19,11 +21,12 @@ public class SpellController : MonoBehaviour
     void Start()
     {
         _spellQueue = new List<Tuple<int, int>>();
+        _summonPowerShield = gameObject.GetComponent<SummonPowerShield>();
         AddOffensiveSpells();
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
         // ------------------------------------------------------------------
-        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SUMMON));
-        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SUMMON, OffensiveSpellsModel.BASIC_SPELL));
+        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SUMMON_WALL));
+        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SUMMON_WALL, OffensiveSpellsModel.BASIC_SPELL));
         // ------------------------------------------------------------------
     }
 
@@ -48,12 +51,16 @@ public class SpellController : MonoBehaviour
         {
             _offensiveSpells[_spellQueue[_currentPair].Item2].PerformAttack();
         }
+        if (Input.GetKey(deffensiveSpellKey))
+        {
+            _summonPowerShield.PerformAttack();
+        }
     }
 
     private void AddOffensiveSpells()
     {
-        _offensiveSpells = new List<BaseSpell>();
-        _offensiveSpells.Add(gameObject.GetComponent<BasicAttack>());
-        _offensiveSpells.Add(gameObject.GetComponent<SummonWall>());
+        _offensiveSpells = new Dictionary<int, BaseSpell>();
+        _offensiveSpells.Add(OffensiveSpellsModel.BASIC_SPELL, gameObject.GetComponent<BasicAttack>());
+        _offensiveSpells.Add(OffensiveSpellsModel.SUMMON_WALL, gameObject.GetComponent<SummonWall>());
     }
 }
