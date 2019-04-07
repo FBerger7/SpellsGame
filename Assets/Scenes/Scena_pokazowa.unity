@@ -173,9 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d876868548a7db74080fecef100cf4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 100
+  attackSpeed: 0.5
   firePoint: {fileID: 485213118}
-  objectToSummon: {fileID: 248805918}
+  objectToSummon: {fileID: 6172425896473942158, guid: 605b36c57472c6a41a99809624936e9b,
+    type: 3}
 --- !u!1 &759631230
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +451,7 @@ PrefabInstance:
     - target: {fileID: 3728347230593450561, guid: fb162de6f69b74249afcf17e59595d2a,
         type: 3}
       propertyPath: attackSpeed
-      value: 100
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7518330289214193414, guid: fb162de6f69b74249afcf17e59595d2a,
         type: 3}
