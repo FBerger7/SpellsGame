@@ -11,8 +11,10 @@ public abstract class BaseSpell : MouseTracker
 
     protected bool _isActivated = false;
     protected float _activationCooldown = ACTIVATION_COOLDOWN;
+    [SerializeField]
     protected float _attackCooldown;
 
+    //public abstract void PerformAttack();
     public abstract void PerformAttack();
 
     // Update is called once per frame

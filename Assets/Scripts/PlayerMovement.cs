@@ -2,8 +2,6 @@
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float gravity;
-
     public float startSpeed;
     public KeyCode runKey;
     public float runBoost;
@@ -54,14 +52,7 @@ public class PlayerMovement : MonoBehaviour
         else if (_isDashing == true)
         {
             ContinueDashing();
-        }
-
-        PerformGravityForce();      
-    }
-
-    private void PerformGravityForce()
-    {
-        _playerBody.AddForce(Vector3.down * _playerBody.mass * gravity);
+        }    
     }
 
     private void ChceckJumping()

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8376386475875727906}
   - component: {fileID: 3848901451458966297}
   m_Layer: 0
-  m_Name: Player Variant
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffbb5209f2477eb4b88fe97a56966edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 250
   startSpeed: 25
   runKey: 304
   runBoost: 1.5
@@ -89,6 +88,9 @@ MonoBehaviour:
   moveRight: 101
   rotationSpeed: 10
   zoomSpeed: 15
+  zoomMax: 0
+  zoomMin: 0
+  zoomRoughness: 0
 --- !u!1 &3304978095271243362
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,10 +401,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 489dbfa757560be4682861569904ba32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSpeed: 0.5
+  firePoint: {fileID: 1749775386507470558}
+  _attackCooldown: 0
   projectile: {fileID: 8816088600182959037, guid: f731d9027c782ca4eae313445ced73fb,
     type: 3}
-  fireKey: 323
   projectileSpeed: 20
-  attackSpeed: 0.5
   projectileLifeSpawn: 3
-  firePoint: {fileID: 1749775386507470558}

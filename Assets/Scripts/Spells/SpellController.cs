@@ -25,6 +25,7 @@ public class SpellController : MonoBehaviour
         AddOffensiveSpells();
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
         // ------------------------------------------------------------------
+        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.FIRE_BREATH, OffensiveSpellsModel.BASIC_SPELL));
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SUMMON_WALL));
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SUMMON_WALL, OffensiveSpellsModel.BASIC_SPELL));
         // ------------------------------------------------------------------
@@ -62,5 +63,6 @@ public class SpellController : MonoBehaviour
         _offensiveSpells = new Dictionary<int, BaseSpell>();
         _offensiveSpells.Add(OffensiveSpellsModel.BASIC_SPELL, gameObject.GetComponent<BasicAttack>());
         _offensiveSpells.Add(OffensiveSpellsModel.SUMMON_WALL, gameObject.GetComponent<SummonWall>());
+        _offensiveSpells.Add(OffensiveSpellsModel.FIRE_BREATH, gameObject.GetComponent<FireBreath>());
     }
 }
