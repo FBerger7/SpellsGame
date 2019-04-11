@@ -30,9 +30,9 @@ using UnityEngine.AI;
 
             if (distance <= agent.stoppingDistance)
             {
-                if (!anim.GetBool("isIdle"))
+                if (!anim.GetBool("isAttack"))
                 {
-                     _slimeAnimation.IdleAnimation(ref anim);
+                     _slimeAnimation.AttackAnimation(ref anim);
                 }
                 //Face the target
                 FaceTarget();

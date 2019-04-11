@@ -35,7 +35,7 @@ using UnityEngine.AI;
             }
         }
 
-        public void AttackAnimation(Animator anim)
+        public void AttackAnimation(ref Animator anim)
         {
 
             anim.CrossFade("Attack", 0.1f);
