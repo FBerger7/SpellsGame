@@ -6,12 +6,17 @@ public class CameraController : MonoBehaviour
     public KeyCode moveRight;
     public float rotationSpeed;
     public float zoomSpeed;
+    public float zoomMax;
+    public float zoomMin;
+    public float zoomRoughness;
 
     private new GameObject camera;
+    private float zoom;
 
     void Start()
     {
         camera = this.transform.Find("Main Camera").gameObject;
+        zoom = Camera.main.fieldOfView;
     }
 
     // Update is called once per frame
@@ -21,16 +26,12 @@ public class CameraController : MonoBehaviour
         HandleZoom();
     }
 
+    // Handle zoom by changing the field of view of the main camera
     private void HandleZoom()
     {
-        if (Input.mouseScrollDelta.y > 0)
-        {
-            camera.transform.Translate(0f, 0f, zoomSpeed * Time.deltaTime * 10f);
-        }
-        if (Input.mouseScrollDelta.y < 0)
-        {
-            camera.transform.Translate(0f, 0f, -zoomSpeed * Time.deltaTime * 10f);
-        }
+        zoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+        zoom = Mathf.Clamp(zoom, zoomMax, zoomMin);
+        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, zoom, Time.deltaTime * zoomRoughness);
     }
 
     private void HandleRotation()

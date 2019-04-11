@@ -6,7 +6,6 @@ public abstract class BaseSpell : MouseTracker
 {
     protected const float ACTIVATION_COOLDOWN = 0.5f;
 
-    public KeyCode fireKey;
     public float attackSpeed;
     public Transform firePoint;
 
@@ -14,26 +13,20 @@ public abstract class BaseSpell : MouseTracker
     protected float _activationCooldown = ACTIVATION_COOLDOWN;
     protected float _attackCooldown;
 
-    public abstract void PerformAttack();
+    public abstract void PerformAttack(Vector3 target);
 
     // Update is called once per frame
     protected void Update()
     {
-        float deltaTime = Time.deltaTime;
-
-        _attackCooldown -= deltaTime;
-        if (_isActivated && Input.GetKey(fireKey))
-        {
-            PerformAttack();
-        }
+        _attackCooldown -= Time.deltaTime;
     }
 
-    public void deactivate()
+    public void Deactivate()
     {
         _isActivated = false;
     }
 
-    public void activate()
+    public void Activate()
     {
         _isActivated = true;
     }
