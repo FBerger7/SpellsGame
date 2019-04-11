@@ -8,7 +8,7 @@ public class SummonWall : BaseSpell
 
     public SummonedObject objectToSummon;
 
-    public override void PerformAttack()
+    public override void PerformAttack(Vector3 target)
     {
         if (_attackCooldown <= 0)
         {

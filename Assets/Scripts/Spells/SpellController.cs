@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellController : MonoBehaviour
+public class SpellController : MouseTracker
 {
     private const float SPELL_CHANGE_COOLDOWN = 0.5f;
 
@@ -45,15 +45,15 @@ public class SpellController : MonoBehaviour
         }
         if (Input.GetKey(leftSpellKey))
         {
-            _offensiveSpells[_spellQueue[_currentPair].Item1].PerformAttack();
+            _offensiveSpells[_spellQueue[_currentPair].Item1].PerformAttack(pointToLook);
         }
         if (Input.GetKey(rightSpellKey))
         {
-            _offensiveSpells[_spellQueue[_currentPair].Item2].PerformAttack();
+            _offensiveSpells[_spellQueue[_currentPair].Item2].PerformAttack(pointToLook);
         }
         if (Input.GetKey(deffensiveSpellKey))
         {
-            _summonPowerShield.PerformAttack();
+            _summonPowerShield.PerformAttack(pointToLook);
         }
     }
 
