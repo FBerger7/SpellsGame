@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : CharacterStats
 {
-    public int healthPoints;
     public float lookRadius;
-    public float rangeRadius;
 
     protected Animator anim;
     protected Transform target;
@@ -25,7 +23,8 @@ public abstract class Enemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position + new Vector3(1.0f, 0.0f, 2f), lookRadius);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(1.0f, 0.0f, 2f), rangeRadius);
+        if(agent !=null)
+         Gizmos.DrawWireSphere(transform.position + new Vector3(1.0f, 0.0f, 2f), agent.stoppingDistance);
 
     }
 

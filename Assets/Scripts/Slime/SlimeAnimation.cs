@@ -46,14 +46,15 @@ using UnityEngine.AI;
 
         }
 
-        public void DieAnimation(Animator anim)
+        public void DieAnimation(ref Animator anim)
         {
             anim.CrossFade("Die", 0.1f);
             anim.SetBool("isWalk", false);
             anim.SetBool("isDie", true);
             anim.SetBool("isAttack", false);
+            anim.SetBool("isIdle", false);
 
-        }
+    }
 
 
     }

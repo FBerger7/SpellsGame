@@ -4,6 +4,8 @@ public class Projectile : MonoBehaviour
 {
     public float speed;
 
+    public float damage;
+
     public float lifeSpawn;
 
     // Update is called once per frame
@@ -19,6 +21,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        CharacterStats parent = other.GetComponentInParent<CharacterStats>();
+        if (parent != null)
+          parent.TakeDamage(damage);
+        
+            Destroy(gameObject);
     }
 }

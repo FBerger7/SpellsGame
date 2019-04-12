@@ -3,10 +3,12 @@
 [System.Serializable]
 public class CharacterStats : MonoBehaviour
 {
-    public int maxHealth;
-    public int CurrentHealth { get; private set; }
+   // public float myDamage;
 
-    public int damage;
+    public float maxHealth;
+    public float CurrentHealth { get; private set; }
+
+   // public int damage;
 
     private void Awake()
     {
@@ -15,13 +17,10 @@ public class CharacterStats : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10);
-        }
+
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         CurrentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damage.");

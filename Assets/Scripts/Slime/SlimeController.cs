@@ -8,35 +8,45 @@ using UnityEngine.AI;
     public class SlimeController : Enemy
     {
         private SlimeAnimation _slimeAnimation = new SlimeAnimation();
+
+        private BasicAttack _basicAttack;  
+
         // Start is called before the first frame update
         void Start()
         {
-            healthPoints = 10;
             lookRadius = 50f;
-            rangeRadius = 30f;
+            maxHealth = 100f;
+
+            
+            agent = GetComponent<NavMeshAgent>();
+            agent.stoppingDistance = 30f;
 
             anim = GetComponent<Animator>();
-            target = PlayerManager.instance.player.transform;
-            agent = GetComponent<NavMeshAgent>();
-        }
+            target = PlayerManager.instance.player.transform; //RangeAttribute of slime
 
-        // Update is called once per frame
-        void Update()
+            _basicAttack= gameObject.GetComponentInChildren<BasicAttack>();
+       
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        float distance = Vector3.Distance(target.position, transform.position);
+
+        if (!anim.GetBool("isDie"))
         {
-
-            float distance = Vector3.Distance(target.position, transform.position);
-
-
 
             if (distance <= agent.stoppingDistance)
             {
                 if (!anim.GetBool("isAttack"))
                 {
-                     _slimeAnimation.AttackAnimation(ref anim);
+                    _slimeAnimation.AttackAnimation(ref anim);
                 }
                 //Face the target
                 FaceTarget();
                 //Attack the target
+                _basicAttack.PerformAttack(target.position);
             }
             else if (distance <= lookRadius)
             {
@@ -49,7 +59,15 @@ using UnityEngine.AI;
             else if (!anim.GetBool("isIdle"))
             {
                 _slimeAnimation.IdleAnimation(ref anim);
+
             }
         }
     }
+
+    public override void Die()
+    {
+        _slimeAnimation.DieAnimation(ref anim);
+        Debug.Log(transform.name + " died");
+    }
+}
 
