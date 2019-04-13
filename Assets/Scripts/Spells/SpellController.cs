@@ -43,14 +43,14 @@ public class SpellController : MouseTracker
                 _currentPair = (_currentPair + 1) % _spellQueue.Count;
             }
         }
-        if (Input.GetKey(leftSpellKey))
-        {
-            _offensiveSpells[_spellQueue[_currentPair].Item1].PerformAttack(pointToLook);
-        }
-        if (Input.GetKey(rightSpellKey))
-        {
-            _offensiveSpells[_spellQueue[_currentPair].Item2].PerformAttack(pointToLook);
-        }
+        //if (Input.GetKey(leftSpellKey))
+        //{
+        //    _offensiveSpells[_spellQueue[_currentPair].Item1].PerformAttack(pointToLook);
+        //}
+        //if (Input.GetKey(rightSpellKey))
+        //{
+        //    _offensiveSpells[_spellQueue[_currentPair].Item2].PerformAttack(pointToLook);
+        //}
         if (Input.GetKey(deffensiveSpellKey))
         {
             _summonPowerShield.PerformAttack(pointToLook);
