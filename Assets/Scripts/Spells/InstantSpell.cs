@@ -4,12 +4,6 @@ using UnityEngine;
 
 public abstract class InstantSpell : BaseSpell
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -20,14 +14,4 @@ public abstract class InstantSpell : BaseSpell
             PerformAttack(pointToLook);
         }
     }
-
-    //public void Deactivate()
-    //{
-    //    _isActivated = false;
-    //}
-
-    //public void Activate()
-    //{
-    //    _isActivated = true;
-    //}
 }
