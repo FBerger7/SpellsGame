@@ -40,7 +40,11 @@ public class SpellController : MouseTracker
             if (_remainingPairChangeCooldown <= 0)
             {
                 _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
+                _offensiveSpells[_spellQueue[_currentPair].Item1].setFireKey(KeyCode.None);
+                _offensiveSpells[_spellQueue[_currentPair].Item2].setFireKey(KeyCode.None);
                 _currentPair = (_currentPair + 1) % _spellQueue.Count;
+                _offensiveSpells[_spellQueue[_currentPair].Item1].setFireKey(leftSpellKey);
+                _offensiveSpells[_spellQueue[_currentPair].Item2].setFireKey(rightSpellKey);
             }
         }
         //if (Input.GetKey(leftSpellKey))
