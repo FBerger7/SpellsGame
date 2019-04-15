@@ -5,11 +5,14 @@ using UnityEngine;
 public class SummonPowerShield : InstantSpell
 {
     public float shieldLifeSpan;
-    public SummonedObject objectToSummon;
+    public PowerShield powerShield;
 
     public override void PerformAttack(Vector3 target)
     {
-        SummonedObject newSummonedObject = Instantiate(objectToSummon, transform.position, transform.rotation) as SummonedObject;
-        newSummonedObject.lifeSpawn = shieldLifeSpan;
+        
+        PowerShield newPowerShield = Instantiate(powerShield, firePoint.position, transform.rotation) as PowerShield;
+        newPowerShield.lifeSpawn = shieldLifeSpan;
+        newPowerShield.firePoint = firePoint;
+        
     }
 }

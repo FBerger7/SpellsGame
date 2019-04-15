@@ -200,7 +200,7 @@ MonoBehaviour:
   attackSpeed: 0.5
   firePoint: {fileID: 203161034}
   shieldLifeSpan: 5
-  objectToSummon: {fileID: 4716436081495689983, guid: 16c5dd3436b687c4e8ea51da89ea05de,
+  powerShield: {fileID: 8527800263672130036, guid: 16c5dd3436b687c4e8ea51da89ea05de,
     type: 3}
 --- !u!1 &759631230
 GameObject:
