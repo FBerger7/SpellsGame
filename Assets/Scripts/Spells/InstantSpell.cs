@@ -8,10 +8,5 @@ public abstract class InstantSpell : BaseSpell
     void Update()
     {
         _attackCooldown -= Time.deltaTime;
-        if (Input.GetKey(_fireKey) && _attackCooldown <= 0)
-        {
-            _attackCooldown = attackSpeed;
-            PerformAttack(pointToLook);
-        }
     }
 }
