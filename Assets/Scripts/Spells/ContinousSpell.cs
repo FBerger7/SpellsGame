@@ -4,10 +4,10 @@ using UnityEngine;
 
 public abstract class ContinousSpell : BaseSpell
 {
-    private bool _isPerforming;
+    protected bool _isPerforming;
 
     // Update is called once per frame
-    void Update()
+    protected void runUpdate()
     {
         if (!_isPerforming)
         {
@@ -16,10 +16,6 @@ public abstract class ContinousSpell : BaseSpell
         if (Input.GetKeyDown(_fireKey) && _attackCooldown <= 0)
         {
             _isPerforming = true;
-        }
-        if (_isPerforming)
-        {
-            PerformAttack(pointToLook);
         }
         if (Input.GetKeyUp(_fireKey) && _isPerforming)
         {

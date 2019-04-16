@@ -9477,6 +9477,7 @@ GameObject:
   - component: {fileID: 7721574681603433903}
   - component: {fileID: 6760854755154332739}
   - component: {fileID: 7287357237914982362}
+  - component: {fileID: 3104561578763261471}
   m_Layer: 0
   m_Name: PS_GlowingOrbProjectile
   m_TagString: Untagged
@@ -9542,6 +9543,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   lifeSpawn: 2
+--- !u!114 &3104561578763261471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731942883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a19f65b78b56d04ab0ff2ffb7f558e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHostile: 1
 --- !u!1 &2898656505662882880
 GameObject:
   m_ObjectHideFlags: 0

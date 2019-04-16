@@ -8,6 +8,7 @@ public abstract class BaseSpell : MouseTracker
 
     public float attackSpeed;
     public Transform firePoint;
+    public bool isHostile;
 
     protected KeyCode _fireKey = KeyCode.None;
     protected float _attackCooldown;

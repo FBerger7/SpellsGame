@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : CastedSpell
 {
     public float speed;
 
@@ -19,6 +19,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (!other.GetComponent<PowerShield>())
+            Destroy(gameObject);
     }
 }

@@ -182,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0.5
   firePoint: {fileID: 485213118}
+  isHostile: 0
   wallLifeSpan: 5
   objectToSummon: {fileID: 3665822623760171551, guid: 605b36c57472c6a41a99809624936e9b,
     type: 3}
@@ -199,9 +200,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0.5
   firePoint: {fileID: 203161034}
+  isHostile: 0
   shieldLifeSpan: 5
   powerShield: {fileID: 8527800263672130036, guid: 16c5dd3436b687c4e8ea51da89ea05de,
     type: 3}
+--- !u!114 &485213122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485213117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2120399112160ff49b62bb7ed24e4ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 0.5
+  firePoint: {fileID: 485213118}
+  isHostile: 0
+  projectile: {fileID: 7287357237914982362, guid: 216151aac6e78dd4db840db8c3422f8f,
+    type: 3}
+  projectileSpeed: 100
+  projectileLifeSpawn: 3
 --- !u!1 &759631230
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +466,11 @@ PrefabInstance:
     - target: {fileID: 3728347230593450561, guid: fb162de6f69b74249afcf17e59595d2a,
         type: 3}
       propertyPath: _fireKey
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3728347230593450561, guid: fb162de6f69b74249afcf17e59595d2a,
+        type: 3}
+      propertyPath: isHostile
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7518330289214193414, guid: fb162de6f69b74249afcf17e59595d2a,

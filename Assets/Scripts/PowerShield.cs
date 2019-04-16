@@ -17,4 +17,11 @@ public class PowerShield : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<CastedSpell>())
+            if (other.GetComponent<CastedSpell>().isHostile)
+                Destroy(other.gameObject);
+    }
 }
