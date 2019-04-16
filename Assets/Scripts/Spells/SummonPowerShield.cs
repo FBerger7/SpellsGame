@@ -9,9 +9,12 @@ public class SummonPowerShield : InstantSpell
 
     public override void PerformAttack(Vector3 target)
     {
-        PowerShield newPowerShield = Instantiate(powerShield, firePoint.position + new Vector3(0, 10.0f), transform.rotation) as PowerShield;
-        newPowerShield.lifeSpawn = shieldLifeSpan;
-        newPowerShield.firePoint = firePoint;
-        
+        if (_attackCooldown <= 0)
+        {
+            _attackCooldown = attackSpeed;
+            PowerShield newPowerShield = Instantiate(powerShield, firePoint.position + new Vector3(0, 10.0f), transform.rotation) as PowerShield;
+            newPowerShield.lifeSpawn = shieldLifeSpan;
+            newPowerShield.firePoint = firePoint;
+        }
     }
 }

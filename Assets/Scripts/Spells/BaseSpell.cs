@@ -10,13 +10,7 @@ public abstract class BaseSpell : MouseTracker
     public Transform firePoint;
     public bool isHostile;
 
-    protected KeyCode _fireKey = KeyCode.None;
     protected float _attackCooldown;
 
     public abstract void PerformAttack(Vector3 target);
-
-    public void setFireKey(KeyCode fireKey)
-    {
-        _fireKey = fireKey;
-    }
 }
