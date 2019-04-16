@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : CastedSpell
 {
     public float speed;
+
+    public float damage;
 
     public float lifeSpawn;
 
@@ -19,6 +21,11 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        CharacterStats parent = other.GetComponentInParent<CharacterStats>();
+        if (parent != null)
+          parent.TakeDamage(damage);
+        
+        if (!other.GetComponent<PowerShield>())
+            Destroy(gameObject);
     }
 }

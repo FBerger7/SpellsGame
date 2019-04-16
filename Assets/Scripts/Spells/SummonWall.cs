@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SummonWall : BaseSpell
+public class SummonWall : InstantSpell
 {
     public float wallLifeSpan;
 
