@@ -11,11 +11,9 @@ public abstract class BaseSpell : MouseTracker
 
     protected bool _isActivated = false;
     protected float _activationCooldown = ACTIVATION_COOLDOWN;
-    [SerializeField]
     protected float _attackCooldown;
 
-    //public abstract void PerformAttack();
-    public abstract void PerformAttack();
+    public abstract void PerformAttack(Vector3 target);
 
     // Update is called once per frame
     protected void Update()
@@ -23,12 +21,12 @@ public abstract class BaseSpell : MouseTracker
         _attackCooldown -= Time.deltaTime;
     }
 
-    public void deactivate()
+    public void Deactivate()
     {
         _isActivated = false;
     }
 
-    public void activate()
+    public void Activate()
     {
         _isActivated = true;
     }

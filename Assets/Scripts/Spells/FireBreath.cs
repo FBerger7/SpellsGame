@@ -16,7 +16,7 @@ public class FireBreath : BaseSpell
             _attackCooldown -= Time.deltaTime;
             if(_attackCooldown <= 0)
             {
-                deactivate();
+                Deactivate();
             }
         }
         else
@@ -33,14 +33,14 @@ public class FireBreath : BaseSpell
 
     }
 
-    public override void PerformAttack()
+    public override void PerformAttack(Vector3 target)
     {
         if(_attackCooldown > overheat)
         {
             ParticleSystem newProjectile = Instantiate(GFX, firePoint.position, firePoint.rotation) as ParticleSystem;
 
             newProjectile.Play();
-            activate();
+            Activate();
         }
     }
 }
