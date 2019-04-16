@@ -8,26 +8,15 @@ public abstract class BaseSpell : MouseTracker
 
     public float attackSpeed;
     public Transform firePoint;
+    public bool isHostile;
 
-    protected bool _isActivated = false;
-    protected float _activationCooldown = ACTIVATION_COOLDOWN;
+    protected KeyCode _fireKey = KeyCode.None;
     protected float _attackCooldown;
 
     public abstract void PerformAttack(Vector3 target);
 
-    // Update is called once per frame
-    protected void Update()
+    public void setFireKey(KeyCode fireKey)
     {
-        _attackCooldown -= Time.deltaTime;
-    }
-
-    public void Deactivate()
-    {
-        _isActivated = false;
-    }
-
-    public void Activate()
-    {
-        _isActivated = true;
+        _fireKey = fireKey;
     }
 }
