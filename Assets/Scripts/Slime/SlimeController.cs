@@ -62,12 +62,20 @@ using UnityEngine.AI;
 
             }
         }
+        else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Die") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public override void Die()
     {
         _slimeAnimation.DieAnimation(ref anim);
         Debug.Log(transform.name + " died");
+   
+
+       // Destroy(gameObject);
+
     }
 }
 

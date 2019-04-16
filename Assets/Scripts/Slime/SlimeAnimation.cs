@@ -53,7 +53,7 @@ using UnityEngine.AI;
             anim.SetBool("isDie", true);
             anim.SetBool("isAttack", false);
             anim.SetBool("isIdle", false);
-
+       
     }
 
 
