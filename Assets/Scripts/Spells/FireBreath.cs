@@ -6,17 +6,20 @@ public class FireBreath : BaseSpell
 {
     public ParticleSystem GFX;
 
+    [SerializeField]
+    private bool _isActive;
+
     //Zmienan definiująca odstep przed ponowynym użyciem FireBreath
     public float overheat;
 
     new void Update()
     {
-        if (_isActivated)
+        if (_isActive)
         {
             _attackCooldown -= Time.deltaTime;
             if(_attackCooldown <= 0)
             {
-                Deactivate();
+                _isActive = false;
             }
         }
         else
@@ -40,7 +43,7 @@ public class FireBreath : BaseSpell
             ParticleSystem newProjectile = Instantiate(GFX, firePoint.position, firePoint.rotation) as ParticleSystem;
 
             newProjectile.Play();
-            Activate();
+            _isActive = true;
         }
     }
 }
