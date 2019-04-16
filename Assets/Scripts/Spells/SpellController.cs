@@ -22,12 +22,15 @@ public class SpellController : MouseTracker
     {
         _spellQueue = new List<Tuple<int, int>>();
         _summonPowerShield = gameObject.GetComponent<SummonPowerShield>();
+        //_summonPowerShield.setFireKey(deffensiveSpellKey);
         AddOffensiveSpells();
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
         // ------------------------------------------------------------------
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SUMMON_WALL));
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SUMMON_WALL, OffensiveSpellsModel.BASIC_SPELL));
         // ------------------------------------------------------------------
+        //_offensiveSpells[_spellQueue[_currentPair].Item1].setFireKey(leftSpellKey);
+        //_offensiveSpells[_spellQueue[_currentPair].Item2].setFireKey(rightSpellKey);
     }
 
     // Update is called once per frame
@@ -40,7 +43,11 @@ public class SpellController : MouseTracker
             if (_remainingPairChangeCooldown <= 0)
             {
                 _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
+                //_offensiveSpells[_spellQueue[_currentPair].Item1].setFireKey(KeyCode.None);
+                //_offensiveSpells[_spellQueue[_currentPair].Item2].setFireKey(KeyCode.None);
                 _currentPair = (_currentPair + 1) % _spellQueue.Count;
+                //_offensiveSpells[_spellQueue[_currentPair].Item1].setFireKey(leftSpellKey);
+                //_offensiveSpells[_spellQueue[_currentPair].Item2].setFireKey(rightSpellKey);
             }
         }
         if (Input.GetKey(leftSpellKey))

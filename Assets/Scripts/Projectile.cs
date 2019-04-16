@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : CastedSpell
 {
     public float speed;
 
@@ -25,6 +25,7 @@ public class Projectile : MonoBehaviour
         if (parent != null)
           parent.TakeDamage(damage);
         
+        if (!other.GetComponent<PowerShield>())
             Destroy(gameObject);
     }
 }
