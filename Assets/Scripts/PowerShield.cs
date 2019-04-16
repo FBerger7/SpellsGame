@@ -11,7 +11,7 @@ public class PowerShield : MonoBehaviour
     void Update()
     {
         lifeSpawn -= Time.deltaTime;
-        gameObject.transform.position = firePoint.position;
+        gameObject.transform.position = firePoint.position + new Vector3(0, 10.0f);
         if (lifeSpawn <= 0)
         {
             Destroy(gameObject);
