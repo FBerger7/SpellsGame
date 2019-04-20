@@ -14,7 +14,8 @@ public class SpellController : MouseTracker
 
     private OffensiveSpellsModel model;
     private List<Tuple<int, int>> _spellQueue;
-    private Dictionary<int, BaseSpell> _offensiveSpells;
+    private Dictionary<int, OffensiveSpell> _offensiveSpells;
+    private Dictionary<int, MobileSpell> _mobileSpells;
     private SummonPowerShield _summonPowerShield;
     private int _currentPair = 0;
     private float _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
@@ -28,6 +29,7 @@ public class SpellController : MouseTracker
 
         _summonPowerShield = gameObject.GetComponent<SummonPowerShield>();
         AddOffensiveSpells();
+        AddMobileSpells();
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
         // ------------------------------------------------------------------
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.FIRE_BREATH, OffensiveSpellsModel.BASIC_SPELL));
@@ -69,10 +71,15 @@ public class SpellController : MouseTracker
 
     private void AddOffensiveSpells()
     {
-        _offensiveSpells = new Dictionary<int, BaseSpell>();
+        _offensiveSpells = new Dictionary<int, OffensiveSpell>();
         _offensiveSpells.Add(OffensiveSpellsModel.BASIC_SPELL, gameObject.GetComponent<BasicAttack>());
         _offensiveSpells.Add(OffensiveSpellsModel.SUMMON_WALL, gameObject.GetComponent<SummonWall>());
         _offensiveSpells.Add(OffensiveSpellsModel.FIRE_BREATH, gameObject.GetComponent<FireBreath>());
     }
 
+    private void AddMobileSpells()
+    {
+        _mobileSpells = new Dictionary<int, MobileSpell>();
+        _mobileSpells.Add(MobileSpellsModel.TELEPORT, gameObject.GetComponent<Teleport>());
+    }
 }

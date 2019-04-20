@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SummonWall : InstantSpell
+public class SummonWall : OffensiveSpell
 {
     public float wallLifeSpan;
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BasicAttack : InstantSpell
+public class BasicAttack : OffensiveSpell
 {
     public Projectile projectile;
     public float projectileSpeed;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Teleport : InstantSpell
+public class Teleport : MobileSpell
 {
     void Start()
     {

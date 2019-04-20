@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellData : MonoBehaviour
+public abstract class MobileSpell : BaseSpell
 {
-    public bool isHostile = true;
 }
