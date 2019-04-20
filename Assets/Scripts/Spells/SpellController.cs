@@ -9,20 +9,24 @@ public class SpellController : MouseTracker
     public KeyCode leftSpellKey;
     public KeyCode rightSpellKey;
     public KeyCode deffensiveSpellKey;
+    public KeyCode mobileSpellKey;
     public KeyCode changeSpellKey;
 
+    private OffensiveSpellsModel model;
     private List<Tuple<int, int>> _spellQueue;
     private Dictionary<int, BaseSpell> _offensiveSpells;
     private SummonPowerShield _summonPowerShield;
     private int _currentPair = 0;
     private float _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         _spellQueue = new List<Tuple<int, int>>();
+        model = new OffensiveSpellsModel();
+
         _summonPowerShield = gameObject.GetComponent<SummonPowerShield>();
-        //_summonPowerShield.setFireKey(deffensiveSpellKey);
         AddOffensiveSpells();
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
         // ------------------------------------------------------------------
@@ -30,8 +34,6 @@ public class SpellController : MouseTracker
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SUMMON_WALL));
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SUMMON_WALL, OffensiveSpellsModel.BASIC_SPELL));
         // ------------------------------------------------------------------
-        //_offensiveSpells[_spellQueue[_currentPair].Item1].setFireKey(leftSpellKey);
-        //_offensiveSpells[_spellQueue[_currentPair].Item2].setFireKey(rightSpellKey);
     }
 
     // Update is called once per frame
@@ -44,11 +46,7 @@ public class SpellController : MouseTracker
             if (_remainingPairChangeCooldown <= 0)
             {
                 _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
-                //_offensiveSpells[_spellQueue[_currentPair].Item1].setFireKey(KeyCode.None);
-                //_offensiveSpells[_spellQueue[_currentPair].Item2].setFireKey(KeyCode.None);
                 _currentPair = (_currentPair + 1) % _spellQueue.Count;
-                //_offensiveSpells[_spellQueue[_currentPair].Item1].setFireKey(leftSpellKey);
-                //_offensiveSpells[_spellQueue[_currentPair].Item2].setFireKey(rightSpellKey);
             }
         }
         if (Input.GetKey(leftSpellKey))
@@ -62,6 +60,7 @@ public class SpellController : MouseTracker
         if (Input.GetKey(deffensiveSpellKey))
         {
             _summonPowerShield.PerformAttack(pointToLook);
+            _summonPowerShield.PerformAttack(model);
         }
     }
 
