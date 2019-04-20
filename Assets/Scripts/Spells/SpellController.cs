@@ -59,8 +59,11 @@ public class SpellController : MouseTracker
         }
         if (Input.GetKey(deffensiveSpellKey))
         {
-            _summonPowerShield.PerformAttack(pointToLook);
             _summonPowerShield.PerformAttack(model);
+        }
+        if (Input.GetKey(mobileSpellKey))
+        {
+            gameObject.GetComponent<Teleport>().PerformAttack(pointToLook);
         }
     }
 
@@ -71,4 +74,5 @@ public class SpellController : MouseTracker
         _offensiveSpells.Add(OffensiveSpellsModel.SUMMON_WALL, gameObject.GetComponent<SummonWall>());
         _offensiveSpells.Add(OffensiveSpellsModel.FIRE_BREATH, gameObject.GetComponent<FireBreath>());
     }
+
 }
