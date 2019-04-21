@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SummonPowerShield : OffensiveSpell
+public class SummonPowerShield : InstantSpell
 {
     public float shieldLifeSpan;
     public PowerShield powerShield;

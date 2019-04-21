@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BasicAttack : OffensiveSpell
+public class BasicAttack : InstantSpell
 {
     public Projectile projectile;
     public float projectileSpeed;
@@ -8,7 +8,6 @@ public class BasicAttack : OffensiveSpell
 
     public override void PerformAttack(Vector3 target)
     {
-        
         if (_attackCooldown <= 0)
         {
             _attackCooldown = attackSpeed;
@@ -18,7 +17,5 @@ public class BasicAttack : OffensiveSpell
             newProjectile.isHostile = isHostile;
             newProjectile.origin = OffensiveSpellsModel.BASIC_SPELL;
         }
-        
-        
     }
 }

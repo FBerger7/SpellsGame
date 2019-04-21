@@ -14,8 +14,8 @@ public class SpellController : MouseTracker
 
     private OffensiveSpellsModel model;
     private List<Tuple<int, int>> _spellQueue;
-    private Dictionary<int, OffensiveSpell> _offensiveSpells;
-    private Dictionary<int, MobileSpell> _mobileSpells;
+    private Dictionary<int, BaseSpell> _offensiveSpells;
+    private Dictionary<int, BaseSpell> _mobileSpells;
     private SummonPowerShield _summonPowerShield;
     private int _currentOffensiveSpellsPair = 0;
     public int _currentMobileSpell = 0;
@@ -52,14 +52,25 @@ public class SpellController : MouseTracker
                 _currentOffensiveSpellsPair = (_currentOffensiveSpellsPair + 1) % _spellQueue.Count;
             }
         }
+
         if (Input.GetKey(leftSpellKey))
         {
             _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item1].PerformAttack(pointToLook);
         }
+        if (Input.GetKeyUp(leftSpellKey))
+        {
+            _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item1].EndAttack();
+        }
+
         if (Input.GetKey(rightSpellKey))
         {
             _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item2].PerformAttack(pointToLook);
         }
+        if (Input.GetKeyUp(leftSpellKey))
+        {
+            _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item2].EndAttack();
+        }
+
         if (Input.GetKey(deffensiveSpellKey))
         {
             _summonPowerShield.PerformAttack(model);
@@ -77,7 +88,7 @@ public class SpellController : MouseTracker
 
     private void AddOffensiveSpells()
     {
-        _offensiveSpells = new Dictionary<int, OffensiveSpell>();
+        _offensiveSpells = new Dictionary<int, BaseSpell>();
         _offensiveSpells.Add(OffensiveSpellsModel.BASIC_SPELL, gameObject.GetComponent<BasicAttack>());
         _offensiveSpells.Add(OffensiveSpellsModel.SUMMON_WALL, gameObject.GetComponent<SummonWall>());
         _offensiveSpells.Add(OffensiveSpellsModel.FIRE_BREATH, gameObject.GetComponent<FireBreath>());
@@ -85,7 +96,7 @@ public class SpellController : MouseTracker
 
     private void AddMobileSpells()
     {
-        _mobileSpells = new Dictionary<int, MobileSpell>();
+        _mobileSpells = new Dictionary<int, BaseSpell>();
         _mobileSpells.Add(MobileSpellsModel.JUMP, gameObject.GetComponent<Jump>());
         _mobileSpells.Add(MobileSpellsModel.RUN, gameObject.GetComponent<Run>());
         _mobileSpells.Add(MobileSpellsModel.TELEPORT, gameObject.GetComponent<Teleport>());

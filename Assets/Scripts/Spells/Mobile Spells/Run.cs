@@ -2,30 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Run : MobileSpell
+public class Run : ContinousSpell
 {
-    public float maxDuration;
-
-    private bool _isPerforming;
-    private float _duration = 0;
-
-    void Update()
-    {
-        if (_isPerforming)
-        {
-            _duration += Time.deltaTime;
-            if (_duration >= maxDuration)
-            {
-                EndAttack();
-            }
-        }
-        else
-        {
-            runUpdate();
-        }
-
-    }
-
     public override void PerformAttack(Vector3 target)
     {
         if (_attackCooldown <= 0)
