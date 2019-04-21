@@ -10,8 +10,9 @@ public abstract class BaseSpell : MouseTracker
     protected float _attackCooldown;
 
     public abstract void PerformAttack(Vector3 target);
+    public abstract void EndAttack();
 
-    void Update()
+    protected void runUpdate()
     {
         _attackCooldown -= Time.deltaTime;
     }

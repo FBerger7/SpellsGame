@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0.5
   firePoint: {fileID: 317131231}
---- !u!114 &855225329
+--- !u!114 &855225335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,6 +250,21 @@ MonoBehaviour:
   attackSpeed: 0.5
   firePoint: {fileID: 317131231}
   jumpForce: 60
+--- !u!114 &855225336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855225327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de54f9f1ee398f641bead751c43e6e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 5
+  firePoint: {fileID: 317131231}
+  maxDuration: 2
 --- !u!1 &1091704891
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +451,22 @@ PrefabInstance:
     - target: {fileID: 1117235226, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
       propertyPath: mobileSpellKey
       value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117235226, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
+      propertyPath: _currentMobileSpell
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 317131229, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
+      propertyPath: runBoost
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117235227, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
+      propertyPath: maxDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117235227, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
+      propertyPath: attackSpeed
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}

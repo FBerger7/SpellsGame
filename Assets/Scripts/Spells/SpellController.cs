@@ -17,7 +17,8 @@ public class SpellController : MouseTracker
     private Dictionary<int, OffensiveSpell> _offensiveSpells;
     private Dictionary<int, MobileSpell> _mobileSpells;
     private SummonPowerShield _summonPowerShield;
-    private int _currentPair = 0;
+    private int _currentOffensiveSpellsPair = 0;
+    public int _currentMobileSpell = 0;
     private float _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
     
 
@@ -48,16 +49,16 @@ public class SpellController : MouseTracker
             if (_remainingPairChangeCooldown <= 0)
             {
                 _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
-                _currentPair = (_currentPair + 1) % _spellQueue.Count;
+                _currentOffensiveSpellsPair = (_currentOffensiveSpellsPair + 1) % _spellQueue.Count;
             }
         }
         if (Input.GetKey(leftSpellKey))
         {
-            _offensiveSpells[_spellQueue[_currentPair].Item1].PerformAttack(pointToLook);
+            _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item1].PerformAttack(pointToLook);
         }
         if (Input.GetKey(rightSpellKey))
         {
-            _offensiveSpells[_spellQueue[_currentPair].Item2].PerformAttack(pointToLook);
+            _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item2].PerformAttack(pointToLook);
         }
         if (Input.GetKey(deffensiveSpellKey))
         {
@@ -65,7 +66,12 @@ public class SpellController : MouseTracker
         }
         if (Input.GetKey(mobileSpellKey))
         {
-            gameObject.GetComponent<Teleport>().PerformAttack(pointToLook);
+            _mobileSpells[_currentMobileSpell].PerformAttack(pointToLook);
+        }
+
+        if (Input.GetKeyUp(mobileSpellKey))
+        {
+            _mobileSpells[_currentMobileSpell].EndAttack();
         }
     }
 
@@ -81,6 +87,7 @@ public class SpellController : MouseTracker
     {
         _mobileSpells = new Dictionary<int, MobileSpell>();
         _mobileSpells.Add(MobileSpellsModel.JUMP, gameObject.GetComponent<Jump>());
+        _mobileSpells.Add(MobileSpellsModel.RUN, gameObject.GetComponent<Run>());
         _mobileSpells.Add(MobileSpellsModel.TELEPORT, gameObject.GetComponent<Teleport>());
     }
 }

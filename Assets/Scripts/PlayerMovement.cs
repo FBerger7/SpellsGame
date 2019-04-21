@@ -39,9 +39,9 @@ public class PlayerMovement : MonoBehaviour
         //Gets direction in witch user wants to perform movement
         _direction = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
 
-        HandleRunning();
+        //HandleRunning();
 
-        ChceckJumping();
+        //ChceckJumping();
 
         HandleDashing();
 
@@ -55,12 +55,22 @@ public class PlayerMovement : MonoBehaviour
         }    
     }
 
-    private void ChceckJumping()
+    //private void ChceckJumping()
+    //{
+    //    if (Input.GetKeyDown(jumpKey))
+    //    {
+    //        _playerBody.velocity = Vector3.up * jumpForce;
+    //    }
+    //}
+
+    public void StartRunning()
     {
-        if (Input.GetKeyDown(jumpKey))
-        {
-            _playerBody.velocity = Vector3.up * jumpForce;
-        }
+        _speed = runBoost * startSpeed;
+    }
+
+    public void StopRunning()
+    {
+        _speed = startSpeed;
     }
 
     //Performs player movement
@@ -71,17 +81,17 @@ public class PlayerMovement : MonoBehaviour
     }
 
     //Checks if player is trying to run, and sets propper speed
-    private void HandleRunning()
-    {
-        if (Input.GetKey(runKey))
-        {
-            _speed = runBoost * startSpeed;
-        }
-        else
-        {
-            _speed = startSpeed;
-        }
-    }
+    //private void HandleRunning()
+    //{
+    //    if (Input.GetKey(runKey))
+    //    {
+    //        _speed = runBoost * startSpeed;
+    //    }
+    //    else
+    //    {
+    //        _speed = startSpeed;
+    //    }
+    //}
 
     //Checks if player is trying to dash and if he can dash at given moment, if yes starts the dash
     private void HandleDashing()
