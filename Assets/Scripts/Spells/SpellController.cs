@@ -80,6 +80,7 @@ public class SpellController : MouseTracker
     private void AddMobileSpells()
     {
         _mobileSpells = new Dictionary<int, MobileSpell>();
+        _mobileSpells.Add(MobileSpellsModel.JUMP, gameObject.GetComponent<Jump>());
         _mobileSpells.Add(MobileSpellsModel.TELEPORT, gameObject.GetComponent<Teleport>());
     }
 }
