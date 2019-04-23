@@ -6,8 +6,10 @@ public class CharacterStats : MonoBehaviour
    // public float myDamage;
 
     public float maxHealth;
+
     public float CurrentHealth { get; private set; }
 
+    public bool isHostile;
     public bool poisonImmune;
     public float poisonCooldown;
 
@@ -40,7 +42,6 @@ public class CharacterStats : MonoBehaviour
     {
         if (_poisonTimer < 0)
         {
-            Debug.Log("dziala");
             TakeDamage(dmg);
             _poisonTimer = poisonCooldown;
         }

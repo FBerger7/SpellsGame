@@ -16,7 +16,7 @@ public class SlimeBombProjectile : CastedSpell
     private void OnTriggerEnter(Collider other)
     {
         CharacterStats parent = other.GetComponentInParent<CharacterStats>();
-        if (parent != null)
+        if (parent != null && this.isHostile != parent.isHostile)
         {
             parent.TakeDamage(damage);
         }

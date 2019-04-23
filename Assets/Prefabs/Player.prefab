@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 317131231}
   - component: {fileID: 317131230}
   - component: {fileID: 317131229}
+  - component: {fileID: 2555450145958740016}
   - component: {fileID: 317131228}
   m_Layer: 0
   m_Name: Player
@@ -70,6 +71,22 @@ MonoBehaviour:
   startDashTime: 0.15
   startDashCooldown: 0
   jumpForce: 100
+--- !u!114 &2555450145958740016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317131227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c97f034c1202e540bfeeafd50b91926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  poisonImmune: 0
+  poisonCooldown: 0.5
+  _poisonTimer: 0
 --- !u!114 &317131228
 MonoBehaviour:
   m_ObjectHideFlags: 0

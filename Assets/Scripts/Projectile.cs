@@ -22,10 +22,10 @@ public class Projectile : CastedSpell
     private void OnTriggerEnter(Collider other)
     {
         CharacterStats parent = other.GetComponentInParent<CharacterStats>();
-        if (parent != null)
+        if (parent != null && this.isHostile != parent.isHostile)
           parent.TakeDamage(damage);
         
-        if (!other.GetComponent<PowerShield>())
+        if (!other.GetComponent<PowerShield>() && other.tag != "Particles")
             Destroy(gameObject);
     }
 }
