@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CharacterInterface : MonoBehaviour
 {
-    private int index = 0;
 
     private int healthPoints;
 
@@ -20,7 +19,9 @@ public class CharacterInterface : MonoBehaviour
 
     public Image healthPointsTexture;
 
-    public Sprite[] healthSprites = new Sprite[4];
+    public Text healthPointsText;
+
+    public Sprite[] healthSprites;
 
     public void setHealthPoints(int number) {
         healthPoints = number;
@@ -70,31 +71,30 @@ public class CharacterInterface : MonoBehaviour
         return mainSpellSecond;
     }
 
-    private void OnGUI()
-    {
-        //healthPointsTexture.sprite = healthSprites[index];
+    private int getIndexOfSprite() {
+        int result = healthPoints/10;
+        if (healthPoints % 10 != 0)
+            result++;
+        return result;
     }
 
-    void Update()
-    {
-        //Press space to change the Sprite of the Image
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            healthPointsTexture.sprite = healthSprites[index];
-            index++;
-            if (index == 4)
-                index = 0;
-        }
-    }
-    /*// Start is called before the first frame update
     void Start()
     {
-        
+        setHealthPoints(100);
+        healthPointsText.text = "HP: " + healthPoints + "%";
+        healthPointsTexture.sprite = healthSprites[getIndexOfSprite()];
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-    }*/
+        //Press P to change the health points
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (healthPoints > 0)
+                healthPoints--;
+            healthPointsText.text = "HP:  " + healthPoints + "%";
+            healthPointsTexture.sprite = healthSprites[getIndexOfSprite()];
+        }
+    }
+    
 }
