@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBreath : BaseSpell
+public class FireBreath : InstantSpell
 {
     public ParticleSystem GFX;
 

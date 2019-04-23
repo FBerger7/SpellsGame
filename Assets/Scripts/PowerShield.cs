@@ -6,6 +6,7 @@ public class PowerShield : MonoBehaviour
 {
     public float lifeSpawn;
     public Transform firePoint;
+    public OffensiveSpellsModel model;
 
     // Update is called once per frame
     void Update()
@@ -20,8 +21,14 @@ public class PowerShield : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<CastedSpell>())
-            if (other.GetComponent<CastedSpell>().isHostile)
+        CastedSpell castedSpell = other.GetComponent<CastedSpell>();
+        if (castedSpell != null)
+        {
+            if (castedSpell.isHostile)
+            {
+                model.AcknowledgeSpell(castedSpell.origin);
                 Destroy(other.gameObject);
+            }
+        }
     }
 }
