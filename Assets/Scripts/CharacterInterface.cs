@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class CharacterInterface : MonoBehaviour
 {
+    private int index = 0;
+
     private int healthPoints;
 
     private int healingSpell;
@@ -15,6 +17,10 @@ public class CharacterInterface : MonoBehaviour
     private int mainSpellFirst;
 
     private int mainSpellSecond;
+
+    public Image healthPointsTexture;
+
+    public Sprite[] healthSprites = new Sprite[4];
 
     public void setHealthPoints(int number) {
         healthPoints = number;
@@ -66,7 +72,19 @@ public class CharacterInterface : MonoBehaviour
 
     private void OnGUI()
     {
-        print("HealthPoints = "+ healthPoints);
+        //healthPointsTexture.sprite = healthSprites[index];
+    }
+
+    void Update()
+    {
+        //Press space to change the Sprite of the Image
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            healthPointsTexture.sprite = healthSprites[index];
+            index++;
+            if (index == 4)
+                index = 0;
+        }
     }
     /*// Start is called before the first frame update
     void Start()
