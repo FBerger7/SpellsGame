@@ -8,7 +8,11 @@ public class CharacterStats : MonoBehaviour
     public float maxHealth;
     public float CurrentHealth { get; private set; }
 
-   // public int damage;
+    public bool poisonImmune;
+    public float poisonCooldown;
+
+    [SerializeField]
+    protected float _poisonTimer;
 
     private void Awake()
     {
@@ -17,7 +21,7 @@ public class CharacterStats : MonoBehaviour
 
     private void Update()
     {
-
+        _poisonTimer -= Time.deltaTime;
     }
 
     public void TakeDamage(float damage)
@@ -30,6 +34,16 @@ public class CharacterStats : MonoBehaviour
             Die();
         }
 
+    }
+
+    public void ApplayPoison(float dmg)
+    {
+        if (_poisonTimer < 0)
+        {
+            Debug.Log("dziala");
+            TakeDamage(dmg);
+            _poisonTimer = poisonCooldown;
+        }
     }
 
     public virtual void Die()

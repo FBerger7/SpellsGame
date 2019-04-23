@@ -9,7 +9,7 @@ using UnityEngine.AI;
     {
         private SlimeAnimation _slimeAnimation = new SlimeAnimation();
 
-        private BasicAttack _basicAttack;  
+        public BaseSpell basicAttack;  
 
         // Start is called before the first frame update
         void Start()
@@ -24,14 +24,14 @@ using UnityEngine.AI;
             anim = GetComponent<Animator>();
             target = PlayerManager.instance.player.transform; //RangeAttribute of slime
 
-            _basicAttack= gameObject.GetComponentInChildren<BasicAttack>();
+            basicAttack= gameObject.GetComponentInChildren<SlimeBomb>();
        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        _poisonTimer -= Time.deltaTime;
         float distance = Vector3.Distance(target.position, transform.position);
 
         if (!anim.GetBool("isDie"))
@@ -46,7 +46,7 @@ using UnityEngine.AI;
                 //Face the target
                 FaceTarget();
                 //Attack the target
-                _basicAttack.PerformAttack(target.position);
+                basicAttack.PerformAttack(target.position);
             }
             else if (distance <= lookRadius)
             {

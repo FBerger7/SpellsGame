@@ -388,7 +388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4497824814280476699}
-  - component: {fileID: 4497824814280476698}
+  - component: {fileID: 6391074318006974407}
   m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
@@ -410,7 +410,7 @@ Transform:
   m_Father: {fileID: 2837931679791955613}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 105, z: 0}
---- !u!114 &4497824814280476698
+--- !u!114 &6391074318006974407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -419,15 +419,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4497824814280476700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489dbfa757560be4682861569904ba32, type: 3}
+  m_Script: {fileID: 11500000, guid: 89e479f85f65e5a4bb6dc28bac76e617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0.5
-  firePoint: {fileID: 4497824814280476699}
-  projectile: {fileID: 401203190996716008, guid: 0e22211c1b98fd94aa44150f6e848738,
-    type: 3}
-  projectileSpeed: 100
-  projectileLifeSpawn: 3
+  attackSpeed: 0
+  firePoint: {fileID: 0}
+  isHostile: 0
+  projectile: {fileID: 0}
+  hight: 20
 --- !u!1 &4497824814638990009
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,7 +441,7 @@ GameObject:
   - component: {fileID: 4497824814638990008}
   - component: {fileID: 4497824814638989958}
   m_Layer: 0
-  m_Name: SlimeController
+  m_Name: SlimeControllerCorrect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,6 +475,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  poisonImmune: 0
+  poisonCooldown: 0
+  _poisonTimer: 0
   lookRadius: 50
 --- !u!195 &4497824814638989957
 NavMeshAgent:
