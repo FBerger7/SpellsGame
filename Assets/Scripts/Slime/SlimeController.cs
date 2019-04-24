@@ -46,7 +46,8 @@ using UnityEngine.AI;
                 //Face the target
                 FaceTarget();
                 //Attack the target
-                _basicAttack.PerformAttack(target.position);
+                if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+                    _basicAttack.PerformAttack(target.position);
             }
             else if (distance <= lookRadius)
             {
