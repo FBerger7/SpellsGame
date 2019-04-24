@@ -4,8 +4,6 @@ using UnityEngine;
 
 public abstract class BaseSpell : MouseTracker
 {
-    protected const float ACTIVATION_COOLDOWN = 0.5f;
-
     public float attackSpeed;
     public Transform firePoint;
     public bool isHostile;
@@ -13,4 +11,5 @@ public abstract class BaseSpell : MouseTracker
     protected float _attackCooldown;
 
     public abstract void PerformAttack(Vector3 target);
+    public abstract void EndAttack();
 }

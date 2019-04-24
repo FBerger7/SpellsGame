@@ -8,7 +8,6 @@ public class BasicAttack : InstantSpell
 
     public override void PerformAttack(Vector3 target)
     {
-        
         if (_attackCooldown <= 0)
         {
             _attackCooldown = attackSpeed;
@@ -18,7 +17,5 @@ public class BasicAttack : InstantSpell
             newProjectile.isHostile = isHostile;
             newProjectile.origin = OffensiveSpellsModel.BASIC_SPELL;
         }
-        
-        
     }
 }

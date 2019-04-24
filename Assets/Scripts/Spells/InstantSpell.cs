@@ -4,9 +4,13 @@ using UnityEngine;
 
 public abstract class InstantSpell : BaseSpell
 {
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         _attackCooldown -= Time.deltaTime;
+    }
+
+    public override void EndAttack()
+    {
+
     }
 }
