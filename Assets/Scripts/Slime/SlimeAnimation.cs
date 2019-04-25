@@ -35,18 +35,25 @@ using UnityEngine.AI;
             }
         }
 
-        public void AttackAnimation(ref Animator anim)
+        public void AttackAnimation(ref Animator anim , ref BaseSpell basicAttack, Transform target)
         {
-
+        if (!anim.GetBool("isAttack"))
+        {
             anim.CrossFade("Attack", 0.1f);
             anim.SetBool("isWalk", false);
             anim.SetBool("isDie", false);
             anim.SetBool("isAttack", true);
-
-
+            anim.SetBool("isIdle", false);
         }
 
-        public void DieAnimation(ref Animator anim)
+        //Attack the target
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.42f)
+            basicAttack.PerformAttack(target.position);
+
+
+    }
+
+    public void DieAnimation(ref Animator anim)
         {
             anim.CrossFade("Die", 0.1f);
             anim.SetBool("isWalk", false);
