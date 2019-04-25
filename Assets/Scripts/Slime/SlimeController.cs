@@ -9,7 +9,7 @@ using UnityEngine.AI;
     {
         private SlimeAnimation _slimeAnimation = new SlimeAnimation();
 
-        public BaseSpell basicAttack;  
+        public BaseSpell _basicAttack;  
 
         // Start is called before the first frame update
         void Start()
@@ -24,7 +24,7 @@ using UnityEngine.AI;
             anim = GetComponent<Animator>();
             target = PlayerManager.instance.player.transform; //RangeAttribute of slime
 
-            basicAttack= gameObject.GetComponentInChildren<SlimeBomb>();
+            _basicAttack= gameObject.GetComponentInChildren<SlimeBomb>();
        
     }
 
@@ -39,14 +39,10 @@ using UnityEngine.AI;
 
             if (distance <= agent.stoppingDistance)
             {
-                if (!anim.GetBool("isAttack"))
-                {
-                    _slimeAnimation.AttackAnimation(ref anim);
-                }
-                //Face the target
                 FaceTarget();
-                //Attack the target
-                basicAttack.PerformAttack(target.position);
+                _slimeAnimation.AttackAnimation(ref anim ,ref _basicAttack, target);
+
+
             }
             else if (distance <= lookRadius)
             {
@@ -72,9 +68,6 @@ using UnityEngine.AI;
     {
         _slimeAnimation.DieAnimation(ref anim);
         Debug.Log(transform.name + " died");
-   
-
-       // Destroy(gameObject);
 
     }
 }
