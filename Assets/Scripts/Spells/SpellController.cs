@@ -25,6 +25,7 @@ public class SpellController : MouseTracker
     // Start is called before the first frame update
     void Start()
     {
+        SetCamera();
         _spellQueue = new List<Tuple<int, int>>();
         model = new OffensiveSpellsModel();
 
@@ -33,6 +34,7 @@ public class SpellController : MouseTracker
         AddMobileSpells();
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
         // ------------------------------------------------------------------
+        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SLIME_BOMB, OffensiveSpellsModel.FIRE_BREATH));
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.FIRE_BREATH, OffensiveSpellsModel.BASIC_SPELL));
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SUMMON_WALL));
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SUMMON_WALL, OffensiveSpellsModel.BASIC_SPELL));
@@ -42,6 +44,7 @@ public class SpellController : MouseTracker
     // Update is called once per frame
     void Update()
     {
+        TrackMouse();
         _remainingPairChangeCooldown -= Time.deltaTime;
 
         if (Input.GetKey(changeSpellKey))
@@ -88,7 +91,9 @@ public class SpellController : MouseTracker
 
     private void AddOffensiveSpells()
     {
+
         _offensiveSpells = new Dictionary<int, BaseSpell>();
+        _offensiveSpells.Add(OffensiveSpellsModel.SLIME_BOMB, gameObject.GetComponent<SlimeBomb>());
         _offensiveSpells.Add(OffensiveSpellsModel.BASIC_SPELL, gameObject.GetComponent<BasicAttack>());
         _offensiveSpells.Add(OffensiveSpellsModel.SUMMON_WALL, gameObject.GetComponent<SummonWall>());
         _offensiveSpells.Add(OffensiveSpellsModel.FIRE_BREATH, gameObject.GetComponent<FireBreath>());

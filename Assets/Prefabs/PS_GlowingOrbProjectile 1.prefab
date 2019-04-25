@@ -9513,7 +9513,7 @@ GameObject:
   - component: {fileID: 401203190996716008}
   m_Layer: 0
   m_Name: PS_GlowingOrbProjectile 1
-  m_TagString: Untagged
+  m_TagString: Particles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9574,6 +9574,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfea570dd4f625c40a8c409a6a3a7bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isHostile: 0
+  origin: 0
   speed: 0
   damage: 20
   lifeSpawn: 2

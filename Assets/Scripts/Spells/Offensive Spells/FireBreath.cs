@@ -12,7 +12,7 @@ public class FireBreath : InstantSpell
     //Zmienan definiująca odstep przed ponowynym użyciem FireBreath
     public float overheat;
 
-    new void Update()
+    private void Update()
     {
         if (_isActive)
         {
