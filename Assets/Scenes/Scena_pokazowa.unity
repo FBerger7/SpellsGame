@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,12 +140,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6279233374625311783}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &317131231 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 317131231, guid: 62039e6712510f4408951dfca2aadd9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6279233374625311783}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &759631230
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,58 +209,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &855225327 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1117235221, guid: 62039e6712510f4408951dfca2aadd9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6279233374625311783}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &855225328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855225327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d80c1586c34b1fe48ab54e59bc8c7a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSpeed: 0.5
-  firePoint: {fileID: 317131231}
-  isHostile: 0
---- !u!114 &855225335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855225327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6499ab41d53ef8c4a863582ca70f7618, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSpeed: 3
-  firePoint: {fileID: 317131231}
-  isHostile: 0
---- !u!114 &855225336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855225327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de54f9f1ee398f641bead751c43e6e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSpeed: 5
-  firePoint: {fileID: 317131231}
-  isHostile: 0
-  maxDuration: 2
 --- !u!1 &1091704891
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,6 +253,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1410240409 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4497824814280476699, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1666564869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1666564869
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -318,10 +266,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: isHostile
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4497824814638990009, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
       propertyPath: m_Name
       value: SlimeControllerCorrect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497824814280476699, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497824814280476699, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391074318006974407, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391074318006974407, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1410240409}
+    - target: {fileID: 6391074318006974407, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
+        type: 3}
+    - target: {fileID: 6391074318006974407, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: isHostile
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4497824814638989959, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
@@ -378,17 +361,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4497824814280476699, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+    - target: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.4
+      propertyPath: poisonImmune
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4497824814280476699, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+    - target: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 10.9
+      propertyPath: poisonCooldown
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4497824814280476698, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+    - target: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
       propertyPath: isHostile
       value: 1
@@ -406,6 +389,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5258614249026345142, guid: 62039e6712510f4408951dfca2aadd9a,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
+        type: 3}
     - target: {fileID: 317131231, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -469,6 +458,11 @@ PrefabInstance:
     - target: {fileID: 1117235227, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
       propertyPath: attackSpeed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555450145958740016, guid: 62039e6712510f4408951dfca2aadd9a,
+        type: 3}
+      propertyPath: poisonCooldown
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}

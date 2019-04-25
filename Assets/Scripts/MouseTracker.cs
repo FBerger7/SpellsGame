@@ -18,7 +18,10 @@ public class MouseTracker : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             Transform objectHit = hit.transform;
-            pointToLook = hit.point;
+            if(objectHit.tag != "Particles")
+            {
+                pointToLook = hit.point;
+            }
         }
     }
 }
