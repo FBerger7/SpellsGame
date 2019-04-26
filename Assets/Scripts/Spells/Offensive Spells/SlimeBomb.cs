@@ -21,7 +21,7 @@ public class SlimeBomb : InstantSpell
         if(_attackCooldown <= 0)
         {
             _attackCooldown = attackSpeed;
-            GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
+            GameObject newProjectile = Instantiate(projectile, firePoint.position, Quaternion.LookRotation(Vector3.up));
             newProjectile.GetComponent<Rigidbody>().velocity = CalculateLunchVelocity(target);
             newProjectile.GetComponent<SlimeBombProjectile>().isHostile = isHostile;
             newProjectile.GetComponent<SlimeBombProjectile>().origin = OffensiveSpellsModel.SLIME_BOMB;
