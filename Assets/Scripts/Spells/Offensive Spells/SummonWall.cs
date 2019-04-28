@@ -8,7 +8,7 @@ public class SummonWall : InstantSpell
 
     public SummonedObject objectToSummon;
 
-    public override void PerformAttack(Vector3 target)
+    public override void PerformAttack(Vector3 target, bool isHostile)
     {
         if (_attackCooldown <= 0)
         {

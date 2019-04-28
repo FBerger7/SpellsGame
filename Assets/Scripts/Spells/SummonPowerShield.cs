@@ -20,7 +20,7 @@ public class SummonPowerShield : InstantSpell
         }
     }
 
-    public override void PerformAttack(Vector3 target)
+    public override void PerformAttack(Vector3 target, bool isHostile)
     {
         if (_attackCooldown <= 0)
         {

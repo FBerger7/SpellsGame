@@ -7,10 +7,6 @@ using UnityEngine.AI;
 
 public class GloriosaController : EnemyController
 {
-    //private GloriosaAnimation _GloriosaAnimation = new GloriosaAnimation();
-
-    //private BasicAttack attack;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +25,7 @@ public class GloriosaController : EnemyController
     // Update is called once per frame
     void Update()
     {
-        runUpdate();
+        RunUpdate();
     }
 
     public override void Die()

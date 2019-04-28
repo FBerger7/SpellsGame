@@ -58,7 +58,7 @@ public class SpellController : MouseTracker
 
         if (Input.GetKey(leftSpellKey))
         {
-            _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item1].PerformAttack(pointToLook);
+            _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item1].PerformAttack(pointToLook, false);
         }
         if (Input.GetKeyUp(leftSpellKey))
         {
@@ -67,7 +67,7 @@ public class SpellController : MouseTracker
 
         if (Input.GetKey(rightSpellKey))
         {
-            _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item2].PerformAttack(pointToLook);
+            _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item2].PerformAttack(pointToLook, false);
         }
         if (Input.GetKeyUp(leftSpellKey))
         {
@@ -80,7 +80,7 @@ public class SpellController : MouseTracker
         }
         if (Input.GetKey(mobileSpellKey))
         {
-            _mobileSpells[_currentMobileSpell].PerformAttack(pointToLook);
+            _mobileSpells[_currentMobileSpell].PerformAttack(pointToLook, false);
         }
 
         if (Input.GetKeyUp(mobileSpellKey))

@@ -2,9 +2,9 @@
 using UnityEngine.AI;
 
 [System.Serializable]
-public class GloriosaAnimation : EnemyAnimation
+public class GloriosaAnimation : IEnemyAnimation
 {
-    public override void IdleAnimation(ref Animator anim)
+    public void IdleAnimation(ref Animator anim)
     {
         if (!anim.GetBool("isIdle"))
         {
@@ -15,7 +15,7 @@ public class GloriosaAnimation : EnemyAnimation
         }
     }
 
-    public override void AttackAnimation(ref Animator anim, ref BaseSpell attack, Transform target)
+    public void AttackAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
     {
         if (!anim.GetBool("isAttack"))
         {
@@ -27,10 +27,10 @@ public class GloriosaAnimation : EnemyAnimation
 
         //Attack the target
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.33f)
-            attack.PerformAttack(target.position);
+            attack.PerformAttack(target.position, isHostile);
     }
 
-    public override void DieAnimation(ref Animator anim)
+    public void DieAnimation(ref Animator anim)
     {
         anim.CrossFade("Die", 0.1f);
         anim.SetBool("isDie", true);
@@ -39,8 +39,8 @@ public class GloriosaAnimation : EnemyAnimation
 
     }
 
-    public override void WalkAnimation(ref Animator anim, ref NavMeshAgent agent)
+    public void WalkAnimation(ref Animator anim, ref NavMeshAgent agent)
     {
-        throw new System.NotImplementedException();
+
     }
 }

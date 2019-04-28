@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class Teleport : InstantSpell
 {
-    void Start()
-    {
-        SetCamera();
-    }
-
-    public override void PerformAttack(Vector3 target)
+    public override void PerformAttack(Vector3 target, bool isHostile)
     {
         if (_attackCooldown <= 0)
         {
             _attackCooldown = attackSpeed;
-            TrackMouse();
-            firePoint.position = new Vector3(pointToLook.x, pointToLook.y, pointToLook.z);
+            firePoint.position = new Vector3(target.x, target.y, target.z);
         }
     }
 }

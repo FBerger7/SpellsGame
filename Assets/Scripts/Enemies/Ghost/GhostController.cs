@@ -22,7 +22,7 @@ public class GhostController : EnemyController
     // Update is called once per frame
     void Update()
     {
-        runUpdate();
+        RunUpdate();
     }
 
     public override void Die()

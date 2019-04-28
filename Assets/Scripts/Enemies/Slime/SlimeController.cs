@@ -28,7 +28,7 @@ public class SlimeController : EnemyController
     void Update()
     {
         _poisonTimer -= Time.deltaTime;
-        runUpdate();
+        RunUpdate();
     }
 
     public override void Die()
