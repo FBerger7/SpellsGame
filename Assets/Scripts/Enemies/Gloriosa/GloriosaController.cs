@@ -9,7 +9,7 @@ public class GloriosaController : EnemyController
 {
     private GloriosaAnimation _GloriosaAnimation = new GloriosaAnimation();
 
-    private BasicAttack _basicAttack;
+    //private BasicAttack attack;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,7 @@ public class GloriosaController : EnemyController
         anim = GetComponent<Animator>();
         target = PlayerManager.instance.player.transform; //RangeAttribute of Gloriosa
 
-        _basicAttack = gameObject.GetComponentInChildren<BasicAttack>();
+        //attack = gameObject.GetComponentInChildren<BasicAttack>();
 
     }
 
@@ -41,7 +41,7 @@ public class GloriosaController : EnemyController
             {
                 //Face the target
                 FaceTarget();
-                _GloriosaAnimation.AttackAnimation(ref anim, ref _basicAttack, target);
+                _GloriosaAnimation.AttackAnimation(ref anim, ref attack, target);
 
             }
             else

@@ -4,16 +4,16 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [System.Serializable]
-public class SlimeAnimation
+public class SlimeAnimation : EnemyAnimation
 {
-    public void IdleAnimation(ref Animator anim)
+    public override void IdleAnimation(ref Animator anim)
     {
         anim.CrossFade("Idle", 0.1f);
         anim.SetBool("isIdle", true);
         anim.SetBool("isWalk", false);
         anim.SetBool("isAttack", false);
     }
-    public void WalkAnimation(ref Animator anim, ref NavMeshAgent agent)
+    public override void WalkAnimation(ref Animator anim, ref NavMeshAgent agent)
     {
         if (!anim.GetBool("isWalk"))
         {
@@ -35,7 +35,7 @@ public class SlimeAnimation
         }
     }
 
-    public void AttackAnimation(ref Animator anim, ref BaseSpell basicAttack, Transform target)
+    public override void AttackAnimation(ref Animator anim, ref BaseSpell attack, Transform target)
     {
         if (!anim.GetBool("isAttack"))
         {
@@ -48,12 +48,12 @@ public class SlimeAnimation
 
         //Attack the target
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.42f)
-            basicAttack.PerformAttack(target.position);
+            attack.PerformAttack(target.position);
 
 
     }
 
-    public void DieAnimation(ref Animator anim)
+    public override void DieAnimation(ref Animator anim)
     {
         anim.CrossFade("Die", 0.1f);
         anim.SetBool("isWalk", false);

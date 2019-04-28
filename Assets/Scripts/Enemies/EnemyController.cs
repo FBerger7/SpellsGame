@@ -6,7 +6,10 @@ using UnityEngine.AI;
 public abstract class EnemyController : CharacterStats
 {
     public float lookRadius;
+    public BaseSpell attack;
+    public bool canMove;
 
+    public EnemyAnimation enemyAnimation;
     protected Animator anim;
     protected Transform target;
     protected NavMeshAgent agent;
@@ -30,7 +33,72 @@ public abstract class EnemyController : CharacterStats
 
     protected void runUpdate()
     {
-
+        float distance = Vector3.Distance(target.position, transform.position);
+        if (!anim.GetBool("isDie"))
+        {
+            if (canMove)
+                WalkingEnemyConditions(distance);
+            else
+                StandingEnemyConditions(distance);
+        }
+        else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Die") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        {
+            Destroy(gameObject);
+        }
     }
 
+
+    //protected void runStandingUpdate()
+    //{
+    //    float distance = Vector3.Distance(target.position, transform.position);
+    //    if (!anim.GetBool("isDie"))
+    //    {
+    //        StandingEnemyConditions(distance);
+    //    }
+    //    else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Die") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+    //    {
+    //        Destroy(gameObject);
+    //    }
+    //}
+
+
+    private void WalkingEnemyConditions(float distance)
+    {
+        if (distance <= agent.stoppingDistance)
+        {
+            FaceTarget();
+            enemyAnimation.AttackAnimation(ref anim, ref attack, target);
+
+
+        }
+        else if (distance <= lookRadius)
+        {
+
+            agent.SetDestination(target.position);
+
+            enemyAnimation.WalkAnimation(ref anim, ref agent);
+
+        }
+        else if (!anim.GetBool("isIdle"))
+        {
+            enemyAnimation.IdleAnimation(ref anim);
+
+        }
+    }
+
+    private void StandingEnemyConditions(float distance)
+    {
+        if (distance <= agent.stoppingDistance)
+        {
+            //Face the target
+            FaceTarget();
+            enemyAnimation.AttackAnimation(ref anim, ref attack, target);
+
+        }
+        else
+        {
+            enemyAnimation.IdleAnimation(ref anim);
+
+        }
+    }
 }

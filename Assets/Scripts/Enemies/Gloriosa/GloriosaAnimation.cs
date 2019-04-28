@@ -18,7 +18,7 @@ public class GloriosaAnimation
     }
 
 
-    public void AttackAnimation(ref Animator anim, ref BasicAttack basicAttack, Transform target)
+    public void AttackAnimation(ref Animator anim, ref BaseSpell basicAttack, Transform target)
     {
         if (!anim.GetBool("isAttack"))
         {
