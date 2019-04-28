@@ -10,17 +10,18 @@ public class SlimeController : EnemyController
     // Start is called before the first frame update
     void Start()
     {
-        enemyAnimation = new SlimeAnimation();
+        
         lookRadius = 50f;
         maxHealth = 100f;
 
-        agent = GetComponent<NavMeshAgent>();
-        agent.stoppingDistance = 30f;
+        _agent = GetComponent<NavMeshAgent>();
+        _agent.stoppingDistance = 30f;
 
-        anim = GetComponent<Animator>();
-        target = PlayerManager.instance.player.transform; //RangeAttribute of slime
+        _anim = GetComponent<Animator>();
+        _target = PlayerManager.instance.player.transform; //RangeAttribute of slime
 
-        attack = gameObject.GetComponentInChildren<SlimeBomb>();
+        _attack = gameObject.GetComponentInChildren<SlimeBomb>();
+        _enemyAnimation = new SlimeAnimation();
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class SlimeController : EnemyController
 
     public override void Die()
     {
-        enemyAnimation.DieAnimation(ref anim);
+        _enemyAnimation.DieAnimation(ref _anim);
         Debug.Log(transform.name + " died");
     }
 }

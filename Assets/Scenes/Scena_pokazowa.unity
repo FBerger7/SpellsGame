@@ -326,6 +326,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6288660717536869780, guid: 92b2f8b50f53d1b4388a67d34fd21e34,
+        type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288660717536869780, guid: 92b2f8b50f53d1b4388a67d34fd21e34,
+        type: 3}
+      propertyPath: isHostile
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92b2f8b50f53d1b4388a67d34fd21e34, type: 3}
 --- !u!1001 &1666564869
@@ -429,6 +439,11 @@ PrefabInstance:
       propertyPath: isHostile
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6391074318006974407, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
       propertyPath: attackSpeed
@@ -517,6 +532,11 @@ PrefabInstance:
     - target: {fileID: 1211923401681953966, guid: 12d315936787b9649ad126a8ca7b38e8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211923401681926466, guid: 12d315936787b9649ad126a8ca7b38e8,
+        type: 3}
+      propertyPath: canMove
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
