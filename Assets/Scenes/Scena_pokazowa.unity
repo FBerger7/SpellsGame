@@ -626,6 +626,11 @@ PrefabInstance:
       propertyPath: poisonCooldown
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4044974155009357908, guid: 62039e6712510f4408951dfca2aadd9a,
+        type: 3}
+      propertyPath: maxRange
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5258614249026345142, guid: 62039e6712510f4408951dfca2aadd9a,
         type: 3}
       propertyPath: projectile
