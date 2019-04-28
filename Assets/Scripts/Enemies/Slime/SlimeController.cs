@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 
 
-    public class SlimeController : Enemy
+    public class SlimeController : EnemyController
     {
         private SlimeAnimation _slimeAnimation = new SlimeAnimation();
 

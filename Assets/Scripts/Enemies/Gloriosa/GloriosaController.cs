@@ -5,24 +5,24 @@ using UnityEngine.AI;
 
 
 
-public class GhostController : Enemy
+public class GloriosaController : EnemyController
 {
-    private GhostAnimation _GhostAnimation = new GhostAnimation();
+    private GloriosaAnimation _GloriosaAnimation = new GloriosaAnimation();
 
     private BasicAttack _basicAttack;
 
     // Start is called before the first frame update
     void Start()
     {
-        lookRadius = 100f;
-        maxHealth = 100f;
+
+        maxHealth = 200f;
 
 
         agent = GetComponent<NavMeshAgent>();
-        agent.stoppingDistance = 50f;
+        lookRadius = agent.stoppingDistance = 50f;
 
         anim = GetComponent<Animator>();
-        target = PlayerManager.instance.player.transform; //RangeAttribute of Ghost
+        target = PlayerManager.instance.player.transform; //RangeAttribute of Gloriosa
 
         _basicAttack = gameObject.GetComponentInChildren<BasicAttack>();
 
@@ -40,19 +40,13 @@ public class GhostController : Enemy
             if (distance <= agent.stoppingDistance)
             {
                 //Face the target
-                FaceTarget();           
-                _GhostAnimation.AttackAnimation(ref anim, ref _basicAttack, target);
+                FaceTarget();
+                _GloriosaAnimation.AttackAnimation(ref anim, ref _basicAttack, target);
 
             }
-            else if (distance <= lookRadius)
+            else
             {
-                agent.SetDestination(target.position);
-                _GhostAnimation.WalkAnimation(ref anim, ref agent);  
-                
-            }
-            else 
-            {
-                _GhostAnimation.IdleAnimation(ref anim);
+                _GloriosaAnimation.IdleAnimation(ref anim);
 
             }
         }
@@ -64,7 +58,7 @@ public class GhostController : Enemy
 
     public override void Die()
     {
-        _GhostAnimation.DieAnimation(ref anim);
+        _GloriosaAnimation.DieAnimation(ref anim);
         Debug.Log(transform.name + " died");
 
 

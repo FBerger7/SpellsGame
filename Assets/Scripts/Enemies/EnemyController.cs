@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public abstract class Enemy : CharacterStats
+public abstract class EnemyController : CharacterStats
 {
     public float lookRadius;
 
@@ -25,6 +25,11 @@ public abstract class Enemy : CharacterStats
         Gizmos.color = Color.yellow;
         if(agent !=null)
          Gizmos.DrawWireSphere(transform.position + new Vector3(1.0f, 0.0f, 2f), agent.stoppingDistance);
+
+    }
+
+    protected void runUpdate()
+    {
 
     }
 
