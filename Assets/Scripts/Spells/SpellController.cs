@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class SpellController : MouseTracker
 {
-    private const float SPELL_CHANGE_COOLDOWN = 0.5f;
-
     public KeyCode leftSpellKey;
     public KeyCode rightSpellKey;
     public KeyCode deffensiveSpellKey;
     public KeyCode mobileSpellKey;
-    public KeyCode changeSpellKey;
+    public KeyCode changeOffensiveSpellKey;
+    public KeyCode changeMobileSpellKey;
     public CharacterInterface characterInterface;
 
     private OffensiveSpellsModel model;
@@ -19,9 +18,7 @@ public class SpellController : MouseTracker
     private Dictionary<int, BaseSpell> _mobileSpells;
     private SummonPowerShield _summonPowerShield;
     private int _currentOffensiveSpellsPair = 0;
-    public int _currentMobileSpell = 0;
-    private float _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
-    
+    private int _currentMobileSpell = 0; 
 
     // Start is called before the first frame update
     void Start()
@@ -46,16 +43,20 @@ public class SpellController : MouseTracker
     void Update()
     {
         TrackMouse();
-        _remainingPairChangeCooldown -= Time.deltaTime;
 
-        if (Input.GetKey(changeSpellKey))
+        if (Input.GetKeyDown(changeOffensiveSpellKey))
         {
-            if (_remainingPairChangeCooldown <= 0)
-            {
-                _remainingPairChangeCooldown = SPELL_CHANGE_COOLDOWN;
-                _currentOffensiveSpellsPair = (_currentOffensiveSpellsPair + 1) % _spellQueue.Count;
-            }
+            _currentOffensiveSpellsPair = (_currentOffensiveSpellsPair + 1) % _spellQueue.Count;
+            characterInterface.SetMainSpellFirst(_spellQueue[_currentOffensiveSpellsPair].Item1);
+            characterInterface.SetMainSpellSecond(_spellQueue[_currentOffensiveSpellsPair].Item2);
         }
+
+        if (Input.GetKeyDown(changeMobileSpellKey))
+        {
+            _currentMobileSpell = (_currentMobileSpell + 1) % _mobileSpells.Count;
+            characterInterface.SetMobileSpell(_currentMobileSpell);
+        }
+
 
         if (Input.GetKey(leftSpellKey))
         {

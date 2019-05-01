@@ -149,7 +149,7 @@ PrefabInstance:
     - target: {fileID: 4497824814638989959, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -81.29
+      value: -58.4
       objectReference: {fileID: 0}
     - target: {fileID: 4497824814638989959, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
@@ -159,7 +159,7 @@ PrefabInstance:
     - target: {fileID: 4497824814638989959, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -61.94
+      value: -47.3
       objectReference: {fileID: 0}
     - target: {fileID: 4497824814638989959, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
@@ -697,6 +697,14 @@ PrefabInstance:
       propertyPath: characterInterface
       value: 
       objectReference: {fileID: 756968974}
+    - target: {fileID: 1117235226, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
+      propertyPath: changeOffensiveSpellKey
+      value: 306
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117235226, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
+      propertyPath: changeMobileSpellKey
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 317131229, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
       propertyPath: runBoost
       value: 5
@@ -713,6 +721,26 @@ PrefabInstance:
         type: 3}
       propertyPath: poisonCooldown
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555450145958740016, guid: 62039e6712510f4408951dfca2aadd9a,
+        type: 3}
+      propertyPath: poisonImmune
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555450145958740016, guid: 62039e6712510f4408951dfca2aadd9a,
+        type: 3}
+      propertyPath: isHostile
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2555450145958740016, guid: 62039e6712510f4408951dfca2aadd9a,
+        type: 3}
+      propertyPath: characterInterface
+      value: 
+      objectReference: {fileID: 756968974}
+    - target: {fileID: 4044974155009357908, guid: 62039e6712510f4408951dfca2aadd9a,
+        type: 3}
+      propertyPath: maxRange
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5258614249026345142, guid: 62039e6712510f4408951dfca2aadd9a,
         type: 3}

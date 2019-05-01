@@ -7,7 +7,6 @@ public abstract class BaseSpell : MouseTracker
     public float attackSpeed;
     public Transform firePoint;
 
-    //protected bool _isHostile;
     protected float _attackCooldown;
 
     public abstract void PerformAttack(Vector3 target, bool isHostile);

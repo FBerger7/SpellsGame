@@ -12,6 +12,7 @@ public class CharacterStats : MonoBehaviour
     public bool isHostile;
     public bool poisonImmune;
     public float poisonCooldown;
+    public CharacterInterface characterInterface;
 
     [SerializeField]
     protected float _poisonTimer;
@@ -30,6 +31,9 @@ public class CharacterStats : MonoBehaviour
     {
         CurrentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damage.");
+
+        if (characterInterface)
+            characterInterface.SetHealthPoints((int)CurrentHealth);
 
         if (CurrentHealth <= 0)
         {
