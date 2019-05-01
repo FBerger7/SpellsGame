@@ -423,9 +423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 0
-  firePoint: {fileID: 0}
-  isHostile: 0
-  projectile: {fileID: 0}
+  firePoint: {fileID: 4497824814280476699}
+  projectile: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
+    type: 3}
   hight: 20
 --- !u!1 &4497824814638990009
 GameObject:
@@ -475,6 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+  isHostile: 0
   poisonImmune: 0
   poisonCooldown: 0
   _poisonTimer: 0
