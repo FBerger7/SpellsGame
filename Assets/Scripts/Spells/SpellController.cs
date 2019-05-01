@@ -12,20 +12,20 @@ public class SpellController : MouseTracker
     public KeyCode changeMobileSpellKey;
     public CharacterInterface characterInterface;
 
-    private OffensiveSpellsModel model;
+    private OffensiveSpellsModel _model;
     private List<Tuple<int, int>> _spellQueue;
     private Dictionary<int, BaseSpell> _offensiveSpells;
     private Dictionary<int, BaseSpell> _mobileSpells;
     private SummonPowerShield _summonPowerShield;
     private int _currentOffensiveSpellsPair = 0;
-    private int _currentMobileSpell = 0; 
+    private int _currentMobileSpell = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         SetCamera();
         _spellQueue = new List<Tuple<int, int>>();
-        model = new OffensiveSpellsModel();
+        _model = new OffensiveSpellsModel();
 
         _summonPowerShield = gameObject.GetComponent<SummonPowerShield>();
         AddOffensiveSpells();
@@ -94,7 +94,7 @@ public class SpellController : MouseTracker
     {
         if (Input.GetKey(deffensiveSpellKey))
         {
-            _summonPowerShield.PerformAttack(model);
+            _summonPowerShield.PerformAttack(_model);
         }
     }
 
