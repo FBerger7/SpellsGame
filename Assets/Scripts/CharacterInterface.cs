@@ -40,68 +40,68 @@ public class CharacterInterface : MonoBehaviour
 
     public Sprite[] parrySpellSprites;
 
-    public void setHealthPoints(int number) {
+    public void SetHealthPoints(int number) {
         if (number > -1 && number < 101)
             healthPoints = number;
-        healthPointsTexture.sprite = healthSprites[getIndexOfSprite()];
+        healthPointsTexture.sprite = healthSprites[GetIndexOfSprite()];
         healthPointsText.text = "HP: " + healthPoints + "%";
     }
 
-    public void setHealingSpell(int number) {
+    public void SetHealingSpell(int number) {
         if (number > -1 && number < healingSpellSprites.Length)
             healingSpell = number;
         healingSpellTexture.sprite = healingSpellSprites[healingSpell];
     }
 
-    public void setMobileSpell(int number) {
+    public void SetMobileSpell(int number) {
         if (number > -1 && number < mobileSpellSprites.Length)
             mobileSpell = number;
         mobileSpellTexture.sprite = mobileSpellSprites[mobileSpell];
     }
 
-    public void setParrySpell(int number) {
+    public void SetParrySpell(int number) {
         if (number > -1 && number < parrySpellSprites.Length)
             parrySpell = number;
         parrySpellTexture.sprite = parrySpellSprites[parrySpell];
     }
 
-    public void setMainSpellFirst(int number) {
+    public void SetMainSpellFirst(int number) {
         if (number > -1 && number < mainSpellSprites.Length)
             mainSpellFirst = number;
         mainSpellFirstTexture.sprite = mainSpellSprites[mainSpellFirst];
     }
 
-    public void setMainSpellSecond(int number) {
+    public void SetMainSpellSecond(int number) {
         if (number > -1 && number < mainSpellSprites.Length)
             mainSpellSecond = number;
         mainSpellSecondTexture.sprite = mainSpellSprites[mainSpellSecond];
     }
 
-    public int getHealthPoints() {
+    public int GetHealthPoints() {
         return healthPoints;
     }
 
-    public int getHealingSpell() {
+    public int GetHealingSpell() {
         return healingSpell;
     }
 
-    public int getMobileSpell() {
+    public int GetMobileSpell() {
         return mobileSpell;
     }
 
-    public int getParrySpell() {
+    public int GetParrySpell() {
         return parrySpell;
     }
 
-    public int getMainSpellFirst() {
+    public int GetMainSpellFirst() {
         return mainSpellFirst;
     }
 
-    public int getMainSpellSecond() {
+    public int GetMainSpellSecond() {
         return mainSpellSecond;
     }
 
-    private int getIndexOfSprite() {
+    private int GetIndexOfSprite() {
         int result = healthPoints/10;
         if (healthPoints % 10 != 0)
             result++;
@@ -110,7 +110,7 @@ public class CharacterInterface : MonoBehaviour
 
     void Start()
     {
-        setHealthPoints(100);
+        SetHealthPoints(100);
         healthPointsText.text = "HP: " + healthPoints + "%";
         mainSpellFirst = 0;
         mainSpellSecond = 1;
@@ -122,7 +122,7 @@ public class CharacterInterface : MonoBehaviour
         healingSpellTexture.sprite = healingSpellSprites[healingSpell];
         parrySpellTexture.sprite = parrySpellSprites[parrySpell];
         mobileSpellTexture.sprite = mobileSpellSprites[mobileSpell];
-        healthPointsTexture.sprite = healthSprites[getIndexOfSprite()];
+        healthPointsTexture.sprite = healthSprites[GetIndexOfSprite()];
     }
 
     void Update()
@@ -133,7 +133,7 @@ public class CharacterInterface : MonoBehaviour
             if (healthPoints > 0)
                 healthPoints--;
             healthPointsText.text = "HP:  " + healthPoints + "%";
-            healthPointsTexture.sprite = healthSprites[getIndexOfSprite()];
+            healthPointsTexture.sprite = healthSprites[GetIndexOfSprite()];
         }
 
         //Press L to change the main spells

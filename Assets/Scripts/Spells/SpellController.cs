@@ -11,6 +11,7 @@ public class SpellController : MouseTracker
     public KeyCode deffensiveSpellKey;
     public KeyCode mobileSpellKey;
     public KeyCode changeSpellKey;
+    public CharacterInterface characterInterface;
 
     private OffensiveSpellsModel model;
     private List<Tuple<int, int>> _spellQueue;

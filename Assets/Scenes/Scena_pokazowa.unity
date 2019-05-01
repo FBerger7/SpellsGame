@@ -206,6 +206,22 @@ PrefabInstance:
       propertyPath: isHostile
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6391074318006974407, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6391074318006974407, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1701799597661837543, guid: a09bec33f08fc10499414fead0e5d649,
+        type: 3}
+    - target: {fileID: 6391074318006974407, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b3a3230dbde3c419675a44ebe02a0e, type: 3}
 --- !u!1 &317131227 stripped
@@ -357,6 +373,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12d315936787b9649ad126a8ca7b38e8, type: 3}
+--- !u!114 &756968974 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4513491835348426792, guid: 0b4201b5689f6884f97dc729b05afc7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 483517261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593c0318b3ca59e4886ce23d6a87f00f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &759631230
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +704,10 @@ PrefabInstance:
       propertyPath: _currentMobileSpell
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1117235226, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
+      propertyPath: characterInterface
+      value: 
+      objectReference: {fileID: 756968974}
     - target: {fileID: 317131229, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
       propertyPath: runBoost
       value: 5
