@@ -44,6 +44,17 @@ public class SpellController : MouseTracker
     {
         TrackMouse();
 
+        HandleSpellChange();
+
+        HandleOffensiveSpells();
+
+        HandleDeffensiveSpell();
+
+        HandleMobileSpell();
+    }
+
+    private void HandleSpellChange()
+    {
         if (Input.GetKeyDown(changeOffensiveSpellKey))
         {
             _currentOffensiveSpellsPair = (_currentOffensiveSpellsPair + 1) % _spellQueue.Count;
@@ -56,8 +67,10 @@ public class SpellController : MouseTracker
             _currentMobileSpell = (_currentMobileSpell + 1) % _mobileSpells.Count;
             characterInterface.SetMobileSpell(_currentMobileSpell);
         }
+    }
 
-
+    private void HandleOffensiveSpells()
+    {
         if (Input.GetKey(leftSpellKey))
         {
             _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item1].PerformAttack(pointToLook, false);
@@ -75,11 +88,18 @@ public class SpellController : MouseTracker
         {
             _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item2].EndAttack();
         }
+    }
 
+    private void HandleDeffensiveSpell()
+    {
         if (Input.GetKey(deffensiveSpellKey))
         {
             _summonPowerShield.PerformAttack(model);
         }
+    }
+
+    private void HandleMobileSpell()
+    {
         if (Input.GetKey(mobileSpellKey))
         {
             _mobileSpells[_currentMobileSpell].PerformAttack(pointToLook, false);
