@@ -16,7 +16,7 @@ public class SlimeBomb : InstantSpell
         _gravity = Physics.gravity.y;
     }
 
-    public override void PerformAttack(Vector3 target)
+    public override void PerformAttack(Vector3 target, bool isHostile)
     {
         if(_attackCooldown <= 0)
         {
@@ -25,7 +25,6 @@ public class SlimeBomb : InstantSpell
             newProjectile.GetComponent<Rigidbody>().velocity = CalculateLunchVelocity(target);
             newProjectile.GetComponent<SlimeBombProjectile>().isHostile = isHostile;
             newProjectile.GetComponent<SlimeBombProjectile>().origin = OffensiveSpellsModel.SLIME_BOMB;
-
         }
     }
 

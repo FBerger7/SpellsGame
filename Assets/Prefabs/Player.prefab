@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  isHostile: 0
   poisonImmune: 0
   poisonCooldown: 0.5
   _poisonTimer: 0
@@ -357,7 +358,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0.5
   firePoint: {fileID: 1117235222}
-  isHostile: 0
   projectile: {fileID: 401203190996716008, guid: 0e22211c1b98fd94aa44150f6e848738,
     type: 3}
   projectileSpeed: 100
@@ -379,6 +379,7 @@ MonoBehaviour:
   deffensiveSpellKey: 304
   mobileSpellKey: 0
   changeSpellKey: 306
+  characterInterface: {fileID: 0}
   _currentMobileSpell: 0
 --- !u!114 &1117235225
 MonoBehaviour:
@@ -394,7 +395,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0.5
   firePoint: {fileID: 1117235222}
-  isHostile: 0
   wallLifeSpan: 5
   objectToSummon: {fileID: 3665822623760171551, guid: 605b36c57472c6a41a99809624936e9b,
     type: 3}
@@ -412,7 +412,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0.5
   firePoint: {fileID: 317131231}
-  isHostile: 0
   shieldLifeSpan: 5
   powerShield: {fileID: 8527800263672130036, guid: 16c5dd3436b687c4e8ea51da89ea05de,
     type: 3}
@@ -430,7 +429,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 2
   firePoint: {fileID: 1117235222}
-  isHostile: 0
   GFX: {fileID: 6897096650666604974, guid: 9cabbf8f2f478a74ab9bd975dedf3ed1, type: 3}
   _isActive: 0
   overheat: 0.5
@@ -448,7 +446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0.5
   firePoint: {fileID: 317131231}
-  isHostile: 0
+  maxRange: 0
 --- !u!114 &8662742654999777955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -463,7 +461,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 3
   firePoint: {fileID: 317131231}
-  isHostile: 0
 --- !u!114 &3057217851141910378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -478,7 +475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 5
   firePoint: {fileID: 317131231}
-  isHostile: 0
   maxDuration: 2
 --- !u!114 &5258614249026345142
 MonoBehaviour:
@@ -494,7 +490,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 1
   firePoint: {fileID: 1117235222}
-  isHostile: 0
   projectile: {fileID: 7862654790774745115, guid: 348616fdf525f7945a6c1b163e6c5009,
     type: 3}
   hight: 30

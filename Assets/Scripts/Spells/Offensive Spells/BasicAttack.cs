@@ -6,7 +6,7 @@ public class BasicAttack : InstantSpell
     public float projectileSpeed;
     public float projectileLifeSpawn;
 
-    public override void PerformAttack(Vector3 target)
+    public override void PerformAttack(Vector3 target, bool isHostile)
     {
         if (_attackCooldown <= 0)
         {
