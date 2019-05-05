@@ -10,22 +10,22 @@ public class SlimeBossController : EnemyController
     // Start is called before the first frame update
     void Start()
     {
-        lookRadius = 100f;
         maxHealth = 500f;
 
         _agent = GetComponent<NavMeshAgent>();
-        _agent.stoppingDistance = 30f;
+        lookRadius = _agent.stoppingDistance = 100f;
 
         _anim = GetComponent<Animator>();
         _target = PlayerManager.instance.player.transform;
 
         _attack = gameObject.GetComponentInChildren<SlimeBomb>();
-        _enemyAnimation = new SlimeAnimation();
+        _enemyAnimation = new SlimeBossAnimation();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        _poisonTimer -= Time.deltaTime;
+        RunUpdate();
     }
 }

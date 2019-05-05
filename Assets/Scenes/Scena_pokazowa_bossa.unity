@@ -179,8 +179,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6391074318006974407, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: attackSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b3a3230dbde3c419675a44ebe02a0e, type: 3}
+--- !u!114 &144972512 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+    type: 3}
+  m_PrefabInstance: {fileID: 144972511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436670e95bd49c84c909e94f2dc99ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &248805918 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8210425897069257736, guid: e2f24a88e323ecb46b155c0f15844733,
@@ -817,8 +834,39 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
         type: 3}
+    - target: {fileID: 1117235225, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
+      propertyPath: slime
+      value: 
+      objectReference: {fileID: 144972512}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62039e6712510f4408951dfca2aadd9a, type: 3}
+--- !u!1 &6279233374625311784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1117235221, guid: 62039e6712510f4408951dfca2aadd9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6279233374625311783}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6279233374625311785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279233374625311784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b565762d6a2729e419418195be486ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 0.5
+  firePoint: {fileID: 6279233374625311786}
+  slime: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e, type: 3}
+--- !u!4 &6279233374625311786 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1117235222, guid: 62039e6712510f4408951dfca2aadd9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6279233374625311783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8126273949227865507
 PrefabInstance:
   m_ObjectHideFlags: 0

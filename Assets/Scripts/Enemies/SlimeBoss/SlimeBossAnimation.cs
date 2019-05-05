@@ -15,7 +15,18 @@ public class SlimeBossAnimation : IEnemyAnimation
 
     public void AttackAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
     {
-        // Potem
+        if (!anim.GetBool("isAttack"))
+        {
+            anim.CrossFade("Attack", 0.1f);
+            anim.SetBool("isWalk", false);
+            anim.SetBool("isDie", false);
+            anim.SetBool("isAttack", true);
+            anim.SetBool("isIdle", false);
+        }
+
+        //Attack the target
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.42f)
+            attack.PerformAttack(target.position, isHostile);
     }
 
     public void DieAnimation(ref Animator anim)
