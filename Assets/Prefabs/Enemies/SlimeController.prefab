@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 4497824814638990008}
   - component: {fileID: 4497824814638989958}
   m_Layer: 0
-  m_Name: SlimeControllerCorrect
+  m_Name: SlimeController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -475,9 +475,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
-  isHostile: 0
+  isHostile: 1
   poisonImmune: 0
   poisonCooldown: 0
+  characterInterface: {fileID: 0}
   _poisonTimer: 0
   lookRadius: 50
 --- !u!195 &4497824814638989957
