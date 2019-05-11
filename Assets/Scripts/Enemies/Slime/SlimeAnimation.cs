@@ -60,6 +60,5 @@ public class SlimeAnimation : IEnemyAnimation
         anim.SetBool("isDie", true);
         anim.SetBool("isAttack", false);
         anim.SetBool("isIdle", false);
-
     }
 }

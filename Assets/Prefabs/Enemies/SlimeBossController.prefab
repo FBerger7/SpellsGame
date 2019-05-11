@@ -413,7 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   isHostile: 1
-  poisonImmune: 0
+  poisonImmune: 1
   poisonCooldown: 0
   characterInterface: {fileID: 0}
   _poisonTimer: 0

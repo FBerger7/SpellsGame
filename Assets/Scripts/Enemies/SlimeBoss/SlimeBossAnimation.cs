@@ -31,7 +31,11 @@ public class SlimeBossAnimation : IEnemyAnimation
 
     public void DieAnimation(ref Animator anim)
     {
-        // Potem
+        anim.CrossFade("Die", 0.1f);
+        anim.SetBool("isWalk", false);
+        anim.SetBool("isDie", true);
+        anim.SetBool("isAttack", false);
+        anim.SetBool("isIdle", false);
     }
 
     public void WalkAnimation(ref Animator anim, ref NavMeshAgent agent)
