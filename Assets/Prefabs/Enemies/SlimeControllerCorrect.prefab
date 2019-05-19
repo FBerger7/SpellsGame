@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e479f85f65e5a4bb6dc28bac76e617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0
+  attackSpeed: 0.5
   firePoint: {fileID: 4497824814280476699}
   projectile: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
     type: 3}
@@ -475,9 +475,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
-  isHostile: 0
+  isHostile: 1
   poisonImmune: 0
   poisonCooldown: 0
+  characterInterface: {fileID: 0}
   _poisonTimer: 0
   lookRadius: 50
 --- !u!195 &4497824814638989957

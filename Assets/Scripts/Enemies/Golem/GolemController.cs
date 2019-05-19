@@ -22,13 +22,13 @@ public class GolemController : EnemyController
 
         _agent = GetComponent<NavMeshAgent>();
         lookRadius = 100f;
-        _agent.stoppingDistance = 10f;
+        _agent.stoppingDistance = 50f;
 
         _anim = GetComponent<Animator>();
         _target = PlayerManager.instance.player.transform;
 
-        _attack = gameObject.GetComponentInChildren<SlimeBomb>();
-        //_sideAttack = gameObject.GetComponentInChildren<SpawnSlime>();
+        //_attack = gameObject.GetComponentInChildren<SlimeBomb>();
+        _sideAttack = gameObject.GetComponentInChildren<SpawnSlime>();
         _golemAnimation = new GolemAnimation();
     }
 
@@ -41,7 +41,8 @@ public class GolemController : EnemyController
             if (distance <= _agent.stoppingDistance)
             {
                 FaceTarget();
-                _golemAnimation.AttackBAnimation(ref _anim, ref _attack, _target, isHostile);
+                _golemAnimation.AttackGAnimation(ref _anim, ref _attack, _target, isHostile);
+                //_golemAnimation.AttackBAnimation(ref _anim, ref _attack, _target, isHostile);
             }
             else if (distance <= lookRadius)
             {
