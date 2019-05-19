@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [System.Serializable]
-public class GolemAnimation 
+public class GolemAnimation
 {
     public void IdleAnimation(ref Animator anim)
     {
@@ -33,10 +33,10 @@ public class GolemAnimation
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", false);
             anim.SetBool("isSpawnSlime", false);
-            
+
         }
     }
-    
+
 
     public void AttackGAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
     {
@@ -50,7 +50,11 @@ public class GolemAnimation
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", false);
             anim.SetBool("isSpawnSlime", false);
-    }
+        }
+
+        //Attack the target
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackG") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.33f)
+            attack.PerformAttack(target.position, isHostile);
 
     }
     public void AttackBAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
@@ -65,7 +69,11 @@ public class GolemAnimation
             anim.SetBool("isAttackB", true);
             anim.SetBool("isDash", false);
             anim.SetBool("isSpawnSlime", false);
-    }
+        }
+
+        //Attack the target
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackB") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.33f)
+            attack.PerformAttack(target.position, isHostile);
 
     }
     public void SpawnSlimeAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
@@ -73,14 +81,14 @@ public class GolemAnimation
         if (!anim.GetBool("isSpawnSlime"))
         {
             anim.CrossFade("SpawnSlime", 0.1f);
-            anim.SetBool("isWalk",false);
+            anim.SetBool("isWalk", false);
             anim.SetBool("isDie", false);
             anim.SetBool("isIdle", false);
             anim.SetBool("isAttackG", false);
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", false);
             anim.SetBool("isSpawnSlime", true);
-    }
+        }
 
     }
 
@@ -96,7 +104,7 @@ public class GolemAnimation
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", true);
             anim.SetBool("isSpawnSlime", false);
-    }
+        }
 
     }
 
