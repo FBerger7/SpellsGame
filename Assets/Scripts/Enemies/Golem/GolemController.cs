@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class GolemController : EnemyController
 {
-    private BaseSpell _sideAttack;
+    private BaseSpell _spawnSlimeAttack;
 
     private GolemAnimation _golemAnimation;
 
@@ -28,7 +28,7 @@ public class GolemController : EnemyController
         _target = PlayerManager.instance.player.transform;
 
         //_attack = gameObject.GetComponentInChildren<SlimeBomb>();
-        _sideAttack = gameObject.GetComponentInChildren<SpawnSlime>();
+        _spawnSlimeAttack = gameObject.GetComponentInChildren<SpawnSlime>();
         _golemAnimation = new GolemAnimation();
     }
 
@@ -36,30 +36,12 @@ public class GolemController : EnemyController
     void Update()
     {
         float distance = Vector3.Distance(_target.position, transform.position);
-        if (_phaseOne) PhaseOne();
-        else if (_phaseTwo) PhaseTwo();
-        else if (_phaseThree) PhaseThree();
-
         if (!_anim.GetBool("isDie"))
         {
-            if (_phaseOne) PhaseOne();
-            else if (_phaseTwo) PhaseTwo();
-            else if (_phaseThree) PhaseThree();
-            //if (distance <= _agent.stoppingDistance)
-            //{
-            //    FaceTarget();
-            //    _golemAnimation.AttackGAnimation(ref _anim, ref _attack, _target, isHostile);
-            //    //_golemAnimation.AttackBAnimation(ref _anim, ref _attack, _target, isHostile);
-            //}
-            //else if (distance <= lookRadius)
-            //{
-            //    _agent.SetDestination(_target.position);
-            //    _golemAnimation.WalkAnimation(ref _anim, ref _agent);
-            //}
-            //else if (!_anim.GetBool("isIdle"))
-            //{
-            //    _golemAnimation.IdleAnimation(ref _anim);
-            //}
+            if (_phaseOne) PhaseOne(distance);
+            else if (_phaseTwo) PhaseTwo(distance);
+            else if (_phaseThree) PhaseThree(distance);
+
         }
         else if (_anim.GetCurrentAnimatorStateInfo(0).IsName("Die") && _anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         {
@@ -67,7 +49,7 @@ public class GolemController : EnemyController
         }
     }
 
-    private void PhaseOne()
+    private void PhaseOne(float distance)
     {
         if (CurrentHealth < 0.6f * maxHealth)
         {
@@ -76,21 +58,54 @@ public class GolemController : EnemyController
             _phaseTwo = true;
             return;
         }
+
+        if (distance <= _agent.stoppingDistance)
+        {
+            FaceTarget();
+            _golemAnimation.AttackBAnimation(ref _anim, ref _attack, _target, isHostile);
+        }
+        else if (distance <= lookRadius)
+        {
+            _agent.SetDestination(_target.position);
+            _golemAnimation.WalkAnimation(ref _anim, ref _agent);
+        }
+        else if (!_anim.GetBool("isIdle"))
+        {
+            _golemAnimation.IdleAnimation(ref _anim);
+        }
     }
 
-    private void PhaseTwo()
+    private void PhaseTwo(float distance)
     {
         if (CurrentHealth < 0.3f * maxHealth)
         {
             Debug.Log("Phase Three started.");
             _phaseTwo = false;
             _phaseThree = true;
+            _spawnSlimeAttack.attackSpeed = 5.0f;
             return;
         }
+        FaceTarget();
+        _golemAnimation.SpawnSlimeAnimation(ref _anim, ref _spawnSlimeAttack, _target, isHostile);
     }
 
-    private void PhaseThree()
+    private void PhaseThree(float distance)
     {
+        _golemAnimation.SpawnSlimeAnimation(ref _anim, ref _spawnSlimeAttack, _target, isHostile);
+        if (distance <= _agent.stoppingDistance)
+        {
+            FaceTarget();
+            _golemAnimation.AttackBAnimation(ref _anim, ref _attack, _target, isHostile);
+        }
+        else if (distance <= lookRadius)
+        {
+            _agent.SetDestination(_target.position);
+            _golemAnimation.WalkAnimation(ref _anim, ref _agent);
+        }
+        else if (!_anim.GetBool("isIdle"))
+        {
+            _golemAnimation.IdleAnimation(ref _anim);
+        }
     }
 
     public override void Die()
