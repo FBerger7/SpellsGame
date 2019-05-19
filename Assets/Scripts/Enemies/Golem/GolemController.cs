@@ -27,7 +27,7 @@ public class GolemController : EnemyController
         _anim = GetComponent<Animator>();
         _target = PlayerManager.instance.player.transform;
 
-        //_attack = gameObject.GetComponentInChildren<SlimeBomb>();
+        _attack = gameObject.GetComponentInChildren<SlimeBomb>();
         _spawnSlimeAttack = gameObject.GetComponentInChildren<SpawnSlime>();
         _golemAnimation = new GolemAnimation();
     }
