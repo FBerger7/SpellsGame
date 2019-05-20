@@ -72,11 +72,11 @@ public class GolemAnimation
         }
 
         //Attack the target
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackBomb") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f)
-            attack.PerformAttack(target.position, isHostile);
+        //if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackBomb") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f)
+        attack.PerformAttack(target.position, isHostile);
 
     }
-    public void SpawnSlimeAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
+    public void SpawnSlimeAnimation(ref Animator anim, ref BaseSpell spawnSlimeL, ref BaseSpell spawnSlimeR, Transform target, bool isHostile)
     {
         if (!anim.GetBool("isSpawnS"))
         {
@@ -89,7 +89,8 @@ public class GolemAnimation
             anim.SetBool("isDash", false);
             anim.SetBool("isSpawnS", true);
         }
-        //attack.PerformAttack(target.position, isHostile);
+        spawnSlimeL.PerformAttack(target.position, isHostile);
+        spawnSlimeR.PerformAttack(target.position, isHostile);
     }
 
     public void DashAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)

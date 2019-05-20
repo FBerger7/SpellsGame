@@ -5,7 +5,9 @@ using UnityEngine.AI;
 
 public class GolemController : EnemyController
 {
-    private BaseSpell _spawnSlimeAttack;
+    private BaseSpell _spawnSlimeAttackL;
+
+    private BaseSpell _spawnSlimeAttackR;
 
     private GolemAnimation _golemAnimation;
 
@@ -28,7 +30,9 @@ public class GolemController : EnemyController
         _target = PlayerManager.instance.player.transform;
 
         _attack = gameObject.GetComponentInChildren<SlimeBomb>();
-        _spawnSlimeAttack = gameObject.GetComponentInChildren<SpawnSlime>();
+        //_spawnSlimeAttack = gameObject.GetComponentInChildren<SpawnSlime>();
+        _spawnSlimeAttackL = gameObject.transform.Find("SpawnSlimeL").GetComponent<SpawnSlime>();
+        _spawnSlimeAttackR = gameObject.transform.Find("SpawnSlimeR").GetComponent<SpawnSlime>();
         _golemAnimation = new GolemAnimation();
     }
 
@@ -82,16 +86,16 @@ public class GolemController : EnemyController
             Debug.Log("Phase Three started.");
             _phaseTwo = false;
             _phaseThree = true;
-            _spawnSlimeAttack.attackSpeed = 5.0f;
+            _spawnSlimeAttackL.attackSpeed = 5.0f;
             return;
         }
         FaceTarget();
-        _golemAnimation.SpawnSlimeAnimation(ref _anim, ref _spawnSlimeAttack, _target, isHostile);
+        _golemAnimation.SpawnSlimeAnimation(ref _anim, ref _spawnSlimeAttackL, ref _spawnSlimeAttackR, _target, isHostile);
     }
 
     private void PhaseThree(float distance)
     {
-        _golemAnimation.SpawnSlimeAnimation(ref _anim, ref _spawnSlimeAttack, _target, isHostile);
+        _golemAnimation.SpawnSlimeAnimation(ref _anim, ref _spawnSlimeAttackL, ref _spawnSlimeAttackR, _target, isHostile);
         if (distance <= _agent.stoppingDistance)
         {
             FaceTarget();

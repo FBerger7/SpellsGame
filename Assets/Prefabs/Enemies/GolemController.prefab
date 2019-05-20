@@ -32,6 +32,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6385586655647057057}
+  - {fileID: 4033499351527923427}
+  - {fileID: 6146518554161234805}
+  - {fileID: 103465831673163096}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -111,6 +114,96 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1850907805376325949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103465831673163096}
+  m_Layer: 0
+  m_Name: SpawnSlimeR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &103465831673163096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850907805376325949}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -97.58427, y: -25.615917, z: -42.920097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1994055440749901430}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2069765047193105713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6146518554161234805}
+  m_Layer: 0
+  m_Name: SpawnSlimeL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6146518554161234805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069765047193105713}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -97.58427, y: -25.615917, z: -42.920097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1994055440749901430}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4276707214216210800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4033499351527923427}
+  m_Layer: 0
+  m_Name: AttackBomb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4033499351527923427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276707214216210800}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.3, y: -12.178658, z: -12.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1994055440749901430}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &2665270832843752010
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -125,6 +218,66 @@ CapsuleCollider:
   m_Height: 0.08125628
   m_Direction: 1
   m_Center: {x: 0.000056848527, y: 0.015518707, z: 0.0000000027749607}
+--- !u!1 &7599211983000426686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4257051552183467527}
+  m_Layer: 0
+  m_Name: SlimeSpawnerL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4257051552183467527
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7599211983000426686}
+  m_LocalRotation: {x: 0.7064233, y: -0.022969618, z: -0.70569, w: 0.049397223}
+  m_LocalPosition: {x: 0.0046, y: 0.0076, z: 0.0016}
+  m_LocalScale: {x: 0.0014285722, y: 0.0014285741, z: 0.0014285721}
+  m_Children: []
+  m_Father: {fileID: 6385586655647057071}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8553897627341947052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 495662298895502493}
+  m_Layer: 0
+  m_Name: SlimeSpawnerR
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &495662298895502493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8553897627341947052}
+  m_LocalRotation: {x: -0.7832217, y: -0.026656609, z: -0.61755306, w: -0.06694431}
+  m_LocalPosition: {x: 0.0009, y: 0.0066, z: -0.0037}
+  m_LocalScale: {x: 0.001428572, y: 0.0014285726, z: 0.0014285721}
+  m_Children: []
+  m_Father: {fileID: 6385586655647057075}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6385586655647456803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -208,6 +361,18 @@ Transform:
 --- !u!1 &6385586655647422603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: ea9bc4fb689fe264e9a65e0bb9c6c972,
+    type: 3}
+  m_PrefabInstance: {fileID: 6385586655647456803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6385586655647057071 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400012, guid: ea9bc4fb689fe264e9a65e0bb9c6c972,
+    type: 3}
+  m_PrefabInstance: {fileID: 6385586655647456803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6385586655647057075 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400016, guid: ea9bc4fb689fe264e9a65e0bb9c6c972,
     type: 3}
   m_PrefabInstance: {fileID: 6385586655647456803}
   m_PrefabAsset: {fileID: 0}
