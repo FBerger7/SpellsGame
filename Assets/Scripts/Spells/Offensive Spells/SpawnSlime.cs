@@ -11,7 +11,8 @@ public class SpawnSlime : InstantSpell
         if (_attackCooldown <= 0)
         {
             _attackCooldown = attackSpeed;
-            SlimeController newSlime = Instantiate(slime, firePoint.position, transform.rotation) as SlimeController;
+            Vector3 groundFirePoint = new Vector3(firePoint.position.x, 0, firePoint.position.z);
+            SlimeController newSlime = Instantiate(slime, groundFirePoint, transform.rotation) as SlimeController;
             newSlime.isHostile = true;
         }
     }

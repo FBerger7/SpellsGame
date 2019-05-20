@@ -86,7 +86,8 @@ public class GolemController : EnemyController
             Debug.Log("Phase Three started.");
             _phaseTwo = false;
             _phaseThree = true;
-            _spawnSlimeAttackL.attackSpeed = 5.0f;
+            _spawnSlimeAttackL.attackSpeed = 1.0f;
+            _spawnSlimeAttackL.attackSpeed = 1.0f;
             return;
         }
         FaceTarget();
@@ -95,7 +96,9 @@ public class GolemController : EnemyController
 
     private void PhaseThree(float distance)
     {
-        _golemAnimation.SpawnSlimeAnimation(ref _anim, ref _spawnSlimeAttackL, ref _spawnSlimeAttackR, _target, isHostile);
+        _spawnSlimeAttackL.PerformAttack(_target.position, isHostile);
+        _spawnSlimeAttackR.PerformAttack(_target.position, isHostile);
+        //_golemAnimation.SpawnSlimeAnimation(ref _anim, ref _spawnSlimeAttackL, ref _spawnSlimeAttackR, _target, isHostile);
         if (distance <= _agent.stoppingDistance)
         {
             FaceTarget();
