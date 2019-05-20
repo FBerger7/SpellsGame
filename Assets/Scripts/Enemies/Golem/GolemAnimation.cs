@@ -17,7 +17,7 @@ public class GolemAnimation
             anim.SetBool("isAttackG", false);
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", false);
-            anim.SetBool("isSpawnSlime", false);
+            anim.SetBool("isSpawnS", false);
         }
     }
 
@@ -32,7 +32,7 @@ public class GolemAnimation
             anim.SetBool("isAttackG", false);
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", false);
-            anim.SetBool("isSpawnSlime", false);
+            anim.SetBool("isSpawnS", false);
 
         }
     }
@@ -42,43 +42,43 @@ public class GolemAnimation
     {
         if (!anim.GetBool("isAttackG"))
         {
-            anim.CrossFade("AttackG", 0.1f);
+            anim.CrossFade("AttackGround", 0.1f);
             anim.SetBool("isWalk", false);
             anim.SetBool("isDie", false);
             anim.SetBool("isIdle", false);
             anim.SetBool("isAttackG", true);
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", false);
-            anim.SetBool("isSpawnSlime", false);
+            anim.SetBool("isSpawnS", false);
         }
 
         //Attack the target
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackG") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.33f)
-            attack.PerformAttack(target.position, isHostile);
+        //if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackG") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.33f)
+        attack.PerformAttack(target.position, isHostile);
 
     }
     public void AttackBAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
     {
         if (!anim.GetBool("isAttackB"))
         {
-            anim.CrossFade("AttackB", 0.1f);
+            anim.CrossFade("AttackBomb", 0.1f);
             anim.SetBool("isWalk", false);
             anim.SetBool("isDie", false);
             anim.SetBool("isIdle", false);
             anim.SetBool("isAttackG", false);
             anim.SetBool("isAttackB", true);
             anim.SetBool("isDash", false);
-            anim.SetBool("isSpawnSlime", false);
+            anim.SetBool("isSpawnS", false);
         }
 
         //Attack the target
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackB") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.33f)
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("AttackBomb") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.5f)
             attack.PerformAttack(target.position, isHostile);
 
     }
     public void SpawnSlimeAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
     {
-        if (!anim.GetBool("isSpawnSlime"))
+        if (!anim.GetBool("isSpawnS"))
         {
             anim.CrossFade("SpawnSlime", 0.1f);
             anim.SetBool("isWalk", false);
@@ -87,9 +87,9 @@ public class GolemAnimation
             anim.SetBool("isAttackG", false);
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", false);
-            anim.SetBool("isSpawnSlime", true);
+            anim.SetBool("isSpawnS", true);
         }
-
+        //attack.PerformAttack(target.position, isHostile);
     }
 
     public void DashAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
@@ -103,7 +103,7 @@ public class GolemAnimation
             anim.SetBool("isAttackG", false);
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", true);
-            anim.SetBool("isSpawnSlime", false);
+            anim.SetBool("isSpawnS", false);
         }
 
     }
@@ -117,6 +117,6 @@ public class GolemAnimation
         anim.SetBool("isAttackG", false);
         anim.SetBool("isAttackB", false);
         anim.SetBool("isDash", false);
-        anim.SetBool("isSpawnSlime", false);
+        anim.SetBool("isSpawnS", false);
     }
 }

@@ -110,7 +110,7 @@ public class GolemController : EnemyController
 
     public override void Die()
     {
-        _enemyAnimation.DieAnimation(ref _anim);
+        _golemAnimation.DieAnimation(ref _anim);
         Debug.Log(transform.name + " died");
     }
 }
