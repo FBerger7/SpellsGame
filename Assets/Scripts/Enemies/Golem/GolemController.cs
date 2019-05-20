@@ -30,7 +30,6 @@ public class GolemController : EnemyController
         _target = PlayerManager.instance.player.transform;
 
         _attack = gameObject.GetComponentInChildren<SlimeBomb>();
-        //_spawnSlimeAttack = gameObject.GetComponentInChildren<SpawnSlime>();
         _spawnSlimeAttackL = gameObject.transform.Find("SpawnSlimeL").GetComponent<SpawnSlime>();
         _spawnSlimeAttackR = gameObject.transform.Find("SpawnSlimeR").GetComponent<SpawnSlime>();
         _golemAnimation = new GolemAnimation();
@@ -49,6 +48,13 @@ public class GolemController : EnemyController
         }
         else if (_anim.GetCurrentAnimatorStateInfo(0).IsName("Die") && _anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         {
+
+            SlimeController[] spawnedSlimes = Resources.FindObjectsOfTypeAll(typeof(SlimeController)) as SlimeController[];
+            foreach (SlimeController slime in spawnedSlimes)
+            {
+                if (slime.name == "SpawnedSlime")
+                    slime.Die();
+            }
             Destroy(gameObject);
         }
     }
@@ -98,7 +104,6 @@ public class GolemController : EnemyController
     {
         _spawnSlimeAttackL.PerformAttack(_target.position, isHostile);
         _spawnSlimeAttackR.PerformAttack(_target.position, isHostile);
-        //_golemAnimation.SpawnSlimeAnimation(ref _anim, ref _spawnSlimeAttackL, ref _spawnSlimeAttackR, _target, isHostile);
         if (distance <= _agent.stoppingDistance)
         {
             FaceTarget();
@@ -118,6 +123,12 @@ public class GolemController : EnemyController
     public override void Die()
     {
         _golemAnimation.DieAnimation(ref _anim);
+        if (GameObject.Find("SpawnedSlime").GetComponent<SlimeController>() != null)
+        {
+            SlimeController slime = GameObject.Find("SpawnedSlime").GetComponent<SlimeController>();
+            Debug.Log("Abc");
+        }
+
         Debug.Log(transform.name + " died");
     }
 }

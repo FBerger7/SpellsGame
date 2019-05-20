@@ -13,6 +13,7 @@ public class SpawnSlime : InstantSpell
             _attackCooldown = attackSpeed;
             Vector3 groundFirePoint = new Vector3(firePoint.position.x, 0, firePoint.position.z);
             SlimeController newSlime = Instantiate(slime, groundFirePoint, transform.rotation) as SlimeController;
+            newSlime.name = "SpawnedSlime";
             newSlime.isHostile = true;
         }
     }
