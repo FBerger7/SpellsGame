@@ -123,12 +123,6 @@ public class GolemController : EnemyController
     public override void Die()
     {
         _golemAnimation.DieAnimation(ref _anim);
-        if (GameObject.Find("SpawnedSlime").GetComponent<SlimeController>() != null)
-        {
-            SlimeController slime = GameObject.Find("SpawnedSlime").GetComponent<SlimeController>();
-            Debug.Log("Abc");
-        }
-
         Debug.Log(transform.name + " died");
     }
 }
