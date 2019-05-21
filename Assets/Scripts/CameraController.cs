@@ -17,6 +17,7 @@ public class CameraController : MonoBehaviour
     {
         camera = this.transform.Find("Main Camera").gameObject;
         zoom = Camera.main.fieldOfView;
+        Debug.Log("STRAROPIJSFIJSF");
     }
 
     // Update is called once per frame

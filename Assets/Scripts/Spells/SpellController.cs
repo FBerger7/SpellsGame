@@ -41,8 +41,6 @@ public class SpellController : MouseTracker
         // ------------------------------------------------------------------
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.PILLARRISE, OffensiveSpellsModel.FIRE_BREATH));
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.FIRE_BREATH, OffensiveSpellsModel.BASIC_SPELL));
-        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SLIME_BOMB));
-        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.RAILGUN, OffensiveSpellsModel.BASIC_SPELL));
         // ------------------------------------------------------------------
     }
 
@@ -50,6 +48,8 @@ public class SpellController : MouseTracker
     void Update()
     {
         TrackMouse();
+
+        //Debug.Log(pointToLook);
 
         HandleSpellChange();
 
