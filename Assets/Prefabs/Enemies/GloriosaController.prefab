@@ -2091,7 +2091,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1211923402062719852}
-  - component: {fileID: 1211923402062719853}
+  - component: {fileID: 2643746524930085315}
   m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
@@ -2113,7 +2113,7 @@ Transform:
   m_Father: {fileID: 1211923401681953966}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1211923402062719853
+--- !u!114 &2643746524930085315
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2122,12 +2122,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1211923402062719855}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489dbfa757560be4682861569904ba32, type: 3}
+  m_Script: {fileID: 11500000, guid: a9fa95cb02718f542a34e5c4a2763004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackSpeed: 0.5
   firePoint: {fileID: 1211923402062719852}
-  projectile: {fileID: 401203190996716008, guid: 0e22211c1b98fd94aa44150f6e848738,
-    type: 3}
-  projectileSpeed: 100
-  projectileLifeSpawn: 3
+  GFX: {fileID: 2281719232605878947, guid: 1ec657841dc237d41aafbf6539672760, type: 3}

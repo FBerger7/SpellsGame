@@ -6,6 +6,8 @@ public class OffensiveSpellsModel
     public const int SUMMON_WALL = 1;
     public const int FIRE_BREATH = 2;
     public const int SLIME_BOMB = 3;
+    public const int RAILGUN = 4;
+    public const int PILLARRISE = 5;
 
     private SortedSet<int> _acknowledgedSpells;
 

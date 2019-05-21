@@ -37,10 +37,8 @@ public class SpellController : MouseTracker
         AddMobileSpells();
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
         // ------------------------------------------------------------------
-        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SLIME_BOMB, OffensiveSpellsModel.FIRE_BREATH));
+        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.PILLARRISE, OffensiveSpellsModel.FIRE_BREATH));
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.FIRE_BREATH, OffensiveSpellsModel.BASIC_SPELL));
-        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SUMMON_WALL));
-        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SUMMON_WALL, OffensiveSpellsModel.BASIC_SPELL));
         // ------------------------------------------------------------------
     }
 
@@ -135,6 +133,8 @@ public class SpellController : MouseTracker
         _offensiveSpells.Add(OffensiveSpellsModel.BASIC_SPELL, gameObject.GetComponent<BasicAttack>());
         _offensiveSpells.Add(OffensiveSpellsModel.SUMMON_WALL, gameObject.GetComponent<SummonWall>());
         _offensiveSpells.Add(OffensiveSpellsModel.FIRE_BREATH, gameObject.GetComponent<FireBreath>());
+        _offensiveSpells.Add(OffensiveSpellsModel.RAILGUN, gameObject.GetComponent<Railgun>());
+        _offensiveSpells.Add(OffensiveSpellsModel.PILLARRISE, gameObject.GetComponent<PillarRise>());
     }
 
     private void AddMobileSpells()

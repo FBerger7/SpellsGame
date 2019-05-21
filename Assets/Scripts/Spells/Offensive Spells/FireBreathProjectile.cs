@@ -11,7 +11,7 @@ public class FireBreathProjectile : CastedSpell
         if (parent != null && this.isHostile!=parent.isHostile)
             parent.TakeDamage(damage);
 
-        if (!other.GetComponent<PowerShield>() && other.tag != "Particles")
+        if (!other.GetComponent<PowerShield>() && other.tag != "Particles") ;
             Destroy(gameObject);
     }
 }

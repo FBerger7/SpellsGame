@@ -36,12 +36,17 @@ public class CharacterStats : MonoBehaviour
         CurrentHealth -= damage;
         Debug.Log(transform.name + " takes " + damage + " damage.");
 
-        if (characterInterface)
-            characterInterface.SetHealthPoints((int)CurrentHealth);
-
         if (CurrentHealth <= 0)
         {
+            CurrentHealth = 0;
+            if(characterInterface)
+                characterInterface.SetHealthPoints((int)CurrentHealth);
             Die();
+        }
+        else
+        {
+            if (characterInterface)
+                characterInterface.SetHealthPoints((int)CurrentHealth);
         }
 
     }
