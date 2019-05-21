@@ -51,6 +51,21 @@ public class CharacterStats : MonoBehaviour
 
     }
 
+    public void Heal(float healValue)
+    {
+        if (CurrentHealth != maxHealth)
+        {
+            CurrentHealth += healValue;
+            Debug.Log(transform.name + healValue + " healed.");
+            if (CurrentHealth > maxHealth)
+                CurrentHealth = maxHealth;
+            if (characterInterface)
+                characterInterface.SetHealthPoints((int)CurrentHealth);
+        }
+
+
+    }
+
     public void ApplayPoison(float dmg)
     {
         if (_poisonTimer < 0)

@@ -44,20 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 688ef4106573ed64b99f258ac09fbe30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &8439693926667123193
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8439693927776643862}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 3.0494974
-  m_Height: 16.972456
-  m_Direction: 1
-  m_Center: {x: 0.12566876, y: 4.1326857, z: 0.39161587}
 --- !u!1 &8439693926887947979
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +247,7 @@ GameObject:
   - component: {fileID: 8439693927731284531}
   - component: {fileID: 8439693927731284528}
   - component: {fileID: 8439693927731284529}
+  - component: {fileID: 9112530435609005008}
   - component: {fileID: 8439693927731284534}
   - component: {fileID: 8439693927731284535}
   - component: {fileID: 8439693927731284532}
@@ -320,6 +307,7 @@ MonoBehaviour:
   leftSpellKey: 323
   rightSpellKey: 324
   deffensiveSpellKey: 304
+  healSpellKey: 102
   mobileSpellKey: 32
   changeOffensiveSpellKey: 306
   changeMobileSpellKey: 9
@@ -358,6 +346,23 @@ MonoBehaviour:
   shieldLifeSpan: 5
   powerShield: {fileID: 8527800263672130036, guid: 16c5dd3436b687c4e8ea51da89ea05de,
     type: 3}
+--- !u!114 &9112530435609005008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8439693927731284520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8fbde1148f94949901fd58db024a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 5
+  firePoint: {fileID: 8439693927731284523}
+  heal: {fileID: 2631772782701719902, guid: 5829a20f9f4720945a967a619f5cf7ec, type: 3}
+  healValue: 30
+  duration: 4
 --- !u!114 &8439693927731284534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +441,21 @@ MonoBehaviour:
   projectile: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
     type: 3}
   hight: 30
+  gravity: -100
+--- !u!136 &8439693926667123193
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8439693927776643862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.0494974
+  m_Height: 16.972456
+  m_Direction: 1
+  m_Center: {x: 0.12566876, y: 4.1326857, z: 0.39161587}
 --- !u!1001 &8439693927776546214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -491,10 +511,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: f45e020de3e13be47859ab841e42a066, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 89b1c2a0abec3c34b92f6f0507607609, type: 2}
     - target: {fileID: 6400000, guid: f45e020de3e13be47859ab841e42a066, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -539,6 +555,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: f45e020de3e13be47859ab841e42a066, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 89b1c2a0abec3c34b92f6f0507607609, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45e020de3e13be47859ab841e42a066, type: 3}
 --- !u!1 &8439693927776643862 stripped
