@@ -13,6 +13,8 @@ public class SpellController : MouseTracker
     public CharacterInterface characterInterface;
 
     private OffensiveSpellsModel _model;
+    private PlayerAnimation _playerAnimation;
+    private Animator _anim;
     private List<Tuple<int, int>> _spellQueue;
     private Dictionary<int, BaseSpell> _offensiveSpells;
     private Dictionary<int, BaseSpell> _mobileSpells;
@@ -26,6 +28,9 @@ public class SpellController : MouseTracker
         SetCamera();
         _spellQueue = new List<Tuple<int, int>>();
         _model = new OffensiveSpellsModel();
+        _playerAnimation = new PlayerAnimation();
+        _anim = gameObject.GetComponentInParent<Animator>();
+
 
         _summonPowerShield = gameObject.GetComponent<SummonPowerShield>();
         AddOffensiveSpells();
@@ -51,6 +56,12 @@ public class SpellController : MouseTracker
         HandleDeffensiveSpell();
 
         HandleMobileSpell();
+
+        if (_anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f && _anim.GetCurrentAnimatorStateInfo(0).IsName("BasicAttack"))
+            _playerAnimation.IdleAnimation(ref _anim);
+
+        if (_anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f && _anim.GetCurrentAnimatorStateInfo(0).IsName("GoToParyAttack"))
+            _playerAnimation.ParyAttack(ref _anim);
     }
 
     private void HandleSpellChange()
@@ -74,6 +85,8 @@ public class SpellController : MouseTracker
         if (Input.GetKey(leftSpellKey))
         {
             _offensiveSpells[_spellQueue[_currentOffensiveSpellsPair].Item1].PerformAttack(pointToLook, false);
+            _playerAnimation.AttackAnimation(ref _anim);
+            Debug.Log("player attacked");
         }
         if (Input.GetKeyUp(leftSpellKey))
         {
@@ -95,6 +108,7 @@ public class SpellController : MouseTracker
         if (Input.GetKey(deffensiveSpellKey))
         {
             _summonPowerShield.PerformAttack(_model);
+            _playerAnimation.ParyAttackTransition(ref _anim);
         }
     }
 
