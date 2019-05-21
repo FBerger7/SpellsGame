@@ -15,7 +15,7 @@ public class GloriosaController : EnemyController
         _anim = GetComponent<Animator>();
         _target = PlayerManager.instance.player.transform; //RangeAttribute of Gloriosa
 
-        _attack = gameObject.GetComponentInChildren<BasicAttack>();
+        _attack = gameObject.GetComponentInChildren<Railgun>();
         _enemyAnimation = new GloriosaAnimation();
     }
 
