@@ -543,12 +543,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1079847355}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b565762d6a2729e419418195be486ea9, type: 3}
+  m_Script: {fileID: 11500000, guid: 89e479f85f65e5a4bb6dc28bac76e617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 2
-  firePoint: {fileID: 695416894}
-  slime: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e, type: 3}
+  attackSpeed: 0
+  firePoint: {fileID: 1901930632}
+  projectile: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
+    type: 3}
+  hight: 20
 --- !u!4 &1079847359 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4257051552183467527, guid: c63715478c6ed09468f8b9d82f26d22c,
@@ -715,6 +717,12 @@ MonoBehaviour:
   attackSpeed: 2
   firePoint: {fileID: 695416894}
   slime: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e, type: 3}
+--- !u!4 &1901930632 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6385586655647057071, guid: c63715478c6ed09468f8b9d82f26d22c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079847354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6214355406583246561
 PrefabInstance:
   m_ObjectHideFlags: 0
