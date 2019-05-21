@@ -16,15 +16,20 @@ public class SlimeBombProjectile : CastedSpell
     private void OnTriggerEnter(Collider other)
     {
         CharacterStats parent = other.GetComponentInParent<CharacterStats>();
+        Vector3 position = transform.position;
         if (parent != null && this.isHostile != parent.isHostile)
         {
             parent.TakeDamage(damage);
-        }
-
-        if (!other.GetComponent<PowerShield>() && other.tag!="Particles")
-        {
-            Instantiate(poisonCloud, transform.position,Quaternion.Inverse(Quaternion.Euler(90,0,0)));
+            position.y -= 15;
+            Instantiate(poisonCloud, position, Quaternion.Inverse(Quaternion.Euler(90, 0, 0)));
             Destroy(gameObject);
         }
+
+        else if (!other.GetComponent<PowerShield>() && other.tag!="Particles")
+        {
+            Instantiate(poisonCloud, position,Quaternion.Inverse(Quaternion.Euler(90,0,0)));
+            Destroy(gameObject);
+        }
+
     }
 }
