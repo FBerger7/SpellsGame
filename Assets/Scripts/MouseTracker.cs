@@ -5,10 +5,11 @@ public class MouseTracker : MonoBehaviour
     protected Camera mainCamera;
     protected Vector3 pointToLook;
 
-    protected void SetCamera()
+    public void SetCamera()
     {
         mainCamera = FindObjectOfType<Camera>();
     }
+
 
     protected void TrackMouse()
     {
@@ -20,6 +21,7 @@ public class MouseTracker : MonoBehaviour
             Transform objectHit = hit.transform;
             if(objectHit.tag != "Particles")
             {
+                Debug.DrawRay(mainCamera.transform.position, pointToLook, Color.cyan, 2f, true);
                 pointToLook = hit.point;
             }
         }

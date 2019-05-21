@@ -47,6 +47,8 @@ public class SpellController : MouseTracker
     {
         TrackMouse();
 
+        //Debug.Log(pointToLook);
+
         HandleSpellChange();
 
         HandleOffensiveSpells();
