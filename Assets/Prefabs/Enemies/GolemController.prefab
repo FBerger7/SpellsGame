@@ -125,6 +125,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 103465831673163096}
+  - component: {fileID: 6548705680723773334}
   m_Layer: 0
   m_Name: SpawnSlimeR
   m_TagString: Untagged
@@ -146,6 +147,21 @@ Transform:
   m_Father: {fileID: 1994055440749901430}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6548705680723773334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850907805376325949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b565762d6a2729e419418195be486ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 2
+  firePoint: {fileID: 495662298895502493}
+  slime: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e, type: 3}
 --- !u!1 &2069765047193105713
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6146518554161234805}
+  - component: {fileID: 4462778882952614780}
   m_Layer: 0
   m_Name: SpawnSlimeL
   m_TagString: Untagged
@@ -176,6 +193,21 @@ Transform:
   m_Father: {fileID: 1994055440749901430}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4462778882952614780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069765047193105713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b565762d6a2729e419418195be486ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 2
+  firePoint: {fileID: 4257051552183467527}
+  slime: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e, type: 3}
 --- !u!1 &4276707214216210800
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,6 +217,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4033499351527923427}
+  - component: {fileID: 8921730264676877396}
   m_Layer: 0
   m_Name: AttackBomb
   m_TagString: Untagged
@@ -206,6 +239,24 @@ Transform:
   m_Father: {fileID: 1994055440749901430}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8921730264676877396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276707214216210800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e479f85f65e5a4bb6dc28bac76e617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 0
+  firePoint: {fileID: 6385586655647057071}
+  projectile: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
+    type: 3}
+  hight: 20
+  gravity: -100
 --- !u!136 &2665270832843752010
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -287,10 +338,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1994055440749901430}
     m_Modifications:
-    - target: {fileID: 100002, guid: ea9bc4fb689fe264e9a65e0bb9c6c972, type: 3}
-      propertyPath: m_Name
-      value: golemAutomatiWeights5
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: ea9bc4fb689fe264e9a65e0bb9c6c972, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -346,6 +393,10 @@ PrefabInstance:
     - target: {fileID: 400002, guid: ea9bc4fb689fe264e9a65e0bb9c6c972, type: 3}
       propertyPath: m_LocalScale.z
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: ea9bc4fb689fe264e9a65e0bb9c6c972, type: 3}
+      propertyPath: m_Name
+      value: golemAutomatiWeights5
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: ea9bc4fb689fe264e9a65e0bb9c6c972, type: 3}
       propertyPath: m_Controller
