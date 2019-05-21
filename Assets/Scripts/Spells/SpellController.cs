@@ -7,6 +7,7 @@ public class SpellController : MouseTracker
     public KeyCode leftSpellKey;
     public KeyCode rightSpellKey;
     public KeyCode deffensiveSpellKey;
+    public KeyCode healSpellKey;
     public KeyCode mobileSpellKey;
     public KeyCode changeOffensiveSpellKey;
     public KeyCode changeMobileSpellKey;
@@ -19,6 +20,7 @@ public class SpellController : MouseTracker
     private Dictionary<int, BaseSpell> _offensiveSpells;
     private Dictionary<int, BaseSpell> _mobileSpells;
     private SummonPowerShield _summonPowerShield;
+    private UseHeal _useHeal;
     private int _currentOffensiveSpellsPair = 0;
     private int _currentMobileSpell = 0;
 
@@ -31,7 +33,7 @@ public class SpellController : MouseTracker
         _playerAnimation = new PlayerAnimation();
         _anim = gameObject.GetComponentInParent<Animator>();
 
-
+        _useHeal = gameObject.GetComponent<UseHeal>();
         _summonPowerShield = gameObject.GetComponent<SummonPowerShield>();
         AddOffensiveSpells();
         AddMobileSpells();
@@ -54,6 +56,8 @@ public class SpellController : MouseTracker
         HandleOffensiveSpells();
 
         HandleDeffensiveSpell();
+
+        HandleHealSpell();
 
         HandleMobileSpell();
 
@@ -109,6 +113,15 @@ public class SpellController : MouseTracker
         {
             _summonPowerShield.PerformAttack(_model);
             _playerAnimation.ParyAttackTransition(ref _anim);
+        }
+    }
+
+    private void HandleHealSpell()
+    {
+        if (Input.GetKey(healSpellKey))
+        {
+            _useHeal.PerformAttack(pointToLook,false);
+            _playerAnimation.AttackAnimation(ref _anim);
         }
     }
 

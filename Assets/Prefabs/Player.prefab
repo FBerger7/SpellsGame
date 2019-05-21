@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 778538120011751725}
   - component: {fileID: 778538120011751724}
   - component: {fileID: 778538120011751727}
+  - component: {fileID: 5435279942565552864}
   - component: {fileID: 778538120011751726}
   - component: {fileID: 778538120011751721}
   - component: {fileID: 778538120011751720}
@@ -154,6 +155,7 @@ MonoBehaviour:
   leftSpellKey: 323
   rightSpellKey: 324
   deffensiveSpellKey: 304
+  healSpellKey: 102
   mobileSpellKey: 32
   changeOffensiveSpellKey: 306
   changeMobileSpellKey: 9
@@ -175,6 +177,23 @@ MonoBehaviour:
   wallLifeSpan: 5
   objectToSummon: {fileID: 3665822623760171551, guid: 605b36c57472c6a41a99809624936e9b,
     type: 3}
+--- !u!114 &5435279942565552864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778538120011751735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8fbde1148f94949901fd58db024a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 0
+  firePoint: {fileID: 778538120011751732}
+  heal: {fileID: 2631772782701719902, guid: 5829a20f9f4720945a967a619f5cf7ec, type: 3}
+  healValue: 30
+  duration: 4
 --- !u!114 &778538120011751726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +289,7 @@ MonoBehaviour:
   projectile: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
     type: 3}
   hight: 30
+  gravity: -100
 --- !u!1 &778538120780584404
 GameObject:
   m_ObjectHideFlags: 0
