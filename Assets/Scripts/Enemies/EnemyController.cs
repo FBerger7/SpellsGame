@@ -37,15 +37,18 @@ public abstract class EnemyController : CharacterStats
             if (distance <= _agent.stoppingDistance)
             {
                 FaceTarget();
+                _agent.isStopped = true;
                 _enemyAnimation.AttackAnimation(ref _anim, ref _attack, _target, isHostile);
             }
             else if (distance <= lookRadius)
             {
                 _agent.SetDestination(_target.position);
+                _agent.isStopped = false;
                 _enemyAnimation.WalkAnimation(ref _anim, ref _agent);
             }
             else if (!_anim.GetBool("isIdle"))
             {
+                _agent.isStopped = true;
                 _enemyAnimation.IdleAnimation(ref _anim);
             }
         }

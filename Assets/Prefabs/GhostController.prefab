@@ -48,7 +48,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  lookRadius: 50
+  isHostile: 1
+  poisonImmune: 0
+  poisonCooldown: 0
+  characterInterface: {fileID: 0}
+  _poisonTimer: 0
+  lookRadius: 85
 --- !u!195 &6288660717536869781
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -63,7 +68,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 30
+  m_StoppingDistance: 50
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1989,7 +1994,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 2
   firePoint: {fileID: 6288660718804641730}
-  isHostile: 1
   projectile: {fileID: 401203190996716008, guid: 0e22211c1b98fd94aa44150f6e848738,
     type: 3}
   projectileSpeed: 100
