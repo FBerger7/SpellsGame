@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89e479f85f65e5a4bb6dc28bac76e617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0.5
+  attackSpeed: 1
   firePoint: {fileID: 4497824814280476699}
   projectile: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
     type: 3}
@@ -474,13 +474,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 436670e95bd49c84c909e94f2dc99ebe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 100
   isHostile: 1
-  poisonImmune: 0
+  poisonImmune: 1
   poisonCooldown: 0
   characterInterface: {fileID: 0}
   _poisonTimer: 0
-  lookRadius: 50
+  lookRadius: 85
 --- !u!195 &4497824814638989957
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -495,7 +495,7 @@ NavMeshAgent:
   m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 30
+  m_StoppingDistance: 50
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
