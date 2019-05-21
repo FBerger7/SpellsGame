@@ -20,13 +20,20 @@ public abstract class EnemyController : CharacterStats
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    protected void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
+        Vector3 armaturePosition;
+        Transform armature = transform.Find("Armature");
+        if (armature == null)
+            armaturePosition = transform.GetChild(0).Find("Armature").position;
+        else
+            armaturePosition = armature.position;
+        Vector3 center = new Vector3(armaturePosition.x, 0.0f, armaturePosition.z);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(1.0f, 0.0f, 2f), lookRadius);
+        Gizmos.DrawWireSphere(center, lookRadius);
         Gizmos.color = Color.yellow;
         if (_agent != null)
-            Gizmos.DrawWireSphere(transform.position + new Vector3(1.0f, 0.0f, 2f), _agent.stoppingDistance);
+            Gizmos.DrawWireSphere(center, _agent.stoppingDistance);
     }
 
     protected void RunUpdate()
