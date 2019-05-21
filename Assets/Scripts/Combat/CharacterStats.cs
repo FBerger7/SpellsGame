@@ -13,6 +13,8 @@ public class CharacterStats : MonoBehaviour
     public bool poisonImmune;
     public float poisonCooldown;
     public CharacterInterface characterInterface;
+    private PlayerAnimation _playerAnimation;
+    private Animator _anim;
 
     [SerializeField]
     protected float _poisonTimer;
@@ -20,6 +22,8 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         CurrentHealth = maxHealth;
+        _playerAnimation = new PlayerAnimation();
+        _anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -59,6 +63,8 @@ public class CharacterStats : MonoBehaviour
     public virtual void Die()
     {
         //This method is meant to be overwrriten
+        if(transform.name == "Player")
+            _playerAnimation.DieAnimation(ref _anim);
         Debug.Log(transform.name + " died");
 
     }
