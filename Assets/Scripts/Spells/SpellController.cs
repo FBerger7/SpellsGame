@@ -34,8 +34,6 @@ public class SpellController : MouseTracker
         // ------------------------------------------------------------------
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SLIME_BOMB, OffensiveSpellsModel.FIRE_BREATH));
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.FIRE_BREATH, OffensiveSpellsModel.BASIC_SPELL));
-        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.BASIC_SPELL, OffensiveSpellsModel.SUMMON_WALL));
-        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SUMMON_WALL, OffensiveSpellsModel.BASIC_SPELL));
         // ------------------------------------------------------------------
     }
 
