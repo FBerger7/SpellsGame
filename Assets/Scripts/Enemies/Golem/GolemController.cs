@@ -5,16 +5,14 @@ using UnityEngine.AI;
 
 public class GolemController : EnemyController
 {
+    public int maximumSlimeNumber;
+    public float dashDamage;
+
     private BaseSpell _spawnSlimeAttackL;
-
     private BaseSpell _spawnSlimeAttackR;
-
     private GolemAnimation _golemAnimation;
-
     private bool _phaseOne = true;
-
     private bool _phaseTwo = false;
-
     private bool _phaseThree = false;
 
     // Start is called before the first frame update
@@ -23,8 +21,8 @@ public class GolemController : EnemyController
         maxHealth = 500f;
 
         _agent = GetComponent<NavMeshAgent>();
-        lookRadius = 100f;
-        _agent.stoppingDistance = 50f;
+        lookRadius = 200f;
+        _agent.stoppingDistance = 100f;
 
         _anim = GetComponent<Animator>();
         _target = PlayerManager.instance.player.transform;
@@ -48,7 +46,6 @@ public class GolemController : EnemyController
         }
         else if (_anim.GetCurrentAnimatorStateInfo(0).IsName("Die") && _anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         {
-
             SlimeController[] spawnedSlimes = Resources.FindObjectsOfTypeAll(typeof(SlimeController)) as SlimeController[];
             foreach (SlimeController slime in spawnedSlimes)
             {
@@ -96,8 +93,19 @@ public class GolemController : EnemyController
             _spawnSlimeAttackL.attackSpeed = 1.0f;
             return;
         }
-        FaceTarget();
-        _golemAnimation.SpawnSlimeAnimation(ref _anim, ref _spawnSlimeAttackL, ref _spawnSlimeAttackR, _target, isHostile);
+        //FaceTarget();
+        if (_getSlimeCount() < maximumSlimeNumber)
+        {
+            FaceTarget();
+            _golemAnimation.SpawnSlimeAnimation(ref _agent, ref _anim, ref _spawnSlimeAttackL, ref _spawnSlimeAttackR, _target, isHostile);
+        }
+        else //if (distance <= _agent.stoppingDistance)
+        {
+            //FaceTarget();
+            _agent.SetDestination(_target.position);
+            _golemAnimation.DashAnimation(ref _agent, ref _anim, ref _attack, _target, isHostile);
+        }
+        
     }
 
     private void PhaseThree(float distance)
@@ -120,9 +128,30 @@ public class GolemController : EnemyController
         }
     }
 
+    private int _getSlimeCount()
+    {
+        SlimeController[] spawnedSlimes = Resources.FindObjectsOfTypeAll(typeof(SlimeController)) as SlimeController[];
+        int count = 0;
+        foreach (SlimeController slime in spawnedSlimes)
+        {
+            if (slime.name == "SpawnedSlime")
+                count++;
+        }
+        return count;
+    }
+
     public override void Die()
     {
         _golemAnimation.DieAnimation(ref _anim);
         Debug.Log(transform.name + " died");
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        CharacterStats parent = other.GetComponentInParent<CharacterStats>();
+        if (parent != null && this.isHostile != parent.isHostile)
+        {
+            parent.TakeDamage(dashDamage);
+        }
     }
 }

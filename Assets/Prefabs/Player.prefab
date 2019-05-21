@@ -86,7 +86,8 @@ MonoBehaviour:
   maxHealth: 100
   isHostile: 0
   poisonImmune: 0
-  poisonCooldown: 0.5
+  poisonCooldown: 1
+  characterInterface: {fileID: 0}
   _poisonTimer: 0
 --- !u!114 &317131228
 MonoBehaviour:
@@ -378,9 +379,9 @@ MonoBehaviour:
   rightSpellKey: 324
   deffensiveSpellKey: 304
   mobileSpellKey: 0
-  changeSpellKey: 306
+  changeOffensiveSpellKey: 0
+  changeMobileSpellKey: 0
   characterInterface: {fileID: 0}
-  _currentMobileSpell: 0
 --- !u!114 &1117235225
 MonoBehaviour:
   m_ObjectHideFlags: 0

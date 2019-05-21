@@ -57,6 +57,8 @@ MonoBehaviour:
   characterInterface: {fileID: 0}
   _poisonTimer: 0
   lookRadius: 100
+  maximumSlimeNumber: 6
+  dashDamage: 50
 --- !u!195 &5661399014446320008
 NavMeshAgent:
   m_ObjectHideFlags: 0

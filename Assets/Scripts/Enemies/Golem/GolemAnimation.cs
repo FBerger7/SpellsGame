@@ -33,7 +33,9 @@ public class GolemAnimation
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", false);
             anim.SetBool("isSpawnS", false);
-
+            agent.speed = 20;
+            agent.acceleration = 20;
+            agent.stoppingDistance = 100;
         }
     }
 
@@ -76,7 +78,7 @@ public class GolemAnimation
         attack.PerformAttack(target.position, isHostile);
 
     }
-    public void SpawnSlimeAnimation(ref Animator anim, ref BaseSpell spawnSlimeL, ref BaseSpell spawnSlimeR, Transform target, bool isHostile)
+    public void SpawnSlimeAnimation(ref NavMeshAgent agent, ref Animator anim, ref BaseSpell spawnSlimeL, ref BaseSpell spawnSlimeR, Transform target, bool isHostile)
     {
         if (!anim.GetBool("isSpawnS"))
         {
@@ -88,12 +90,18 @@ public class GolemAnimation
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", false);
             anim.SetBool("isSpawnS", true);
+            agent.acceleration = 20;
+            agent.speed = 20;
+            agent.stoppingDistance = 100;
         }
-        spawnSlimeL.PerformAttack(target.position, isHostile);
-        spawnSlimeR.PerformAttack(target.position, isHostile);
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("SpawnSlime") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 0.71f)
+        {
+            spawnSlimeL.PerformAttack(target.position, isHostile);
+            spawnSlimeR.PerformAttack(target.position, isHostile);
+        }
     }
 
-    public void DashAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
+    public void DashAnimation(ref NavMeshAgent agent, ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
     {
         if (!anim.GetBool("isDash"))
         {
@@ -105,8 +113,10 @@ public class GolemAnimation
             anim.SetBool("isAttackB", false);
             anim.SetBool("isDash", true);
             anim.SetBool("isSpawnS", false);
+            agent.acceleration = 100;
+            agent.speed = 100;
+            agent.stoppingDistance = 0;
         }
-
     }
 
     public void DieAnimation(ref Animator anim)

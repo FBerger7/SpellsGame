@@ -526,6 +526,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimeSpawnerR
       objectReference: {fileID: 0}
+    - target: {fileID: 2665270832843752010, guid: c63715478c6ed09468f8b9d82f26d22c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3781823847026167872, guid: c63715478c6ed09468f8b9d82f26d22c,
+        type: 3}
+      propertyPath: dashDamage
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c63715478c6ed09468f8b9d82f26d22c, type: 3}
 --- !u!1 &1079847355 stripped
