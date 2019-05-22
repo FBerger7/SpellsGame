@@ -40,7 +40,7 @@ public class SpellController : MouseTracker
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
         // ------------------------------------------------------------------
         _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.PILLARRISE, OffensiveSpellsModel.FIRE_BREATH));
-        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.FIRE_BREATH, OffensiveSpellsModel.BASIC_SPELL));
+        _spellQueue.Add(new Tuple<int, int>(OffensiveSpellsModel.SLIME_BOMB, OffensiveSpellsModel.BASIC_SPELL));
         // ------------------------------------------------------------------
     }
 
