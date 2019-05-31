@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 778538120011751724}
   - component: {fileID: 778538120011751727}
   - component: {fileID: 5435279942565552864}
+  - component: {fileID: 6782010706761260949}
   - component: {fileID: 778538120011751726}
   - component: {fileID: 778538120011751721}
   - component: {fileID: 778538120011751720}
@@ -194,6 +195,29 @@ MonoBehaviour:
   heal: {fileID: 2631772782701719902, guid: 5829a20f9f4720945a967a619f5cf7ec, type: 3}
   healValue: 30
   duration: 4
+--- !u!114 &6782010706761260949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778538120011751735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cd14137bec273438cabfab1256db86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 2
+  firePoint: {fileID: 778538120011751732}
+  GFX: {fileID: 2061828688183302115, guid: c2dd9d3b9c9887543899a9048abc5d7d, type: 3}
+  dust: {fileID: 8778906901555075169, guid: bbbaa29fe2bbc0848bfa39bcb3462d3c, type: 3}
+  height: -21
+  riseDuration: 0.7
+  riseSpeed: 1
+  lifeSpan: 3
+  force: 20
+  direction: {x: 0, y: 1, z: 0}
+  delay: 0.5
 --- !u!114 &778538120011751726
 MonoBehaviour:
   m_ObjectHideFlags: 0

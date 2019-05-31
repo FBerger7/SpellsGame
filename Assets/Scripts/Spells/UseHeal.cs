@@ -12,6 +12,7 @@ public class UseHeal : InstantSpell
     private bool isActive = false;
     private CharacterStats _characterStats;
     public float duration;
+    private float _duration = 0;
 
     public override void PerformAttack(Vector3 target, bool isHostile)
     {
@@ -24,20 +25,27 @@ public class UseHeal : InstantSpell
             _characterStats.Heal(healValue);
             _playerMovment=GetComponentInParent(typeof(PlayerMovement)) as PlayerMovement;
             isActive = true;
-        
+            _duration = duration;
             _playerMovment.enabled=false;
             // newPowerShield.lifeSpawn = shieldLifeSpan;
             // newPowerShield.firePoint = firePoint;
         }
     }
 
+    private void Start()
+    {
+        _duration = duration;
+    }
+
     private void Update()
     {
+
         if (isActive)
         {
-            duration -= Time.deltaTime;
-            if (duration <= 0)
+            _duration -= Time.deltaTime;
+            if (_duration <= 0)
             {
+                
                 _playerMovment.enabled = true;
                 isActive = false;
             }
