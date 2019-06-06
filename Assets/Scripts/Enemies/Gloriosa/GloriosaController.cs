@@ -10,15 +10,12 @@ public class GloriosaController : EnemyController
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = 200f;
-
         _agent = GetComponent<NavMeshAgent>();
-        lookRadius = _agent.stoppingDistance = 50f;
 
         _anim = GetComponent<Animator>();
         _target = PlayerManager.instance.player.transform; //RangeAttribute of Gloriosa
 
-        _attack = gameObject.GetComponentInChildren<BasicAttack>();
+        _attack = gameObject.GetComponentInChildren<Railgun>();
         _enemyAnimation = new GloriosaAnimation();
     }
 
