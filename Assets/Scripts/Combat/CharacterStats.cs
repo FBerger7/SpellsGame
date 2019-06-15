@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class CharacterStats : MonoBehaviour
@@ -13,11 +14,13 @@ public class CharacterStats : MonoBehaviour
     public bool poisonImmune;
     public float poisonCooldown;
     public CharacterInterface characterInterface;
+    public GameObject enemyHealthContainer;
     private PlayerAnimation _playerAnimation;
     private Animator _anim;
 
     [SerializeField]
     protected float _poisonTimer;
+    protected string characterName;
 
     private void Awake()
     {
@@ -41,12 +44,21 @@ public class CharacterStats : MonoBehaviour
             CurrentHealth = 0;
             if(characterInterface)
                 characterInterface.SetHealthPoints((int)CurrentHealth);
+            enemyHealthContainer.SetActive(false);
             Die();
         }
         else
         {
             if (characterInterface)
                 characterInterface.SetHealthPoints((int)CurrentHealth);
+            else if(enemyHealthContainer)
+            {
+                enemyHealthContainer.SetActive(true);
+                Slider enemyHealthBar = (Slider)enemyHealthContainer.GetComponentInChildren(typeof(Slider));
+                enemyHealthBar.value = CurrentHealth / maxHealth;
+                Text enemyNameText = (Text)enemyHealthContainer.GetComponentInChildren(typeof(Text));
+                enemyNameText.text = characterName;
+            }   
         }
 
     }

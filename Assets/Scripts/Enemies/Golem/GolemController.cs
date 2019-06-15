@@ -18,6 +18,7 @@ public class GolemController : EnemyController
     // Start is called before the first frame update
     void Start()
     {
+        this.characterName = "Golem";
         maxHealth = 500f;
 
         _agent = GetComponent<NavMeshAgent>();
