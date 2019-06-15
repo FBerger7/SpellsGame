@@ -44,7 +44,8 @@ public class CharacterStats : MonoBehaviour
             CurrentHealth = 0;
             if(characterInterface)
                 characterInterface.SetHealthPoints((int)CurrentHealth);
-            enemyHealthContainer.SetActive(false);
+            if(enemyHealthContainer)
+                enemyHealthContainer.SetActive(false);
             Die();
         }
         else
