@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnSlime : InstantSpell
 {
     public SlimeController slime;
+    public GameObject enemyHealthContainer;
 
     public override void PerformAttack(Vector3 target, bool isHostile)
     {
@@ -15,6 +17,7 @@ public class SpawnSlime : InstantSpell
             SlimeController newSlime = Instantiate(slime, groundFirePoint, transform.rotation) as SlimeController;
             newSlime.name = "SpawnedSlime";
             newSlime.isHostile = true;
+            newSlime.enemyHealthContainer = enemyHealthContainer;
         }
     }
 }
