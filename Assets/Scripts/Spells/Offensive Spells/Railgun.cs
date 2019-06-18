@@ -11,7 +11,7 @@ public class Railgun : InstantSpell
         if(_attackCooldown <= 0)
         {
             _attackCooldown = attackSpeed;
-            ParticleSystem newParticle = Instantiate(GFX, firePoint.position, firePoint.rotation) as ParticleSystem;
+            ParticleSystem newParticle = Instantiate(GFX, firePoint.position, Quaternion.LookRotation((target - firePoint.position).normalized)) as ParticleSystem;
             newParticle.GetComponent<RailgunParticle>().isHostile = isHostile;
             newParticle.GetComponent<RailgunParticle>().origin = OffensiveSpellsModel.RAILGUN;
             newParticle.Play();
