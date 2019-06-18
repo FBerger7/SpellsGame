@@ -6,8 +6,9 @@ using UnityEngine.AI;
 [System.Serializable]
 public class GolemAnimation
 {
-    public void IdleAnimation(ref Animator anim)
+    public void IdleAnimation(ref Animator anim, ref NavMeshAgent agent)
     {
+        agent.isStopped = true;
         if (!anim.GetBool("isIdle"))
         {
             anim.CrossFade("Idle", 0.1f);
@@ -23,6 +24,7 @@ public class GolemAnimation
 
     public void WalkAnimation(ref Animator anim, ref NavMeshAgent agent)
     {
+        agent.isStopped = false;
         if (!anim.GetBool("isWalk"))
         {
             anim.CrossFade("Walk", 0.1f);
@@ -40,8 +42,9 @@ public class GolemAnimation
     }
 
 
-    public void AttackGAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
+    public void AttackGAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile, ref NavMeshAgent agent)
     {
+        agent.isStopped = true;
         if (!anim.GetBool("isAttackG"))
         {
             anim.CrossFade("AttackGround", 0.1f);
@@ -59,8 +62,9 @@ public class GolemAnimation
         attack.PerformAttack(target.position, isHostile);
 
     }
-    public void AttackBAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
+    public void AttackBAnimation(ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile, ref NavMeshAgent agent)
     {
+        agent.isStopped = true;
         if (!anim.GetBool("isAttackB"))
         {
             anim.CrossFade("AttackBomb", 0.1f);
@@ -80,6 +84,7 @@ public class GolemAnimation
     }
     public void SpawnSlimeAnimation(ref NavMeshAgent agent, ref Animator anim, ref BaseSpell spawnSlimeL, ref BaseSpell spawnSlimeR, Transform target, bool isHostile)
     {
+        agent.isStopped = true;
         if (!anim.GetBool("isSpawnS"))
         {
             anim.CrossFade("SpawnSlime", 0.1f);
@@ -103,6 +108,7 @@ public class GolemAnimation
 
     public void DashAnimation(ref NavMeshAgent agent, ref Animator anim, ref BaseSpell attack, Transform target, bool isHostile)
     {
+        agent.isStopped = false;
         if (!anim.GetBool("isDash"))
         {
             anim.CrossFade("Dash", 0.1f);
@@ -119,8 +125,9 @@ public class GolemAnimation
         }
     }
 
-    public void DieAnimation(ref Animator anim)
+    public void DieAnimation(ref Animator anim,ref NavMeshAgent agent)
     {
+        agent.isStopped = true;
         anim.CrossFade("Die", 0.1f);
         anim.SetBool("isWalk", false);
         anim.SetBool("isDie", true);
