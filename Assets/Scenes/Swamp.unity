@@ -22104,7 +22104,7 @@ MonoBehaviour:
   poisonImmune: 0
   poisonCooldown: 0
   characterInterface: {fileID: 0}
-  enemyHealthContainer: {fileID: 0}
+  enemyHealthContainer: {fileID: 590677406}
   _poisonTimer: 0
 --- !u!136 &1717658528
 CapsuleCollider:
@@ -26334,6 +26334,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1851784749}
+    - target: {fileID: 8056059390749813336, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: quit_button
+      value: 
+      objectReference: {fileID: 8437027425247218465, guid: 6e63c543a8fcf7b42bb75e0e559f898e,
+        type: 3}
+    - target: {fileID: 8056059390749813336, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: restartDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8056059391512489404, guid: 0b4201b5689f6884f97dc729b05afc7d,
         type: 3}
       propertyPath: m_RootOrder

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
@@ -31,14 +32,12 @@ public class GameOverManager : MonoBehaviour
             playerMovement.enabled = false;
             playerRotation.enabled = false;
             cameraController.enabled = false;
-            anim.SetTrigger("GameOver");
             restartTimer += Time.deltaTime;
+
 
             if(restartTimer >= restartDelay)
             {
-                SceneManager.UnloadSceneAsync("Swamp");
-                SceneManager.LoadSceneAsync("Swamp");
-                //player.GetComponentInChildren<SpellController>().SetCamera();
+                SceneManager.LoadScene("GameOver");
             }
         }
     }
