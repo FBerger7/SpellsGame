@@ -1778,6 +1778,7 @@ MonoBehaviour:
   poisonImmune: 0
   poisonCooldown: 0
   characterInterface: {fileID: 0}
+  enemyHealthContainer: {fileID: 0}
   _poisonTimer: 0
   lookRadius: 50
 --- !u!95 &1211923401689172792
@@ -1818,7 +1819,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 20
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!54 &1211923401681926479
@@ -1833,9 +1834,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!1 &1211923401681926480
 GameObject:

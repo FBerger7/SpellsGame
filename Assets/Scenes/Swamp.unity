@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.40560815, g: 0.46822846, b: 0.48424858, a: 1}
+  m_IndirectSpecularColor: {r: 0.4056566, g: 0.4681899, b: 0.4839399, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -101,14 +101,14 @@ NavMeshSettings:
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
-    ledgeDropHeight: 0
-    maxJumpAcrossDistance: 0
+    ledgeDropHeight: 50
+    maxJumpAcrossDistance: 50
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    accuratePlacement: 1
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 1295cc941de1509478476a711b94d3be, type: 2}
@@ -7676,6 +7676,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: mangrove_finalFBX (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: enemyHealthBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: enemyHealthContainer
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ef605e7a49d38af4798fb90e32afd943, type: 3}
       propertyPath: m_LocalPosition.x
       value: 647.41644
@@ -7719,16 +7729,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: ef605e7a49d38af4798fb90e32afd943, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e,
-        type: 3}
-      propertyPath: enemyHealthBar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4497824814638989956, guid: 65b3a3230dbde3c419675a44ebe02a0e,
-        type: 3}
-      propertyPath: enemyHealthContainer
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef605e7a49d38af4798fb90e32afd943, type: 3}
@@ -10305,6 +10305,11 @@ PrefabInstance:
         type: 3}
       propertyPath: shieldLifeSpan
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782010706761260949, guid: b39ccf4b630a3a243893de67be8c3352,
+        type: 3}
+      propertyPath: force
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b39ccf4b630a3a243893de67be8c3352, type: 3}
@@ -25989,6 +25994,11 @@ PrefabInstance:
       propertyPath: enemyHealthContainer
       value: 
       objectReference: {fileID: 590677406}
+    - target: {fileID: 4497824814638989957, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: m_AutoRepath
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b3a3230dbde3c419675a44ebe02a0e, type: 3}
 --- !u!4 &2064409378 stripped
@@ -26731,7 +26741,7 @@ PrefabInstance:
     - target: {fileID: 4497824814638989959, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0572014
+      value: 2.29
       objectReference: {fileID: 0}
     - target: {fileID: 4497824814638989959, guid: 65b3a3230dbde3c419675a44ebe02a0e,
         type: 3}
@@ -26783,6 +26793,16 @@ PrefabInstance:
       propertyPath: enemyHealthContainer
       value: 
       objectReference: {fileID: 590677406}
+    - target: {fileID: 2837931679791981234, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4497824815405402325, guid: 65b3a3230dbde3c419675a44ebe02a0e,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65b3a3230dbde3c419675a44ebe02a0e, type: 3}
 --- !u!1001 &2143560181
