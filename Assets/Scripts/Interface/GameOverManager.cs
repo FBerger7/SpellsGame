@@ -24,6 +24,13 @@ public class GameOverManager : MonoBehaviour
     {
         if(stats.CurrentHealth <= 0)
         {
+            PlayerMovement playerMovement = player.GetComponent(typeof(PlayerMovement)) as PlayerMovement;
+            PlayerRotation playerRotation = player.GetComponentInChildren(typeof(PlayerRotation)) as PlayerRotation;
+            CameraController cameraController = player.GetComponent(typeof(CameraController)) as CameraController;
+
+            playerMovement.enabled = false;
+            playerRotation.enabled = false;
+            cameraController.enabled = false;
             anim.SetTrigger("GameOver");
             restartTimer += Time.deltaTime;
 
