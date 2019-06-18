@@ -10311,6 +10311,21 @@ PrefabInstance:
       propertyPath: force
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 778538120011751720, guid: b39ccf4b630a3a243893de67be8c3352,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1412604497}
+    - target: {fileID: 778538120011751723, guid: b39ccf4b630a3a243893de67be8c3352,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1412604497}
+    - target: {fileID: 778538120011751722, guid: b39ccf4b630a3a243893de67be8c3352,
+        type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1412604497}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b39ccf4b630a3a243893de67be8c3352, type: 3}
 --- !u!1001 &844089665
@@ -17738,6 +17753,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: b17c71e58cecaaf419c8f378b16f989c, type: 3}
+--- !u!4 &1412604497 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 778538120011751732, guid: b39ccf4b630a3a243893de67be8c3352,
+    type: 3}
+  m_PrefabInstance: {fileID: 842662508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1415068743
 PrefabInstance:
   m_ObjectHideFlags: 0

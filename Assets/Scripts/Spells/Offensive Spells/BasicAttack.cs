@@ -11,7 +11,7 @@ public class BasicAttack : InstantSpell
         if (_attackCooldown <= 0)
         {
             _attackCooldown = attackSpeed;
-            Projectile newProjectile = Instantiate(projectile, firePoint.position, Quaternion.LookRotation((target - firePoint.position).normalized)) as Projectile;
+            Projectile newProjectile = Instantiate(projectile, firePoint.position, Quaternion.LookRotation((target - firePoint.position)+(Vector3.up*4))) as Projectile;
             newProjectile.speed = projectileSpeed;
             newProjectile.lifeSpawn = projectileLifeSpawn;
             newProjectile.isHostile = isHostile;
