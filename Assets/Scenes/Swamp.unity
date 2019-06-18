@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2950209, g: 0.2753438, b: 0.26122937, a: 1}
+  m_IndirectSpecularColor: {r: 0.4056566, g: 0.4681899, b: 0.4839399, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -52,7 +52,7 @@ LightmapSettings:
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 0
-    m_EnableRealtimeLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
@@ -10045,6 +10045,11 @@ PrefabInstance:
         type: 3}
       propertyPath: startSpeed
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 778538120011751726, guid: b39ccf4b630a3a243893de67be8c3352,
+        type: 3}
+      propertyPath: shieldLifeSpan
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b39ccf4b630a3a243893de67be8c3352, type: 3}
