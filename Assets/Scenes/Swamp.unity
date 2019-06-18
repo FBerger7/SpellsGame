@@ -26269,6 +26269,83 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: mainSpellSprites.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: mainSpellSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: b6f2253d3757d7c49869f9b1ca22c616,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: mainSpellSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 04c0339099e6fb243a94f0a6bbba7e45,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: mainSpellSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: b6f2253d3757d7c49869f9b1ca22c616,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: mainSpellSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9cceaa1016c7a3744aa692332f62c121,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: healingSpellSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 683dce78db2cc904cbc4bba52d018556,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: healingSpellSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 683dce78db2cc904cbc4bba52d018556,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: mobileSpellSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: f2ba6be0c505f704ca2c3a371980d59c,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: mobileSpellSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: f2ba6be0c505f704ca2c3a371980d59c,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: parrySpellSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9960cd13e5d7dda43a9a6f2c238169d4,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: parrySpellSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9960cd13e5d7dda43a9a6f2c238169d4,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: mainSpellSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: b6f2253d3757d7c49869f9b1ca22c616,
+        type: 3}
+    - target: {fileID: 8056059391512489405, guid: 0b4201b5689f6884f97dc729b05afc7d,
+        type: 3}
+      propertyPath: mainSpellSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0fa4ad328e4125146ba673cada1bb0ff,
+        type: 3}
     - target: {fileID: 4513491835348426795, guid: 0b4201b5689f6884f97dc729b05afc7d,
         type: 3}
       propertyPath: m_Name

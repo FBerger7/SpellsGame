@@ -115,7 +115,7 @@ public class CharacterInterface : MonoBehaviour
     {
         SetHealthPoints(100);
         healthPointsText.text = "HP: " + healthPoints + "%";
-        mainSpellFirst = 0;
+        mainSpellFirst = 5;
         mainSpellSecond = 1;
         healingSpell = 0;
         parrySpell = 0;
