@@ -136,8 +136,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0506909, y: 0.033204887, z: 0.005374531}
-  m_Center: {x: -0.0021417562, y: 0.0008072832, z: 0.015373461}
+  m_Size: {x: 0.0506909, y: 0.033204887, z: 0.092514336}
+  m_Center: {x: -0.0021417572, y: 0.00080726703, z: -0.028196499}
 --- !u!1 &2837931679791981237
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +427,7 @@ MonoBehaviour:
   projectile: {fileID: 1701799597662192839, guid: a09bec33f08fc10499414fead0e5d649,
     type: 3}
   hight: 20
+  gravity: -100
 --- !u!1 &4497824814638990009
 GameObject:
   m_ObjectHideFlags: 0
@@ -479,6 +480,7 @@ MonoBehaviour:
   poisonImmune: 1
   poisonCooldown: 0
   characterInterface: {fileID: 0}
+  enemyHealthContainer: {fileID: 0}
   _poisonTimer: 0
   lookRadius: 85
 --- !u!195 &4497824814638989957
