@@ -52,6 +52,7 @@ MonoBehaviour:
   poisonImmune: 0
   poisonCooldown: 0
   characterInterface: {fileID: 0}
+  enemyHealthContainer: {fileID: 0}
   _poisonTimer: 0
   lookRadius: 85
 --- !u!195 &6288660717536869781
