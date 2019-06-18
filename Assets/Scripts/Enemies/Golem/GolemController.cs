@@ -14,6 +14,7 @@ public class GolemController : EnemyController
     private bool _phaseOne = true;
     private bool _phaseTwo = false;
     private bool _phaseThree = false;
+    private int dashFlag = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +71,7 @@ public class GolemController : EnemyController
         if (distance <= _agent.stoppingDistance)
         {
             FaceTarget();
-            _golemAnimation.AttackBAnimation(ref _anim, ref _attack, _target, isHostile);
+            _golemAnimation.AttackBAnimation(ref _anim, ref _attack, _target, isHostile, ref _agent);
         }
         else if (distance <= lookRadius)
         {
@@ -79,12 +80,13 @@ public class GolemController : EnemyController
         }
         else if (!_anim.GetBool("isIdle"))
         {
-            _golemAnimation.IdleAnimation(ref _anim);
+            _golemAnimation.IdleAnimation(ref _anim, ref _agent);
         }
     }
 
     private void PhaseTwo(float distance)
     {
+        _agent.isStopped = true;
         if (CurrentHealth < 0.3f * maxHealth)
         {
             Debug.Log("Phase Three started.");
@@ -103,8 +105,17 @@ public class GolemController : EnemyController
         else //if (distance <= _agent.stoppingDistance)
         {
             //FaceTarget();
+
             _agent.SetDestination(_target.position);
-            _golemAnimation.DashAnimation(ref _agent, ref _anim, ref _attack, _target, isHostile);
+            if (dashFlag == 0)
+            {
+                _golemAnimation.DashAnimation(ref _agent, ref _anim, ref _attack, _target, isHostile);
+            }
+           else
+            {
+                _golemAnimation.IdleAnimation(ref _anim, ref _agent);
+                dashFlag++;
+            }
         }
         
     }
@@ -116,7 +127,7 @@ public class GolemController : EnemyController
         if (distance <= _agent.stoppingDistance)
         {
             FaceTarget();
-            _golemAnimation.AttackBAnimation(ref _anim, ref _attack, _target, isHostile);
+            _golemAnimation.AttackBAnimation(ref _anim, ref _attack, _target, isHostile, ref _agent);
         }
         else if (distance <= lookRadius)
         {
@@ -125,7 +136,7 @@ public class GolemController : EnemyController
         }
         else if (!_anim.GetBool("isIdle"))
         {
-            _golemAnimation.IdleAnimation(ref _anim);
+            _golemAnimation.IdleAnimation(ref _anim, ref _agent);
         }
     }
 
@@ -143,16 +154,21 @@ public class GolemController : EnemyController
 
     public override void Die()
     {
-        _golemAnimation.DieAnimation(ref _anim);
+        _golemAnimation.DieAnimation(ref _anim, ref _agent);
         Debug.Log(transform.name + " died");
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        CharacterStats parent = other.GetComponentInParent<CharacterStats>();
+
+        CharacterStats parent = other.gameObject.GetComponentInParent<CharacterStats>();
         if (parent != null && this.isHostile != parent.isHostile)
         {
+            dashFlag = -200;
+            _agent.isStopped = true;
+            _golemAnimation.IdleAnimation(ref _anim, ref _agent);
             parent.TakeDamage(dashDamage);
         }
+        
     }
 }
