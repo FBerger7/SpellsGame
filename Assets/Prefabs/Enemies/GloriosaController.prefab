@@ -1778,6 +1778,7 @@ MonoBehaviour:
   poisonImmune: 0
   poisonCooldown: 0
   characterInterface: {fileID: 0}
+  enemyHealthContainer: {fileID: 0}
   _poisonTimer: 0
   lookRadius: 50
 --- !u!95 &1211923401689172792
@@ -2125,6 +2126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9fa95cb02718f542a34e5c4a2763004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 0.5
+  attackSpeed: 1.5
   firePoint: {fileID: 1211923402062719852}
   GFX: {fileID: 2281719232605878947, guid: 1ec657841dc237d41aafbf6539672760, type: 3}
