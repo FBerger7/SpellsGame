@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.40560815, g: 0.46822846, b: 0.48424858, a: 1}
+  m_IndirectSpecularColor: {r: 0.4056566, g: 0.4681899, b: 0.4839399, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -299,9 +299,7 @@ MonoBehaviour:
     obraca\u0107 kamer\u0119 odpowiednio w prawo b\u0105d\u017A lewo."
   - "- Przy pomocy k\xF3\u0142ka myszki mo\u017Cliwe jest przybli\u017Canie i oddalanie
     kamery."
-  - 'Interface:'
-  - "- Klikaj\u0105c \u201CP\u201D gracz otwiera okno postaci zawieraj\u0105ce dost\u0119pne
-    zakl\u0119cia."
+  - 
   helpButton: {fileID: 2800000, guid: 1cdad3a740e52ad4ea94363ed2c7dbfd, type: 3}
   blinkingText: {fileID: 1805973720}
 --- !u!1 &1574534582
@@ -507,7 +505,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 547, y: -386}
+  m_AnchoredPosition: {x: 265, y: -209}
   m_SizeDelta: {x: 600, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1805973720

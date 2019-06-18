@@ -23,6 +23,9 @@ public class SpellController : MouseTracker
     private UseHeal _useHeal;
     private int _currentOffensiveSpellsPair = 0;
     private int _currentMobileSpell = 0;
+    private float shield_lifespan;
+    private float current_shield_lifespan;
+    private bool is_shield = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +38,8 @@ public class SpellController : MouseTracker
 
         _useHeal = gameObject.GetComponent<UseHeal>();
         _summonPowerShield = gameObject.GetComponent<SummonPowerShield>();
+        shield_lifespan = _summonPowerShield.shieldLifeSpan;
+        current_shield_lifespan = _summonPowerShield.shieldLifeSpan;
         AddOffensiveSpells();
         AddMobileSpells();
         // inicjalizacja listy spelli tylko do testów, potem tego nie będzie
@@ -60,6 +65,17 @@ public class SpellController : MouseTracker
         HandleHealSpell();
 
         HandleMobileSpell();
+
+        if(is_shield)
+        {
+            current_shield_lifespan -= Time.deltaTime;
+            if(current_shield_lifespan <= 0)
+            {
+                current_shield_lifespan = shield_lifespan;
+                is_shield = false;
+                _playerAnimation.IdleAnimation(ref _anim);
+            }
+        }
 
         if (_anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f && _anim.GetCurrentAnimatorStateInfo(0).IsName("BasicAttack"))
             _playerAnimation.IdleAnimation(ref _anim);
@@ -111,6 +127,7 @@ public class SpellController : MouseTracker
     {
         if (Input.GetKey(deffensiveSpellKey))
         {
+            is_shield = true;
             _summonPowerShield.PerformAttack(_model);
             _playerAnimation.ParyAttackTransition(ref _anim);
         }
