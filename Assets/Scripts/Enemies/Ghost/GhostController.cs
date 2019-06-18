@@ -6,11 +6,8 @@ public class GhostController : EnemyController
     // Start is called before the first frame update
     void Start()
     {
-        lookRadius = 100f;
-        maxHealth = 100f;
-
+        this.characterName = "Ghost";
         _agent = GetComponent<NavMeshAgent>();
-        _agent.stoppingDistance = 50f;
 
         _anim = GetComponent<Animator>();
         _target = PlayerManager.instance.player.transform; //RangeAttribute of Ghost

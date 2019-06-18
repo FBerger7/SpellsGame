@@ -10,12 +10,8 @@ public class SlimeController : EnemyController
     // Start is called before the first frame update
     void Start()
     {
-        
-        lookRadius = 50f;
-        maxHealth = 100f;
-
+        this.characterName = "Slime";
         _agent = GetComponent<NavMeshAgent>();
-        _agent.stoppingDistance = 30f;
 
         _anim = GetComponent<Animator>();
         _target = PlayerManager.instance.player.transform; //RangeAttribute of slime

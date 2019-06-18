@@ -20,13 +20,20 @@ public abstract class EnemyController : CharacterStats
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 
-    protected void OnDrawGizmosSelected()
+    private void OnDrawGizmosSelected()
     {
+        Vector3 armaturePosition;
+        Transform armature = transform.Find("Armature");
+        if (armature == null)
+            armaturePosition = transform.GetChild(0).Find("Armature").position;
+        else
+            armaturePosition = armature.position;
+        Vector3 center = new Vector3(armaturePosition.x, 0.0f, armaturePosition.z);
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + new Vector3(1.0f, 0.0f, 2f), lookRadius);
+        Gizmos.DrawWireSphere(center, lookRadius);
         Gizmos.color = Color.yellow;
         if (_agent != null)
-            Gizmos.DrawWireSphere(transform.position + new Vector3(1.0f, 0.0f, 2f), _agent.stoppingDistance);
+            Gizmos.DrawWireSphere(center, _agent.stoppingDistance);
     }
 
     protected void RunUpdate()
@@ -37,15 +44,18 @@ public abstract class EnemyController : CharacterStats
             if (distance <= _agent.stoppingDistance)
             {
                 FaceTarget();
+                _agent.isStopped = true;
                 _enemyAnimation.AttackAnimation(ref _anim, ref _attack, _target, isHostile);
             }
             else if (distance <= lookRadius)
             {
                 _agent.SetDestination(_target.position);
+                _agent.isStopped = false;
                 _enemyAnimation.WalkAnimation(ref _anim, ref _agent);
             }
             else if (!_anim.GetBool("isIdle"))
             {
+                _agent.isStopped = true;
                 _enemyAnimation.IdleAnimation(ref _anim);
             }
         }
