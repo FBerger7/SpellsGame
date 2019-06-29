@@ -41,8 +41,11 @@ public class CharacterInterface : MonoBehaviour
     public Sprite[] parrySpellSprites;
 
     public void SetHealthPoints(int number) {
-        if (number > -1 && number < 101)
-            healthPoints = number;
+        healthPoints = number;
+        if (healthPoints < 0)
+            healthPoints = 0;
+        if (healthPoints > 100)
+            healthPoints = 100;
         healthPointsTexture.sprite = healthSprites[GetIndexOfSprite()];
         healthPointsText.text = "HP: " + healthPoints + "%";
     }
@@ -112,7 +115,7 @@ public class CharacterInterface : MonoBehaviour
     {
         SetHealthPoints(100);
         healthPointsText.text = "HP: " + healthPoints + "%";
-        mainSpellFirst = 0;
+        mainSpellFirst = 5;
         mainSpellSecond = 1;
         healingSpell = 0;
         parrySpell = 0;
@@ -123,58 +126,6 @@ public class CharacterInterface : MonoBehaviour
         parrySpellTexture.sprite = parrySpellSprites[parrySpell];
         mobileSpellTexture.sprite = mobileSpellSprites[mobileSpell];
         healthPointsTexture.sprite = healthSprites[GetIndexOfSprite()];
-    }
-
-    void Update()
-    {
-        //Press P to change the health points
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (healthPoints > 0)
-                healthPoints--;
-            healthPointsText.text = "HP:  " + healthPoints + "%";
-            healthPointsTexture.sprite = healthSprites[GetIndexOfSprite()];
-        }
-
-        //Press L to change the main spells
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            mainSpellFirst++;
-            mainSpellSecond++;
-            if (mainSpellFirst == mainSpellSprites.Length)
-                mainSpellFirst = 0;
-            if (mainSpellSecond == mainSpellSprites.Length)
-                mainSpellSecond = 0;
-            mainSpellFirstTexture.sprite = mainSpellSprites[mainSpellFirst];
-            mainSpellSecondTexture.sprite = mainSpellSprites[mainSpellSecond];
-        }
-
-        //Press P to change the parry spells
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            parrySpell++;
-            if (parrySpell == parrySpellSprites.Length)
-                parrySpell = 0;
-            parrySpellTexture.sprite = parrySpellSprites[parrySpell];
-        }
-
-        //Press K to change the mobile spells
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            mobileSpell++;
-            if (mobileSpell == mobileSpellSprites.Length)
-                mobileSpell = 0;
-            mobileSpellTexture.sprite = mobileSpellSprites[mobileSpell];
-        }
-
-        //Press O to change the healing spells
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            healingSpell++;
-            if (healingSpell == healingSpellSprites.Length)
-                healingSpell = 0;
-            healingSpellTexture.sprite = healingSpellSprites[healingSpell];
-        }
     }
     
 }

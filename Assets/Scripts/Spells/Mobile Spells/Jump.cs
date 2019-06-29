@@ -9,7 +9,7 @@ public class Jump : InstantSpell
         if (_attackCooldown <= 0)
         {
             _attackCooldown = attackSpeed;
-            firePoint.GetComponent<PlayerMovement>().Jump();
+            firePoint.GetComponentInParent<PlayerMovement>().Jump();
         }
     }
 }

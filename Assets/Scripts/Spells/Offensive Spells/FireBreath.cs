@@ -40,8 +40,9 @@ public class FireBreath : InstantSpell
     {
         if(_attackCooldown > overheat)
         {
-            ParticleSystem newProjectile = Instantiate(GFX, firePoint.position, firePoint.rotation) as ParticleSystem;
-
+            ParticleSystem newProjectile = Instantiate(GFX, firePoint.position, Quaternion.LookRotation((target - firePoint.position).normalized)) as ParticleSystem;
+            newProjectile.GetComponent<FireBreathProjectile>().isHostile = isHostile;
+            newProjectile.GetComponent<FireBreathProjectile>().origin = OffensiveSpellsModel.FIRE_BREATH;
             newProjectile.Play();
             _isActive = true;
         }
